@@ -1,22 +1,22 @@
-﻿<UserControl x:Class="layer_3.home_unit.login_core"
+﻿<Grid x:Class="layer_3.home_unit.login_core"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:layer_3.more_controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:more_controls="clr-namespace:layer_3.more_controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" >
-    <StackPanel >
+               HorizontalAlignment="Center" VerticalAlignment="Center" >
 
-        <StackPanel Margin="5">
-            <Label Content="شماره تلفن همراه : " FlowDirection="RightToLeft"></Label>
-            <TextBox Name="txt_phone" x:FieldModifier="public">
+    <StackPanel Width="400">
 
-            </TextBox>
-        </StackPanel>
+        <local:label_box x:Name="pnl_phone" title_direction="RightToLeft" Margin="5" title="شماره تلفن همراه"    >
+            <TextBox BorderThickness="0" ></TextBox>
+        </local:label_box>
 
-        <StackPanel Margin="5">
-            <Label Content="رمز عبور :" FlowDirection="RightToLeft"></Label>
-            <PasswordBox  Name="txt_password" x:FieldModifier="public"></PasswordBox>
-        </StackPanel>
+        <local:label_box x:Name="pnl_pass" Margin="5" title="رمز عبور" 
+                       title_direction="RightToLeft">
+            <PasswordBox BorderThickness="0" ></PasswordBox>
+        </local:label_box>
+
     </StackPanel>
-</UserControl>
+</Grid>

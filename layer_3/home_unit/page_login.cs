@@ -10,16 +10,17 @@ namespace layer_3.home_unit
     class page_login : g_page
     {
 
-        login_core core = new login_core() { MaxWidth = 400 };
+        login_core core = new login_core();
         public page_login()
         {
-            core.txt_phone.PreviewKeyDown += Txt_phone_PreviewKeyDown;
+
+            core.txt_phone.PreviewKeyDown += Txt_phone_PreviewKeyDownAsync;
         }
-        private void Txt_phone_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private async void Txt_phone_PreviewKeyDownAsync(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == System.Windows.Input.Key.Enter)
             {
-                var dv = message(z_message.e_type.error, "راهنمای اصلی", "تغییر کاربر", "بستن برنامه", "قفل صفحه", "mohsen", "ahmad");
+                core.txt_phone.Text = await message(z_message.e_type.error, "راهنمای اصلی", "تغییر کاربر", "بستن برنامه", "قفل صفحه", "mohsen", "ahmad");
             }
         }
 

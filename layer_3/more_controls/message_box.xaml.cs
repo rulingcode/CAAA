@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace layer_3
+namespace layer_3.more_controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for message_box.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class message_box : UserControl
     {
-        public MainWindow()
+        public message_box()
         {
             InitializeComponent();
-            o3.start(this, null);
         }
     }
 }
