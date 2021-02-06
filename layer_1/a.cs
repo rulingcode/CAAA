@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
+/// <summary>
+/// لعنت بر شیطان
+/// </summary>
 namespace layer_1
 {
     class a
