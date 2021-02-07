@@ -31,7 +31,7 @@ namespace layer_3
         }
         internal async Task<g_page> get(string appid, string pageid, string userid)
         {
-            if (pageid == o3.loading)
+            if (pageid == s_lib.loading)
                 return loading;
             var lib = await get(appid);
             var dv = lib.pages.FirstOrDefault(i => i.id == pageid);

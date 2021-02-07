@@ -37,7 +37,6 @@ namespace layer_3
             if (Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
                 menu.run(e.Key);
         }
-        public static o3 o3 { get; set; }
 
     }
 }

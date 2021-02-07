@@ -9,7 +9,7 @@ namespace layer_3
 {
     class s_group
     {
-        public List<string> pages = new List<string>() { o3.loading };
+        public List<string> pages = new List<string>() { s_lib.loading };
         public string id { get; set; }
         public s_group(string appid)
         {
@@ -23,7 +23,7 @@ namespace layer_3
             if (a.menu != null)
                 a.stage.set(a.menu.userid);
         }
-        public string pageid { get; private set; } = o3.loading;
+        public string pageid { get; private set; } = s_lib.loading;
         public int page_index => pages.IndexOf(pageid);
         public void next()
         {

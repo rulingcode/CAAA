@@ -1,4 +1,5 @@
-﻿using System;
+﻿using layer_3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,17 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace layer_3
+namespace z_service_center
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    partial class MainWindow : Window
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            s_lib.start(this, null);
+            s_lib.start(this, a.lib);
         }
     }
 }

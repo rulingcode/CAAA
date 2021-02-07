@@ -11,7 +11,7 @@ namespace layer_3.home_unit
         public override string id => "home";
         public lib()
         {
-            add_c<page_login>();
+            add_page<page_login>();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace layer_3
     class page_loading : g_page
     {
         Border border = new Border() { Background = Brushes.Pink };
-        public override string page_name => o3.loading;
+        public override string page_name => s_lib.loading;
         public override UIElement ui => border;
         protected override void focus()
         {

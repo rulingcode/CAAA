@@ -10,7 +10,7 @@ namespace layer_3
     class y_get_apps : y<y_get_apps.o>
     {
         public override e_permission z_permission => e_permission.skelet;
-        public override string z_xid => o3.x_app;
+        public override string z_xid => s_lib.x_app;
         public override string z_yid => nameof(y_get_apps);
         public string userid { get; set; }
         public class o : y_output
