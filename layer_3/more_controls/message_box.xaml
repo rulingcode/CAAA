@@ -4,22 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:layer_3.more_controls"
-             mc:Ignorable="d" >
+             mc:Ignorable="d"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom">
     <Border BorderBrush="DodgerBlue" BorderThickness="2,2,2,0"
             Margin="10,0,0,0"
             HorizontalAlignment="Left"
             Width="120"
             CornerRadius="4,4,0,0" Padding="5" Background="White">
-        <ListBox HorizontalContentAlignment="Center" BorderThickness="0">
+        <ListBox x:Name="lb" HorizontalContentAlignment="Center" BorderThickness="0">
             <d:ListBoxItem  Content="hello"></d:ListBoxItem>
             <d:ListBoxItem  Content="mohsen"></d:ListBoxItem>
         </ListBox>
     </Border>
     <Border BorderBrush="DodgerBlue" BorderThickness="2" 
-            MinWidth="300" d:Height="40"
-            CornerRadius="0,10,0,0"
-            Background="LightBlue" Padding="5">
-        <TextBlock Text="Test" Padding="10"
-                   VerticalAlignment="Center"></TextBlock>
+            MinWidth="300" 
+            CornerRadius="2,10,2,2"
+            Background="LightBlue" Padding="12">
+        <TextBlock Text="Test" 
+                   VerticalAlignment="Center"
+                   Name="txt_message"></TextBlock>
     </Border>
 </StackPanel>

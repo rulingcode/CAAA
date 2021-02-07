@@ -12,8 +12,9 @@
     </Grid.RowDefinitions>
     <Label Content="عنوان" Name="lbl_title"/>
     <Border Grid.Row="1" BorderThickness="2" 
-                BorderBrush="LightBlue"
+                BorderBrush="SkyBlue"
                 CornerRadius="10"
                 Name="border">
+        <d:TextBox BorderThickness="0" ></d:TextBox>
     </Border>
 </Grid>

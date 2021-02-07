@@ -12,11 +12,13 @@ namespace layer_3
 {
     public class z_message : z<z_message.o>
     {
-        internal override UIElement ui => border;
+        internal override UIElement ui => mb;
         public e_type e { get; set; }
         public string title { get; set; }
         public string text { get; set; }
         public string[] option { get; set; }
+        ListBox lb => mb.lb;
+
         public class o
         {
             public string result { get; set; }
@@ -27,38 +29,10 @@ namespace layer_3
             warning,
             error
         }
+        more_controls.message_box mb = new more_controls.message_box() { Margin = new Thickness(20) };
 
-        Border border = new Border() { Margin = new Thickness(10) };
-        StackPanel panel = new StackPanel();
-        ListBox lb = new ListBox()
-        {
-            MinWidth = 80,
-            BorderThickness = new Thickness(2),
-            BorderBrush = Brushes.LightBlue,
-            HorizontalAlignment = HorizontalAlignment.Left,
-            Margin = new Thickness(5)
-        };
-        Border block_border = new Border()
-        {
-            MinWidth = 200,
-            BorderThickness = new Thickness(2),
-            BorderBrush = Brushes.LightBlue,
-            CornerRadius = new CornerRadius(0, 10, 0, 0),
-            Padding = new Thickness(5),
-            Background = Brushes.White
-        };
-        TextBlock text_block = new TextBlock()
-        {
-            Padding = new Thickness(5)
-        };
         public z_message()
         {
-            border.Child = panel;
-            panel.Children.Add(lb);
-            block_border.Child = text_block;
-            panel.Children.Add(block_border);
-            border.HorizontalAlignment = HorizontalAlignment.Left;
-            border.VerticalAlignment = VerticalAlignment.Bottom;
             lb.PreviewKeyDown += Lb_PreviewKeyDown;
         }
         private void Lb_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -69,7 +43,7 @@ namespace layer_3
         protected override void implement()
         {
 
-            text_block.Text = text;
+            mb.txt_message.Text = text;
             if (option == null)
                 option = new string[] { "Ok" };
             ObservableCollection<string> l = new ObservableCollection<string>(option);

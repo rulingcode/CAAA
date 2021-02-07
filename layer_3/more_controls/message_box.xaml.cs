@@ -18,7 +18,7 @@ namespace layer_3.more_controls
     /// <summary>
     /// Interaction logic for message_box.xaml
     /// </summary>
-    public partial class message_box : UserControl
+    public partial class message_box : StackPanel
     {
         public message_box()
         {

@@ -5,10 +5,10 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Padding" Value="8"></Setter>
         </Style>
         <Style TargetType="PasswordBox">
-            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Padding" Value="8"></Setter>
         </Style>
         <Style TargetType="ListBoxItem">
             <Setter Property="Padding" Value="8,5,8,5"></Setter>
