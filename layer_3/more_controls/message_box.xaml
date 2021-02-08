@@ -21,8 +21,8 @@
             MinWidth="300" 
             CornerRadius="2,10,2,2"
             Background="LightBlue" Padding="12">
-        <TextBlock Text="Test" 
+        <local:text_block Text="تست" 
                    VerticalAlignment="Center"
-                   Name="txt_message"></TextBlock>
+                   x:Name="txt_message"></local:text_block>
     </Border>
 </StackPanel>

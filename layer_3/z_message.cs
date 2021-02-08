@@ -1,4 +1,5 @@
-﻿using System;
+﻿using layer_3.more_controls;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,13 +13,13 @@ namespace layer_3
 {
     public class z_message : z<z_message.o>
     {
+        message_box mb = new message_box() { Margin = new Thickness(20) };
         internal override UIElement ui => mb;
         public e_type e { get; set; }
         public string title { get; set; }
         public string text { get; set; }
         public string[] option { get; set; }
         ListBox lb => mb.lb;
-
         public class o
         {
             public string result { get; set; }
@@ -29,8 +30,6 @@ namespace layer_3
             warning,
             error
         }
-        more_controls.message_box mb = new more_controls.message_box() { Margin = new Thickness(20) };
-
         public z_message()
         {
             lb.PreviewKeyDown += Lb_PreviewKeyDown;
@@ -42,10 +41,9 @@ namespace layer_3
         }
         protected override void implement()
         {
-
             mb.txt_message.Text = text;
-            if (option == null)
-                option = new string[] { "Ok" };
+            if ((option?.Length ?? 0) == 0)
+                option = new string[] { "متوجه شدم" };
             ObservableCollection<string> l = new ObservableCollection<string>(option);
             lb.ItemsSource = l;
             lb.SelectedIndex = 0;

@@ -12,7 +12,7 @@ namespace layer_2
         [JsonIgnore] public abstract string z_xid { get; }
         [JsonIgnore] public abstract string z_yid { get; }
         [JsonIgnore] public virtual e_permission z_permission => e_permission.user;
-        public string z_userid { get; set; }
+        [JsonIgnore] public string z_userid { get; set; }
         internal abstract void implement_(h_reply1 reply);
     }
     public abstract class y<output> : y where output : y_output
