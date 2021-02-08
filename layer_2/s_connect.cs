@@ -5,5 +5,5 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    public delegate Task<bool> s_connect(string skeletid, string c_endpoint, string password);
+    public delegate Task<bool> s_connect(m_connect rsv);
 }

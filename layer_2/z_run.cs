@@ -13,6 +13,6 @@ namespace layer_2
     {
         readonly string userid;
         internal z_run(string userid) => this.userid = userid;
-        public Task<T> get<T>(y y) where T : y_output => c_exchange.run<T>(userid, y);
+        public Task<T> get<T>(y y) where T : y_output => c_x.run<T>(userid, y);
     }
 }

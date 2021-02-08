@@ -13,7 +13,7 @@ namespace layer_1
     {
         static List<z_questioner> list = new List<z_questioner>();
         static SemaphoreSlim n_locker = new SemaphoreSlim(12, 12);
-        public static async Task<byte[]> exchange(m_endpoint1 endpoint, byte[] data)
+        public static async Task<byte[]> exchange(m_x1 endpoint, byte[] data)
         {
             await n_locker.WaitAsync();
             var dv = await get(endpoint);
@@ -23,7 +23,7 @@ namespace layer_1
         }
 
         static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        static async Task<z_questioner> get(m_endpoint1 endpoint)
+        static async Task<z_questioner> get(m_x1 endpoint)
         {
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(i => i.endpoint == endpoint);
@@ -35,7 +35,7 @@ namespace layer_1
             locker.Release();
             return dv;
         }
-        public static async void close(m_endpoint1 endpoint)
+        public static async void close(m_x1 endpoint)
         {
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(i => i.endpoint == endpoint);

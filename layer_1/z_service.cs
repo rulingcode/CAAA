@@ -13,8 +13,8 @@ namespace layer_1
     class z_service
     {
         WatsonTcpServer server;
-        public readonly m_endpoint1 endpoint;
-        public z_service(m_endpoint1 serverip)
+        public readonly m_x1 endpoint;
+        public z_service(m_x1 serverip)
         {
             this.endpoint = serverip ?? throw new ArgumentNullException(nameof(serverip));
             server = new WatsonTcpServer(serverip.address, serverip.port);

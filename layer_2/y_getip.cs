@@ -11,7 +11,7 @@ namespace layer_2
         public override e_permission z_permission => e_permission.skelet;
         public class output : y_output
         {
-            public m_endpoint2[] list { get; set; }
+            public m_x2[] list { get; set; }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace layer_1
         done = 1,
         invalid_login,
         invalid_encryption,
-        invalid_link
+        invalid_deviceid,
+        no_implement
     }
 }

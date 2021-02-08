@@ -2,15 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace layer_2
 {
-    class s_exchange
+    public class m_x2 : m_x1
     {
-        public static void run<y>()
-        {
-
-        }
+        public string xid { get; set; }
     }
 }

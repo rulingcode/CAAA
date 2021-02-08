@@ -13,12 +13,12 @@ namespace layer_2
         [JsonIgnore] public abstract string z_yid { get; }
         [JsonIgnore] public virtual e_permission z_permission => e_permission.user;
         [JsonIgnore] public string z_userid { get; set; }
-        internal abstract void implement_(h_reply1 reply);
+        internal abstract void run_s(h_reply1 reply);
     }
     public abstract class y<output> : y where output : y_output
     {
-        public virtual Task<output> run(c_run rsv) => rsv.get<output>(this);
-        internal sealed override void implement_(h_reply1 reply)
+        public virtual Task<output> run_c(c_run rsv) => rsv.get<output>(this);
+        internal sealed override void run_s(h_reply1 reply)
         {
             Action action = () =>
             {

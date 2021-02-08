@@ -1,4 +1,5 @@
-﻿using System;
+﻿using layer_2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,22 +31,13 @@ namespace layer_3
                 type = typeof(page)
             });
         }
-
-        public void add_y<y>() where y : layer_2.y => a.o2.add_y<y>();
+        public void add_y<T>() where T : y, new() => a.o2.add_y<T>();
         #endregion
 
         #region static
         internal const string x_app = nameof(x_app);
         internal const string loading = nameof(loading);
-        public static void start(Window window, s_lib lib)
-        {
-            a.window = window;
-            a.develop_lib = lib;
-            window.WindowState = WindowState.Maximized;
-            g_panel main_panel = a.panel;
-            window.Content = main_panel.ui;
-            a.stage.set("ali");
-        }
+        public static void start(Window window, s_lib lib) => a.start(window, lib);
         #endregion
     }
 }

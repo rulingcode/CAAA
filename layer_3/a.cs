@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -38,5 +39,24 @@ namespace layer_3
                 menu.run(e.Key);
         }
 
+        internal static async void start(Window window, s_lib lib)
+        {
+            if (a.window != null)
+                throw new Exception("ekvifbjjvhdhvjgjvjd");
+            a.window = window;
+            develop_lib = lib;
+            if (lib != null && lib.id.Substring(0, 2) == "x_")
+                window.WindowState = WindowState.Minimized;
+            else
+                window.WindowState = WindowState.Maximized;
+            g_panel main_panel = panel;
+            window.Content = main_panel.ui;
+            m_connect dv = new m_connect()
+            {
+                skeletid = "skelet_windows_wpf",
+                password = "free"
+            };
+            //await o2.connect_c(dv);
+        }
     }
 }
