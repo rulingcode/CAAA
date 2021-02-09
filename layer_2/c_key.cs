@@ -7,16 +7,36 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    class c_keys
+    class c_key
     {
-        static m_keys2[] list = new m_keys2[0];
+        private const string keyinfo = nameof(keyinfo);
+        static m_key2[] list = new m_key2[0];
         static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        internal static async Task<e_error> connect(m_connect val)
+        public c_key()
         {
-            a.connect_m = val;
-            return await add(o2.x_center);
+            start();
         }
-        public static async Task<m_keys1> get(string xid)
+        async void start()
+        {
+            await locker.WaitAsync();
+            var dv = await a.o2.load_h(keyinfo);
+            if (dv == null)
+            {
+                e_error error = await add(o2.x_center);
+                if (error != e_error.non)
+                {
+                    await a.o2.report(new m_report()
+                    {
+                        errorid = "kjvjfhbhghvhfhvhdhc",
+                        message = error.ToString()
+                    });
+                }
+            }
+            var key = z_crypto.convert<m_key2>(dv);
+            list = new m_key2[] { key };
+            locker.Release();
+        }
+        public async Task<m_key1> get(string xid)
         {
         retry:
             var dv = list.FirstOrDefault(j => j.xid == xid);
@@ -25,16 +45,16 @@ namespace layer_2
                 await add(xid);
                 goto retry;
             }
-            return dv.m_keys1;
+            return dv.key1;
         }
-        static async Task<e_error> add(string xid)
+        async Task<e_error> add(string xid)
         {
             await locker.WaitAsync();
-            m_keys1 keys = z_crypto.create_symmetrical_keys();
+            m_key1 keys = z_crypto.create_symmetrical_keys();
             y_connect y = new y_connect();
-            y.a_keys = z_crypto.combine(keys.key32, keys.iv16);
+            y.a_keys = m_key1.create(keys);
             y.a_keys = z_crypto.Encrypt(y.a_keys, a.o2.keys_c);
-            y.a_connect = z_crypto.convert(a.connect_m);
+            y.a_connect = z_crypto.convert(await a.o2.connect_c());
             y.a_connect = z_crypto.Encrypt(y.a_connect, keys);
             var data = z_crypto.convert(y);
             var endpoint = await c_endpoint.get(xid);
@@ -42,12 +62,12 @@ namespace layer_2
             var o = z_crypto.convert<y_connect.output>(data);
             if (o.z_error == e_error.non)
             {
-                List<m_keys2> l = new List<m_keys2>(list);
+                List<m_key2> l = new List<m_key2>(list);
                 l.RemoveAll(i => i.xid == xid);
-                l.Add(new m_keys2()
+                l.Add(new m_key2()
                 {
                     xid = xid,
-                    m_keys1 = keys
+                    key1 = keys
                 });
                 list = l.ToArray();
             }

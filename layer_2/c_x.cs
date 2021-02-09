@@ -16,20 +16,20 @@ namespace layer_2
                 data = JsonConvert.SerializeObject(y)
             };
             var data = z_crypto.convert(packet_y);
-            var keys = await c_keys.get(y.z_xid);
-            if (keys != null)
-                data = z_crypto.Encrypt(data, keys);
+            var key = await a.key_c.get(y.z_xid);
+            if (key != null)
+                data = z_crypto.Encrypt(data, key);
             m_packet packet = new m_packet()
             {
-                deviceid = a.connect_m.deviceid,
+                deviceid = a.deviceid,
                 xid = y.z_xid,
                 data = data
             };
             data = z_crypto.convert(packet);
             m_x1 endpoint = await c_endpoint.get(y.z_xid);
             data = await a.o1.exchange_c(endpoint, data);
-            if (keys != null)
-                data = z_crypto.Decrypt(data, keys);
+            if (key != null)
+                data = z_crypto.Decrypt(data, key);
             return z_crypto.convert<output>(data);
         }
     }
