@@ -9,15 +9,15 @@ namespace layer_2
 {
     internal class c_endpoint
     {
-        static m_x2[] list = new m_x2[0];
+        static m_x[] list = new m_x[0];
         static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        internal static async Task<m_x1> get(string xid)
+        internal static async Task<m_x> get(string xid)
         {
             if (xid == o2.x_center)
-                return a.o2.x_s;
+                return a.o2.x_m;
             retry:
             await locker.WaitAsync();
-            var dv = list.FirstOrDefault(j => j.xid == xid);
+            var dv = list.FirstOrDefault(j => j.id == xid);
             locker.Release();
             if (dv == null)
             {

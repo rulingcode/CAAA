@@ -11,12 +11,8 @@ namespace layer_2
     {
         private const string keyinfo = nameof(keyinfo);
         static m_key2[] list = new m_key2[0];
-        static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        public c_key()
-        {
-            start();
-        }
-        async void start()
+        SemaphoreSlim locker = new SemaphoreSlim(1, 1);
+        public async void start()
         {
             await locker.WaitAsync();
             var dv = await a.o2.load_h(keyinfo);
@@ -25,7 +21,7 @@ namespace layer_2
                 e_error error = await add(o2.x_center);
                 if (error != e_error.non)
                 {
-                    await a.o2.report(new m_report()
+                    await a.o2.report_h(new m_report()
                     {
                         errorid = "kjvjfhbhghvhfhvhdhc",
                         message = error.ToString()
@@ -53,7 +49,7 @@ namespace layer_2
             m_key1 keys = z_crypto.create_symmetrical_keys();
             y_connect y = new y_connect();
             y.a_keys = m_key1.create(keys);
-            y.a_keys = z_crypto.Encrypt(y.a_keys, a.o2.keys_c);
+            y.a_keys = z_crypto.Encrypt(y.a_keys, a.o2.key_c);
             y.a_connect = z_crypto.convert(await a.o2.connect_c());
             y.a_connect = z_crypto.Encrypt(y.a_connect, keys);
             var data = z_crypto.convert(y);

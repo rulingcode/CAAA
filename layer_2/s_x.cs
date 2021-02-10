@@ -31,7 +31,7 @@ namespace layer_2
 
                 try
                 {
-                    packet.data = z_crypto.Decrypt(packet.data, a.o2.keys_s);
+                    packet.data = z_crypto.Decrypt(packet.data, a.o2.key_s);
                 }
                 catch
                 {
@@ -85,13 +85,13 @@ namespace layer_2
             locker.Release();
             return dv?.type;
         }
-        internal async void add_x(m_x2 endpoint)
+        internal async void add_x(m_x rsv)
         {
-            a.o1.add_s(endpoint);
+            a.o1.add_s(rsv);
             y_setip y = new y_setip()
             {
-                a_xid = endpoint.xid,
-                a_endpoint = endpoint.data
+                a_xid = rsv.id,
+                a_endpoint = rsv.data
             };
             var dv = await y.run_c(a.o2.run_c());
             if (dv.z_error != e_error.non)

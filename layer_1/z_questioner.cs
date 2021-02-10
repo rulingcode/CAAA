@@ -8,8 +8,8 @@ namespace layer_1
 {
     class z_questioner
     {
-        public m_x1 endpoint { get; }
-        public z_questioner(m_x1 endpoint)
+        public m_x endpoint { get; }
+        public z_questioner(m_x endpoint)
         {
             this.endpoint = endpoint;
         }

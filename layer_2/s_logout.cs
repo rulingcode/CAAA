@@ -5,5 +5,5 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    public delegate Task<bool> s_logout(string userid, string deviceid);
+    public delegate Task<bool> s_logout(string deviceid, string userid);
 }

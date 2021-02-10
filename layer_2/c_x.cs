@@ -26,7 +26,7 @@ namespace layer_2
                 data = data
             };
             data = z_crypto.convert(packet);
-            m_x1 endpoint = await c_endpoint.get(y.z_xid);
+            m_x endpoint = await c_endpoint.get(y.z_xid);
             data = await a.o1.exchange_c(endpoint, data);
             if (key != null)
                 data = z_crypto.Decrypt(data, key);
