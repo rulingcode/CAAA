@@ -7,7 +7,7 @@ namespace layer_2
     public class o2
     {
         internal static string x_center => a.o2.x_m.id;
-        public h_report report_h { get => a.o1.report; set => a.o1.report = value; }
+        public h_report report { get => a.o1.report; set => a.o1.report = value; }
         public m_x x_m { get; set; }
         public c_get_key c_get_key { get; set; }
         public s_get_key s_get_key { get; set; }
