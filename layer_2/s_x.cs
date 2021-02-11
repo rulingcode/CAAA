@@ -27,9 +27,9 @@ namespace layer_2
         async void exchange(byte[] data, layer_1.h_reply1 reply)
         {
             var packet = z_crypto.convert<m_packet>(data);
+            var keys = await a.o2.s_get_key(packet.deviceid);
             if (packet.deviceid != null)
             {
-                var keys = await a.o2.s_get_key(packet.deviceid);
                 if (keys == null)
                     reply(null, e_reply.invalid_deviceid);
                 try
@@ -50,8 +50,16 @@ namespace layer_2
                 return;
             }
             var y = JsonConvert.DeserializeObject(packet_y.data, type) as y;
-            y.run_s(reply);
+            y.z_userid = packet_y.userid;
+            y.run_s(met);
+            void met(byte[] data, e_reply e)
+            {
+                if (data != null && keys != null)
+                    data = z_crypto.Encrypt(data, keys);
+                reply(data, e);
+            }
         }
+
         internal async void add_y<T>() where T : y, new()
         {
             await locker.WaitAsync();
