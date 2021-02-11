@@ -9,7 +9,7 @@ namespace z_service_center
 {
     class y_test_imp : y_test
     {
-        protected override void implement(h_reply2<o> reply)
+        protected override void implement(s_reply2<o> reply)
         {
             reply(new o()
             {

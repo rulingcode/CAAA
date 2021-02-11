@@ -1,21 +1,18 @@
 ﻿using layer_1;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace layer_2
 {
-    class y_getkey : y<y_getkey.o>
+    class y_get_x : y<y_get_x.output>
     {
         public override string z_xid => o2.x_center;
-        public override string z_yid => nameof(y_getkey);
+        public override string z_yid => nameof(y_get_x);
         public override e_permission z_permission => e_permission.skelet;
-        public string a_xid { get; set; }
-        public class o : y_output
+        public class output : y_output
         {
-            public m_key1 key { get; set; }
+            public m_x[] list { get; set; }
         }
     }
 }

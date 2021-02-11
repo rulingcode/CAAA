@@ -7,11 +7,5 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    class s_key
-    {
-        public Task<m_key1> get(string xid,string deviceid)
-        {
-            return default;
-        }  
-    }
+    public delegate Task<m_key> s_get_key(string deviceid);
 }

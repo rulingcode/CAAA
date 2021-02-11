@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    public delegate Task<byte[]> h_load(string key);
+    public delegate Task<string> s_get_password(string userid);
 }

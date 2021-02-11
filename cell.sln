@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_1", "layer_1\layer_1.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_2", "layer_2\layer_2.csproj", "{CF532A20-46DC-44EE-9A12-99AF01F9D37B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "z_service_center", "z_service_center\z_service_center.csproj", "{25D5B36B-609C-4D34-BCC3-DB05E4B0E89B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{CF532A20-46DC-44EE-9A12-99AF01F9D37B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF532A20-46DC-44EE-9A12-99AF01F9D37B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF532A20-46DC-44EE-9A12-99AF01F9D37B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25D5B36B-609C-4D34-BCC3-DB05E4B0E89B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25D5B36B-609C-4D34-BCC3-DB05E4B0E89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25D5B36B-609C-4D34-BCC3-DB05E4B0E89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25D5B36B-609C-4D34-BCC3-DB05E4B0E89B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

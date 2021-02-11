@@ -16,15 +16,12 @@ namespace layer_2
                 data = JsonConvert.SerializeObject(y)
             };
             var data = z_crypto.convert(packet_y);
-            m_key1 key = null;
-            if (a.o2.deviceid != null)
-            {
-                key = await a.key_c.get(y.z_xid);
+            m_key key = await a.o2.c_get_key();
+            if (key != null)
                 data = z_crypto.Encrypt(data, key);
-            }
             m_packet packet = new m_packet()
             {
-                deviceid = a.o2.deviceid,
+                deviceid = key?.deviceid,
                 xid = y.z_xid,
                 data = data
             };

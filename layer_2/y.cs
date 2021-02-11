@@ -31,7 +31,7 @@ namespace layer_2
             };
             await Task.Run(action);
         }
-        protected virtual void implement(h_reply2<output> reply)
+        protected virtual void implement(s_reply2<output> reply)
         {
             throw new Exception("ldkvjgjbjfhcbfjvjfb");
         }

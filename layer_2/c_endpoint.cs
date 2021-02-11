@@ -22,7 +22,7 @@ namespace layer_2
             if (dv == null)
             {
                 await Task.Delay(100);
-                y_getip y = new y_getip();
+                y_get_x y = new y_get_x();
                 var o = await y.run_c(a.o2.run(null));
                 list = o.list;
                 goto retry;

@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    public delegate Task<string> h_get_password(string userid);
+    public delegate void s_delete_key(string deviceid);
 }

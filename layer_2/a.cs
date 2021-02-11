@@ -10,8 +10,6 @@ namespace layer_2
     {
         internal static o1 o1;
         internal static s_x x_s;
-        internal static c_key key_c;
-        internal static s_key keys_s;
         internal static o2 o2 { get; set; }
     }
 }

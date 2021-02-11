@@ -1,8 +1,8 @@
-﻿s = Refers to the class on service side
-c = Refers to the class on client side
-m = Refers to the data structure
-e = Refers to the enum
-h = Refers to the delegate
+﻿s = service side class
+c = clinet side class
+p = Joint class
+m = data structure
+e = enum
 
 x = Refers to the service naming
 y = Refers to the function naming

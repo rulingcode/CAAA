@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using layer_1;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace layer_1
+namespace layer_2
 {
     public class z_crypto
     {
@@ -30,13 +31,13 @@ namespace layer_1
             var privatekey = rsa.ExportCspBlob(true);
             return (publickey, privatekey);
         }
-        public static m_key1 create_symmetrical_keys()
+        public static m_key create_symmetrical_keys()
         {
             byte[] key32 = new byte[32];
             byte[] iv16 = new byte[16];
             random.NextBytes(key32);
             random.NextBytes(iv16);
-            return new m_key1() { key32 = key32, iv16 = iv16 };
+            return new m_key() { key32 = key32, iv16 = iv16 };
         }
         public static byte[] Encrypt(byte[] data, byte[] publickey)
         {
@@ -56,7 +57,7 @@ namespace layer_1
             rsa.Dispose();
             return decryptedData;
         }
-        public static byte[] Encrypt(byte[] data, m_key1 keys)
+        public static byte[] Encrypt(byte[] data, m_key keys)
         {
             MemoryStream memoryStream;
             CryptoStream cryptoStream;
@@ -69,7 +70,7 @@ namespace layer_1
             cryptoStream.Close();
             return memoryStream.ToArray();
         }
-        public static byte[] Decrypt(byte[] data, m_key1 keys)
+        public static byte[] Decrypt(byte[] data, m_key keys)
         {
             MemoryStream memoryStream;
             CryptoStream cryptoStream;

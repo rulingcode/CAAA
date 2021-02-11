@@ -29,7 +29,7 @@ namespace layer_2
             var packet = z_crypto.convert<m_packet>(data);
             if (packet.deviceid != null)
             {
-                var keys = await a.keys_s.get(packet.xid, packet.deviceid);
+                var keys = await a.o2.s_get_key(packet.deviceid);
                 if (keys == null)
                     reply(null, e_reply.invalid_deviceid);
                 try
@@ -77,15 +77,13 @@ namespace layer_2
         {
             if (rsv.id == a.o2.x_m.id)
             {
-                add_y<connect>();
-                //add_y<getip>();
-                //add_y<getkey>();
+                add_y<get_x>();
                 //add_y<setip>();
             }
             a.o1.add_s(rsv);
             if (rsv.id != a.o2.x_m.id)
             {
-                y_setip y = new y_setip()
+                y_set_x y = new y_set_x()
                 {
                     a_xid = rsv.id,
                     a_endpoint = rsv.data
