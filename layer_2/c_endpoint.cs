@@ -23,7 +23,7 @@ namespace layer_2
             {
                 await Task.Delay(100);
                 y_getip y = new y_getip();
-                var o = await y.run_c(a.o2.run_c(null));
+                var o = await y.run_c(a.o2.run(null));
                 list = o.list;
                 goto retry;
             }

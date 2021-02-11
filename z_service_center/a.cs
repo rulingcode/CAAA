@@ -1,4 +1,4 @@
-﻿using layer_3;
+﻿using layer_2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace z_service_center
 {
     class a
     {
-        internal static s_lib lib { get; } = new lib();
+        internal static o2 o2 = o2.create();
     }
 }

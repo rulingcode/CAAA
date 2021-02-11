@@ -6,6 +6,7 @@ namespace layer_2
 {
     public enum e_error
     {
-        non
+        non,
+        no_find_password
     }
 }

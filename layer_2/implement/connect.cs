@@ -12,13 +12,21 @@ namespace layer_2.implement
         public override string z_xid => o2.x_center;
         public override string z_yid => nameof(y_connect);
         public override e_permission z_permission => e_permission.skelet;
-        protected override void implement(h_reply2<output> reply)
+        protected override async void implement(h_reply2<output> reply)
         {
             a_keys = z_crypto.Decrypt(a_keys, a.o2.key_s);
             var keys = m_key1.create(a_keys);
-            a_connect = z_crypto.Decrypt(a_connect, keys);
-            var connect_m = z_crypto.convert<m_connect>(a_connect);
-            
+            a_login = z_crypto.Decrypt(a_login, keys);
+            var login = z_crypto.convert<m_login>(a_login);
+            if (await a.o2.check_password(login))
+            {
+
+            }
+            reply(new output()
+            {
+
+            });
+
         }
     }
 }

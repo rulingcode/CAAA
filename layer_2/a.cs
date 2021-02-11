@@ -8,8 +8,7 @@ namespace layer_2
 {
     class a
     {
-        internal static o1 o1 = o1.create();
-        internal static string deviceid = default;
+        internal static o1 o1;
         internal static s_x x_s;
         internal static c_key key_c;
         internal static s_key keys_s;

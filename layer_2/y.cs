@@ -19,7 +19,7 @@ namespace layer_2
     public abstract class y<output> : y where output : y_output
     {
         public virtual Task<output> run_c(c_run rsv) => rsv.get<output>(this);
-        internal sealed override void run_s(h_reply1 reply)
+        internal sealed override async void run_s(h_reply1 reply)
         {
             Action action = () =>
             {
@@ -29,7 +29,7 @@ namespace layer_2
                     reply(data);
                 });
             };
-            Task.Run(action);
+            await Task.Run(action);
         }
         protected virtual void implement(h_reply2<output> reply)
         {

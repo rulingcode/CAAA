@@ -9,13 +9,13 @@ namespace layer_2
 {
     class c_key
     {
-        private const string keyinfo = nameof(keyinfo);
-        static m_key2[] list = new m_key2[0];
+        const string keys = nameof(keys);
+        List<m_key2> list = new List<m_key2>();
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
         public async void start()
         {
             await locker.WaitAsync();
-            var dv = await a.o2.load_h(keyinfo);
+            var dv = await a.o2.load(keys);
             if (dv == null)
             {
                 e_error error = await add(o2.x_center);
@@ -28,12 +28,16 @@ namespace layer_2
                     });
                 }
             }
-            var key = z_crypto.convert<m_key2>(dv);
-            list = new m_key2[] { key };
+            else
+            {
+                var keys = z_crypto.convert<m_key2[]>(dv);
+                list.AddRange(keys);
+            }
             locker.Release();
         }
         public async Task<m_key1> get(string xid)
         {
+            await locker.WaitAsync();
         retry:
             var dv = list.FirstOrDefault(j => j.xid == xid);
             if (dv == null)
@@ -41,31 +45,34 @@ namespace layer_2
                 await add(xid);
                 goto retry;
             }
+            locker.Release();
             return dv.key1;
         }
         async Task<e_error> add(string xid)
         {
-            await locker.WaitAsync();
             m_key1 keys = z_crypto.create_symmetrical_keys();
             y_connect y = new y_connect();
             y.a_keys = m_key1.create(keys);
             y.a_keys = z_crypto.Encrypt(y.a_keys, a.o2.key_c);
-            y.a_connect = z_crypto.convert(await a.o2.connect_c());
-            y.a_connect = z_crypto.Encrypt(y.a_connect, keys);
-            var data = z_crypto.convert(y);
-            var endpoint = await c_endpoint.get(xid);
-            data = await a.o1.exchange_c(endpoint, data);
-            var o = z_crypto.convert<y_connect.output>(data);
+            m_login login_m = new m_login()
+            {
+                userid = a.o2.skeletid,
+                password = await a.o2.get_password(a.o2.skeletid)
+            };
+            if (login_m.password == null)
+                return e_error.no_find_password;
+            y.a_login = z_crypto.convert(login_m);
+            y.a_login = z_crypto.Encrypt(y.a_login, keys);
+            var o = await y.run_c(a.o2.run());
             if (o.z_error == e_error.non)
             {
-                List<m_key2> l = new List<m_key2>(list);
-                l.RemoveAll(i => i.xid == xid);
-                l.Add(new m_key2()
+                list.Add(new m_key2()
                 {
                     xid = xid,
                     key1 = keys
                 });
-                list = l.ToArray();
+                var data = z_crypto.convert(list.ToArray());
+
             }
             else
             {
@@ -76,7 +83,6 @@ namespace layer_2
                 });
                 await Task.Delay(100);
             }
-            locker.Release();
             return o.z_error;
         }
     }

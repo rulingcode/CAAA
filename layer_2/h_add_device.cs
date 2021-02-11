@@ -4,10 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace z_service_center.implement
+namespace layer_2
 {
-    class connect
-    {
-       
-    }
+    public delegate void h_add_device(m_key2 key);
 }

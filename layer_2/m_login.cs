@@ -5,9 +5,9 @@ using System.Text;
 
 namespace layer_2
 {
-    public class m_connect
+    public class m_login
     {
-        public string skeletid { get; set; }
+        public string userid { get; set; }
         public string password { get; set; }
     }
 }

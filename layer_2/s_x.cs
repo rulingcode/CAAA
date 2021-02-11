@@ -1,4 +1,5 @@
 ﻿using layer_1;
+using layer_2.implement;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -26,20 +27,7 @@ namespace layer_2
         async void exchange(byte[] data, layer_1.h_reply1 reply)
         {
             var packet = z_crypto.convert<m_packet>(data);
-            if (packet.deviceid == null)
-            {
-
-                try
-                {
-                    packet.data = z_crypto.Decrypt(packet.data, a.o2.key_s);
-                }
-                catch
-                {
-                    reply(null, e_reply.invalid_encryption);
-                    return;
-                }
-            }
-            else
+            if (packet.deviceid != null)
             {
                 var keys = await a.keys_s.get(packet.xid, packet.deviceid);
                 if (keys == null)
@@ -61,7 +49,7 @@ namespace layer_2
                 reply(null, e_reply.no_implement);
                 return;
             }
-            var y = JsonConvert.DeserializeObject(packet_y.data) as y;
+            var y = JsonConvert.DeserializeObject(packet_y.data, type) as y;
             y.run_s(reply);
         }
         internal async void add_y<T>() where T : y, new()
@@ -87,15 +75,25 @@ namespace layer_2
         }
         internal async void add_x(m_x rsv)
         {
-            a.o1.add_s(rsv);
-            y_setip y = new y_setip()
+            if (rsv.id == a.o2.x_m.id)
             {
-                a_xid = rsv.id,
-                a_endpoint = rsv.data
-            };
-            var dv = await y.run_c(a.o2.run_c());
-            if (dv.z_error != e_error.non)
-                throw new Exception("lfvhfnbgnvnndn");
+                add_y<connect>();
+                //add_y<getip>();
+                //add_y<getkey>();
+                //add_y<setip>();
+            }
+            a.o1.add_s(rsv);
+            if (rsv.id != a.o2.x_m.id)
+            {
+                y_setip y = new y_setip()
+                {
+                    a_xid = rsv.id,
+                    a_endpoint = rsv.data
+                };
+                var dv = await y.run_c(a.o2.run());
+                if (dv.z_error != e_error.non)
+                    throw new Exception("lfvhfnbgnvnndn");
+            }
         }
     }
 }
