@@ -11,7 +11,7 @@ namespace layer_2
     {
         [JsonIgnore] public abstract string z_xid { get; }
         [JsonIgnore] public abstract string z_yid { get; }
-        [JsonIgnore] public virtual e_permission z_permission => e_permission.user;
+        [JsonIgnore] public virtual e_permission z_permission => e_permission.u;
         [JsonIgnore] public string z_deviceid { get; internal set; }
         [JsonIgnore] public string z_userid { get; internal set; }
         internal abstract void run_s(h_reply1 reply);

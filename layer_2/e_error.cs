@@ -7,6 +7,6 @@ namespace layer_2
     public enum e_error
     {
         non,
-        no_find_password
+        invalid_device_m
     }
 }

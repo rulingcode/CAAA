@@ -2,8 +2,6 @@
 {
     public enum e_permission
     {
-        skelet,
-        user,
-        x
+        non = 1, k = 2, u = 3, x = 4
     }
 }

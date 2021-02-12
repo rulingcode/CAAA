@@ -12,13 +12,13 @@ namespace layer_2
         public c_get_key c_get_key { get; set; }
         public s_get_key s_get_key { get; set; }
         public c_run run(string userid = null) => new z_run(userid);
-        public void add_y<T>() where T : y, new() => a.x_s.add_y<T>();
+        public void add_y<T>() where T : y, new() => a.y_s.add_y<T>();
         public void add_x(m_x rsv) => a.x_s.add_x(rsv);
         o2()
         {
             a.o2 = this;
             a.o1 = o1.create();
-            a.x_s = new s_x();
+            a.y_s = new s_y();
         }
         public static o2 create() => a.o2 == null ? new o2() : null;
     }

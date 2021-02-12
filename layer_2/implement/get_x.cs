@@ -1,4 +1,5 @@
-﻿using System;
+﻿using layer_1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace layer_2.implement
 {
     class get_x : y_get_x
     {
-        static output o = new output();
+        internal static output o = new output() { list = new m_x[0] };
         protected override void implement(s_reply2<output> reply) => reply(o);
     }
 }

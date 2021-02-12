@@ -33,6 +33,8 @@ namespace layer_3
         public byte[] public_key { get;  set; }
         public byte[] private_key { get; set; }
         public c_create_device create_device_c { get; set; }
+        public s_create_deviceid create_device_s { get; set; }
+        public s_remove_deviceid remove_device_s { get; set; }
         public Task start() => a.start.run();
         #endregion
 

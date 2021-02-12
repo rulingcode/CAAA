@@ -1,36 +1,33 @@
 ﻿using layer_1;
-using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace layer_2
 {
-    class c_x
+    internal class c_x
     {
-        internal static async Task<output> run<output>(string userid, y y)
+        static m_x[] list = new m_x[0];
+        static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
+        internal static async Task<m_x> get(string xid)
         {
-            m_packet_y packet_y = new m_packet_y()
+            if (xid == o2.x_center)
+                return a.o2.x_m;
+            retry:
+            await locker.WaitAsync();
+            var dv = list.FirstOrDefault(j => j.id == xid);
+            locker.Release();
+            if (dv == null)
             {
-                userid = userid,
-                yid = y.z_yid,
-                data = JsonConvert.SerializeObject(y)
-            };
-            var data = z_crypto.convert(packet_y);
-            m_key key = await a.o2.c_get_key();
-            if (key != null)
-                data = z_crypto.Encrypt(data, key);
-            m_packet packet = new m_packet()
-            {
-                deviceid = key?.deviceid,
-                xid = y.z_xid,
-                data = data
-            };
-            data = z_crypto.convert(packet);
-            m_x endpoint = await c_endpoint.get(y.z_xid);
-            data = await a.o1.exchange_c(endpoint, data);
-            if (key != null)
-                data = z_crypto.Decrypt(data, key);
-            return z_crypto.convert<output>(data);
+                await Task.Delay(100);
+                y_get_x y = new y_get_x();
+                var o = await y.run_c(a.o2.run(null));
+                list = o.list;
+                goto retry;
+            }
+            return dv;
         }
     }
 }
