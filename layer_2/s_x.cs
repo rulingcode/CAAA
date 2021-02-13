@@ -12,19 +12,20 @@ namespace layer_2
     {
         internal async void add_x(m_x rsv)
         {
+            a.o1.add_s(rsv);
             if (rsv.id == a.o2.x_m.id)
             {
                 a.o2.add_y<get_x>();
                 a.o2.add_y<set_x>();
             }
-            a.o1.add_s(rsv);
-            if (rsv.id != a.o2.x_m.id)
+            else
             {
                 y_set_x y = new y_set_x()
                 {
                     a_x_m = rsv
                 };
-                var dv = await y.run_c(a.o2.run());
+                c_run run = a.o2.run(rsv.id);
+                var dv = await y.run_c(run);
                 if (dv.z_error != e_error.non)
                     throw new Exception("lfvhfnbgnvnndn");
             }

@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace z_test
+namespace z_dna
 {
-    class y_test : y<y_test.output>
+    public class y_center : y<y_center.output>
     {
         public override string z_xid => "x_center";
-        public override string z_yid => nameof(y_test);
+        public override string z_yid => nameof(y_center);
         public int a { get; set; }
         public int b { get; set; }
         public class output : y_output

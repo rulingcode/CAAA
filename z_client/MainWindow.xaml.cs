@@ -14,34 +14,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using z_dna;
 
-namespace z_test
+namespace z_client
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        o2 o2 = o2.create();
+        o2 o2;
         public MainWindow()
         {
             InitializeComponent();
-            o2.c_get_key = get_key_c;
-            o2.report = report;
-            o2.s_get_key = get_key_s;
-            o2.x_m = z_dna.keys.x_m;
-            o2.add_y<center>();
-            o2.add_x(o2.x_m);
-            o2.check_userid_s = chack_userid_s;
             WindowState = WindowState.Minimized;
-        }
-        private Task<bool> chack_userid_s(string deviceid, string userid) => z_dna.keys.check(deviceid, userid);
-        async Task<m_key> get_key_s(string id)
-        {
-            await Task.CompletedTask;
-            if (z_dna.keys.client.deviceid == id) return z_dna.keys.client;
-            if (z_dna.keys.message.deviceid == id) return z_dna.keys.message;
-            return null;
         }
         private Task report(m_report report)
         {
@@ -49,7 +35,22 @@ namespace z_test
         }
         private Task<m_key> get_key_c()
         {
-            throw new Exception("kjvjfhjbhfjhjf");
+            return Task.FromResult(z_dna.keys.client);
+        }
+        async void btn_Click(object sender, RoutedEventArgs e)
+        {
+            o2 = o2.create();
+            o2.c_get_key = get_key_c;
+            o2.report = report;
+            o2.x_m = new m_x() { id = "x_center", data = res.get_endpoint(10000).ToString() };
+
+            y_message ym = new y_message()
+            {
+                a = "aaa",
+                b = "bbb"
+            };
+            c_run run = o2.run("u_ali");
+            var o = await ym.run_c(run);
         }
     }
 }

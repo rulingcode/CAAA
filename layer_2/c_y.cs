@@ -21,7 +21,7 @@ namespace layer_2
                 data = z_crypto.Encrypt(data, key);
             m_packet packet = new m_packet()
             {
-                deviceid = key?.id,
+                deviceid = key?.deviceid,
                 xid = y.z_xid,
                 data = data
             };

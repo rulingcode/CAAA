@@ -9,7 +9,7 @@ namespace layer_2
     {
         public override string z_xid => o2.x_center;
         public override string z_yid => nameof(y_get_x);
-        public override e_permission z_permission => e_permission.non;
+        public override e_permission z_permission => e_permission.k;
         public class output : y_output
         {
             public m_x[] list { get; set; }

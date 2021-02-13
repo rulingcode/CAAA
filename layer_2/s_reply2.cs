@@ -5,5 +5,5 @@ using System.Text;
 
 namespace layer_2
 {
-    public delegate void s_reply2<output>(output rsv) where output : y_output;
+    public delegate void s_reply2<output>(output rsv = default) where output : y_output;
 }

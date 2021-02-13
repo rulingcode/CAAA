@@ -7,7 +7,6 @@ namespace layer_1
 {
     public class o1
     {
-        internal static byte[] null_data = new byte[] { 101, 58, 230, 77, 33, 59, 15, 9, 88, 165 };
         public h_report report { get; set; }
         public void add_s(m_x endpoint) => s_endpoint.add(endpoint);
         public Task<byte[]> exchange_c(m_x endpoint, byte[] data) => c_exchange.exchange(endpoint, data);

@@ -16,7 +16,7 @@ namespace layer_2
         [JsonIgnore] public string z_userid { get; internal set; }
         internal abstract void run_s(h_reply1 reply);
     }
-    public abstract class y<output> : y where output : y_output
+    public abstract class y<output> : y where output : y_output, new()
     {
         public virtual Task<output> run_c(c_run rsv) => rsv.get<output>(this);
         internal sealed override async void run_s(h_reply1 reply)
@@ -25,7 +25,9 @@ namespace layer_2
             {
                 implement((obj) =>
                 {
-                    var data = obj == null ? null : z_crypto.convert(obj);
+                    if (obj == null)
+                        obj = new output();
+                    var data = z_crypto.convert(obj);
                     reply(data);
                 });
             };

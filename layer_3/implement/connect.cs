@@ -1,4 +1,5 @@
-﻿using layer_2;
+﻿using layer_1;
+using layer_2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace layer_3.implement
             output o = new output()
             {
                 deviceid = dv,
-                z_error = dv == null ? e_error.invalid_device_m : e_error.non
+                z_error = dv == null ? e_error.invalid_deviceid : e_error.non
             };
         }
     }

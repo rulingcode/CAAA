@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\layer_2\layer_2.csproj" />
+    <ProjectReference Include="..\z_dna\z_dna.csproj" />
   </ItemGroup>
 
 </Project>
