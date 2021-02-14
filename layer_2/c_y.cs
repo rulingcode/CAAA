@@ -7,7 +7,7 @@ namespace layer_2
 {
     class c_y
     {
-        internal static async Task<output> run<output>(string userid, y y)
+        internal async Task<output> run<output>(string userid, y y)
         {
             m_packet_y packet_y = new m_packet_y()
             {
@@ -26,8 +26,8 @@ namespace layer_2
                 data = data
             };
             data = z_crypto.convert(packet);
-            m_x endpoint = await c_x.get(y.z_xid);
-            data = await a.o1.exchange_c(endpoint, data);
+            m_x endpoint = await a.x_c.get(y.z_xid);
+            data = await a.o1.run_c(endpoint, data);
             if (key != null)
                 data = z_crypto.Decrypt(data, key);
             return z_crypto.convert<output>(data);

@@ -7,12 +7,12 @@ namespace layer_1
 {
     public class o1
     {
-        public h_report report { get; set; }
-        public void add_s(m_x endpoint) => s_endpoint.add(endpoint);
-        public Task<byte[]> exchange_c(m_x endpoint, byte[] data) => c_exchange.exchange(endpoint, data);
-        public s_exchange exchange_s { get; set; }
-        public void remove_c(m_x endpoint) => c_exchange.close(endpoint);
-        public void remove_s(m_x endpoint) => s_endpoint.remove(endpoint);
+        public c_report report { get; set; }
+        public void add_x(m_x endpoint) => a.s_x.add(endpoint);
+        public Task<byte[]> run_c(m_x endpoint, byte[] data) => a.c_exchange.run(endpoint, data);
+        public s_y y_s { get; set; }
+        public void remove_c(m_x endpoint) => a.c_exchange.close(endpoint);
+        public void remove_s(m_x endpoint) => a.s_x.remove(endpoint);
         o1() => a.o1 = this;
         public static o1 create() => a.o1 == null ? new o1() : null;
     }

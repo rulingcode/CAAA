@@ -9,9 +9,9 @@ namespace layer_2
 {
     internal class c_x
     {
-        static m_x[] list = new m_x[0];
-        static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        internal static async Task<m_x> get(string xid)
+        m_x[] list = new m_x[0];
+        SemaphoreSlim locker = new SemaphoreSlim(1, 1);
+        internal async Task<m_x> get(string xid)
         {
             if (xid == o2.x_center)
                 return a.o2.x_m;

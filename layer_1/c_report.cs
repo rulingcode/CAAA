@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace layer_1
 {
-    public delegate void h_reply1(byte[] data, e_error e = e_error.non);
+    public delegate Task c_report(m_report report);
 }

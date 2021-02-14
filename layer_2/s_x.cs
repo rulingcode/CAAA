@@ -12,7 +12,7 @@ namespace layer_2
     {
         internal async void add_x(m_x rsv)
         {
-            a.o1.add_s(rsv);
+            a.o1.add_x(rsv);
             if (rsv.id == a.o2.x_m.id)
             {
                 a.o2.add_y<get_x>();

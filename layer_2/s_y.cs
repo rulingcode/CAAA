@@ -22,9 +22,9 @@ namespace layer_2
         }
         public s_y()
         {
-            a.o1.exchange_s = exchange;
+            a.o1.y_s = y_s;
         }
-        async void exchange(byte[] data, h_reply1 reply)
+        async void y_s(byte[] data, s_reply reply)
         {
             var packet = z_crypto.convert<m_packet>(data);
             var keys = await a.o2.s_get_key(packet.deviceid);

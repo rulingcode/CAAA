@@ -16,6 +16,7 @@ namespace layer_3
         {
             await locker.WaitAsync();
             locker.Release();
+            return default;
         }
     }
 }

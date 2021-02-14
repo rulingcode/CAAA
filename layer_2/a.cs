@@ -10,7 +10,9 @@ namespace layer_2
     {
         internal static o1 o1;
         internal static s_y y_s;
+        internal static c_y y_c;
         internal static s_x x_s;
+        internal static c_x x_c;
         internal static o2 o2 { get; set; }
     }
 }

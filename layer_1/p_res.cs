@@ -5,7 +5,7 @@ using System.Net.Sockets;
 
 namespace layer_1
 {
-    public class res
+    public class p_res
     {
         public static bool islocal { get; set; } = true;
         public static string validip { get; set; }

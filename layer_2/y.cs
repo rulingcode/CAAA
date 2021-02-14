@@ -14,12 +14,12 @@ namespace layer_2
         [JsonIgnore] public virtual e_permission z_permission => e_permission.u;
         [JsonIgnore] public string z_deviceid { get; internal set; }
         [JsonIgnore] public string z_userid { get; internal set; }
-        internal abstract void run_s(h_reply1 reply);
+        internal abstract void run_s(s_reply reply);
     }
     public abstract class y<output> : y where output : y_output, new()
     {
         public virtual Task<output> run_c(c_run rsv) => rsv.get<output>(this);
-        internal sealed override async void run_s(h_reply1 reply)
+        internal sealed override async void run_s(s_reply reply)
         {
             Action action = () =>
             {

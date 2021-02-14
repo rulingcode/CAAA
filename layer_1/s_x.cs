@@ -6,14 +6,14 @@ using System.Threading;
 
 namespace layer_1
 {
-    static class s_endpoint
+    class s_x
     {
-        static List<z_service> list = new List<z_service>();
-        static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        public static async void add(m_x endpoint)
+        List<z_service> list = new List<z_service>();
+        SemaphoreSlim locker = new SemaphoreSlim(1, 1);
+        public async void add(m_x endpoint)
         {
             await locker.WaitAsync();
-            var dv = list.FirstOrDefault(i => i.endpoint == endpoint);
+            var dv = list.FirstOrDefault(i => i.x_m == endpoint);
             if (dv != null)
             {
                 dv.close();
@@ -23,10 +23,10 @@ namespace layer_1
             list.Add(dv);
             locker.Release();
         }
-        public static async void remove(m_x endpoint)
+        public async void remove(m_x endpoint)
         {
             await locker.WaitAsync();
-            var dv = list.FirstOrDefault(i => i.endpoint == endpoint);
+            var dv = list.FirstOrDefault(i => i.x_m == endpoint);
             dv.close();
             list.Remove(dv);
             locker.Release();

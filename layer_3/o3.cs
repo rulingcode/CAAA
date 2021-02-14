@@ -33,7 +33,7 @@ namespace layer_3
         #endregion
 
         #region Transfer previous implementations
-        public h_report report { get => a.o2.report; set => a.o2.report = value; }
+        public c_report report { get => a.o2.report; set => a.o2.report = value; }
         public m_x x_m { get => a.o2.x_m; set => a.o2.x_m = value; }
         public void add_x(m_x rsv) => a.o2.add_x(rsv);
         public void add_y<T>() where T : y, new() => a.o2.add_y<T>();

@@ -8,11 +8,8 @@ namespace layer_1
 {
     class z_questioner
     {
-        public m_x endpoint { get; }
-        public z_questioner(m_x endpoint)
-        {
-            this.endpoint = endpoint;
-        }
+        public m_x x_m { get; }
+        public z_questioner(m_x val) => x_m = val;
 
         WatsonTcpClient client;
         byte[] input = null;
@@ -60,7 +57,7 @@ namespace layer_1
             if (client != null && !client.Connected) close();
             if (client == null)
             {
-                client = new WatsonTcpClient(endpoint.address, endpoint.port);
+                client = new WatsonTcpClient(x_m.address, x_m.port);
                 client.Events.MessageReceived += Events_MessageReceived;
                 try
                 {
