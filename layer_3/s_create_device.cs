@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace layer_3
 {
-    public delegate Task<string> s_create_deviceid(m_device rsv);
+    public delegate Task<string> s_create_device(m_login rsv);
 }

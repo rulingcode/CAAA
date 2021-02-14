@@ -13,6 +13,7 @@ namespace layer_2
         public s_get_key s_get_key { get; set; }
         public s_check_userid check_userid_s { get; set; }
         public c_run run(string userid = null) => new z_run(userid);
+        
         public void add_y<T>() where T : y, new() => a.y_s.add_y<T>();
         public void add_x(m_x rsv) => a.x_s.add_x(rsv);
         o2()

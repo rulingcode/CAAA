@@ -13,6 +13,7 @@ namespace layer_1
         invalid_permission,
         invalid_userid_prefix,
         invalid_userid,
-        invalid_xid
+        invalid_xid,
+        invalid_device_login
     }
 }

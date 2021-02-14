@@ -6,5 +6,9 @@ using System.Threading.Tasks;
 
 namespace layer_3
 {
-    public delegate void s_remove_deviceid(string deviceid);
+    public class m_login
+    {
+        public string id { get; set; }
+        public string password { get; set; }
+    }
 }
