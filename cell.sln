@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_2", "layer_2\layer_2.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_3", "layer_3\layer_3.csproj", "{973067FC-137A-4343-9B76-4EBFDD58A5F9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_notifier", "layer_notifier\layer_notifier.csproj", "{498F969F-BCA6-4A2F-A9BE-E20B21A6E1A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "udp_test", "udp_test\udp_test.csproj", "{8F7132AE-9619-48B8-866B-C83C237D7548}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{973067FC-137A-4343-9B76-4EBFDD58A5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{973067FC-137A-4343-9B76-4EBFDD58A5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{973067FC-137A-4343-9B76-4EBFDD58A5F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{498F969F-BCA6-4A2F-A9BE-E20B21A6E1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{498F969F-BCA6-4A2F-A9BE-E20B21A6E1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{498F969F-BCA6-4A2F-A9BE-E20B21A6E1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{498F969F-BCA6-4A2F-A9BE-E20B21A6E1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F7132AE-9619-48B8-866B-C83C237D7548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F7132AE-9619-48B8-866B-C83C237D7548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F7132AE-9619-48B8-866B-C83C237D7548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F7132AE-9619-48B8-866B-C83C237D7548}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

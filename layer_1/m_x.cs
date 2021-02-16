@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace layer_1
@@ -9,6 +10,8 @@ namespace layer_1
     {
         public string id { get; set; }
         string dataf;
+        public IPEndPoint endpint => IPEndPoint.Parse(data);
+
         public string data
         {
             get => dataf;
