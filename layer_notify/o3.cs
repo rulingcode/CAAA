@@ -6,9 +6,9 @@ using System.Net.Sockets;
 
 namespace layer_3
 {
-    public class o_notifier
+    public class o3
     {
-        o_notifier()
+        o3()
         {
             a.o = this;
         }
@@ -20,6 +20,6 @@ namespace layer_3
         public c_get_x get_x_c { get; set; }
         public void send_notify(string xid, string userid, string commnd) => a.sender_s.send_notify(xid, userid, commnd);
         public c_receive_notify receive_notify_c { get; set; }
-        public static o_notifier create() => a.o == null ? new o_notifier() : null;
+        public static o3 create() => a.o == null ? new o3() : null;
     }
 }

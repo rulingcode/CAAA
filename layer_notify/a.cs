@@ -9,7 +9,7 @@ namespace layer_3
     class a
     {
         internal static c_x x_c;
-        internal static o_notifier o;
+        internal static o3 o;
         internal static s_sender sender_s;
     }
 }
