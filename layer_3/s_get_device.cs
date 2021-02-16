@@ -4,11 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_notifier
+namespace layer_3
 {
-    public enum c_command
-    {
-        register_me,
-        i_was_informed
-    }
+    public delegate Task<string[]> s_get_all_device(string userid);
 }

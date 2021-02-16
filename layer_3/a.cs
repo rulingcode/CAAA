@@ -1,5 +1,4 @@
-﻿using layer_2;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +8,8 @@ namespace layer_3
 {
     class a
     {
-        internal static o3 o3;
-        internal static o2 o2;
-        internal static c_key c_key;
-        internal static c_db c_db;
-        internal static s_key s_key;
-        internal const string x_center = nameof(x_center);
+        internal static c_x x_c;
+        internal static o_notifier o;
+        internal static s_sender sender_s;
     }
 }

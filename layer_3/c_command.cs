@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_notifier
+namespace layer_3
 {
-    public enum s_command
+    public enum c_command
     {
-        invalid_device,
-        live,
-        notify
+        register_me,
+        i_was_informed
     }
 }
