@@ -7,7 +7,7 @@ namespace layer_2
 {
     public class y_set_x : y<y_set_x.output>
     {
-        public override string z_xid => o2.x_center;
+        public override string z_xid => a.x_center;
         public override string z_yid => nameof(y_set_x);
         public override e_permission z_permission => e_permission.x;
         public m_x a_x_m { get; set; }
