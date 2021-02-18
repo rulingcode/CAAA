@@ -1,4 +1,5 @@
-﻿using layer_1;
+﻿using layer_0;
+using layer_1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace layer_2.implement
                 return;
             }
             await locker.WaitAsync();
-            List<c_m_x> l = new List<c_m_x>(get_x.o.list);
+            List<m_x> l = new List<m_x>(get_x.o.list);
             l.Add(a_x_m);
             get_x.o.list = l.ToArray();
             locker.Release();

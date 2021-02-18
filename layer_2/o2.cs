@@ -1,4 +1,5 @@
-﻿using layer_1;
+﻿using layer_0;
+using layer_1;
 using System;
 using System.Threading.Tasks;
 
@@ -22,14 +23,14 @@ namespace layer_2
         #endregion
 
         #region exchange
-        public c_m_x c_m_x { get; set; }
+        public m_x c_m_x { get; set; }
         public c_get_key c_get_key { get; set; }
         public s_get_key s_get_key { get; set; }
         public s_check_userid check_userid_s { get; set; }
         public c_run run(string userid = null) => new z_run(userid);
         public void add_y<T>() where T : y, new() => a.y_s.add_y<T>();
-        public void s_add_x(c_m_x rsv) => a.x_s.add_x(rsv);
-        public Task<c_m_x> c_get_x(string xid) => a.x_c.get(xid);
+        public void s_add_x(m_x rsv) => a.x_s.add_x(rsv);
+        public Task<m_x> c_get_x(string xid) => a.x_c.get(xid);
         #endregion
 
         #region notify

@@ -1,4 +1,5 @@
-﻿using layer_1;
+﻿using layer_0;
+using layer_1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    internal class c_x
+    class c_x
     {
-        c_m_x[] list = new c_m_x[0];
+        m_x[] list = new m_x[0];
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        internal async Task<c_m_x> get(string xid)
+        internal async Task<m_x> get(string xid)
         {
             if (xid == a.x_center)
                 return a.o2.c_m_x;

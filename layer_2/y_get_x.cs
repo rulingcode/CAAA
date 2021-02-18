@@ -1,4 +1,5 @@
-﻿using layer_1;
+﻿using layer_0;
+using layer_1;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,7 @@ namespace layer_2
         public override e_permission z_permission => e_permission.k;
         public class output : y_output
         {
-            public c_m_x[] list { get; set; }
+            public m_x[] list { get; set; }
         }
     }
 }

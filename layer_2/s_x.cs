@@ -1,4 +1,5 @@
-﻿using layer_1;
+﻿using layer_0;
+using layer_1;
 using layer_2.implement;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace layer_2
 {
     class s_x
     {
-        internal async void add_x(c_m_x rsv)
+        internal async void add_x(m_x rsv)
         {
             a.o1.add_x(rsv);
             if (rsv.id == a.o2.c_m_x.id)

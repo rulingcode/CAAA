@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using layer_0;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,6 @@ using System.Threading.Tasks;
 
 namespace layer_3
 {
-    public interface s_db
-    {
-        IMongoCollection<T> all<T>();
-        IMongoCollection<T> user<T>(string xid, string userid);
-        IMongoCollection<T> x<T>(string xid);
-    }
     class z_db : s_db
     {
         MongoClient client = new MongoClient();

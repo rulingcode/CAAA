@@ -1,4 +1,5 @@
-﻿using System;
+﻿using layer_0;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace layer_1
 {
     class s_x
     {
-        List<z_service> list = new List<z_service>();
+        List<s_service> list = new List<s_service>();
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        public async void add(c_m_x endpoint)
+        public async void add(m_x endpoint)
         {
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(i => i.x_m == endpoint);
@@ -19,11 +20,11 @@ namespace layer_1
                 dv.close();
                 list.Remove(dv);
             }
-            dv = new z_service(endpoint);
+            dv = new s_service(endpoint);
             list.Add(dv);
             locker.Release();
         }
-        public async void remove(c_m_x endpoint)
+        public async void remove(m_x endpoint)
         {
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(i => i.x_m == endpoint);
