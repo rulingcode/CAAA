@@ -16,8 +16,8 @@ namespace layer_3
     {
         internal async Task<m_key> get(string xid, string deviceid)
         {
-            var coll = a.s_db.all<m_key>();
-            var key = await (await coll.FindAsync(j => j.id == deviceid)).FirstOrDefaultAsync();
+            var coll = a.o3.s_db<m_key>();
+            var key = await coll.get(deviceid);
             if (key == null)
             {
                 y_get_key y = new y_get_key()
@@ -28,7 +28,7 @@ namespace layer_3
                 if (o.z_error != e_error.non)
                     return null;
                 key = o.m_key;
-                coll.ReplaceOne(i => i.id == deviceid, key);
+                await coll.upsert(key);
             }
             return key;
         }

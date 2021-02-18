@@ -4,9 +4,8 @@ using System.Text;
 
 namespace layer_0
 {
-    public class m_key
+    public class m_key : m_id
     {
-        public string id { get; set; }
         public byte[] key32 { get; set; }
         public byte[] iv16 { get; set; }
         public static m_key create(byte[] data) => new m_key()

@@ -30,7 +30,9 @@ namespace layer_3
         #region new
         public Task<e_error> c_add_user(string phoneid, string password) => a.c_user.add(phoneid, password);
         public Task c_remove_user(string userid) => a.c_user.remove(userid);
-        public s_db s_db => a.s_db;
+        public s_db<T> s_db<T>() where T : m_id => a.s_db.all<T>();
+        public s_db<T> s_db<T>(string xid) where T : m_id => a.s_db.x<T>(xid);
+        public s_db<T> s_db<T>(string xid, string userid) where T : m_id => a.s_db.user<T>(xid, userid);
         #endregion
     }
 }

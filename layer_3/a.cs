@@ -17,7 +17,7 @@ namespace layer_3
         internal static c_key c_key;
         internal static s_key s_key;
         internal static c_user c_user;
-        internal static z_db s_db;
+        internal static p_db_factory s_db;
         internal static c_db c_db;
         internal const string x_center = nameof(x_center);
         internal static c_run run(string xid = null) => o3.c_run(xid);

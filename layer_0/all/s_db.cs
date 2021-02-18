@@ -1,11 +1,16 @@
 ﻿using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace layer_0
 {
-    public interface s_db
+    public interface s_db<T> where T : m_id
     {
-        IMongoCollection<T> all<T>();
-        IMongoCollection<T> user<T>(string xid, string userid);
-        IMongoCollection<T> x<T>(string xid);
+        IMongoCollection<T> db { get; }
+        Task upsert(T val);
+        Task<T> get(string id);
     }
 }

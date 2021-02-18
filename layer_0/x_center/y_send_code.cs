@@ -13,7 +13,7 @@ namespace layer_0.x_center
         public string a_phoneid { get; set; }
         public class output : y_output
         {
-
+            
         }
     }
 }

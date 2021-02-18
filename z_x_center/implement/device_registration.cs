@@ -22,7 +22,7 @@ namespace z_x_center.implement
             a_login = p_crypto.Decrypt(a_login, key);
             m_login m_login = p_crypto.convert<m_login>(a_login);
             if (!check_login(m_login))
-                reply(new output() { z_error = e_error.invalid_device_login });
+                reply(new output() { z_error = e_error.invalid_device_info });
             var db = a.o3.s_db.all<m_key>();
             key.id = ObjectId.GenerateNewId().ToString();
             await db.InsertOneAsync(key);

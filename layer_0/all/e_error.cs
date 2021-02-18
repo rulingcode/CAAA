@@ -14,6 +14,7 @@ namespace layer_0
         invalid_userid_prefix,
         invalid_userid,
         invalid_xid,
-        invalid_device_login
+        invalid_device_info,
+        invalid_user_info
     }
 }

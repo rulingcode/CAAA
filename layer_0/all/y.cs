@@ -43,4 +43,8 @@ namespace layer_0
     {
         public e_error z_error { get; set; }
     }
+    public class y_output<error> : y_output where error : Enum
+    {
+        public error a_error { get; set; }
+    }
 }
