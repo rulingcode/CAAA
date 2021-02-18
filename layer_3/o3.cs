@@ -28,7 +28,7 @@ namespace layer_3
         #endregion
 
         #region new
-        public Task<e_error> c_add_user(string userid, string password) => a.c_user.add(userid, password);
+        public Task<e_error> c_add_user(string phoneid, string password) => a.c_user.add(phoneid, password);
         public Task c_remove_user(string userid) => a.c_user.remove(userid);
         public s_db s_db => a.s_db;
         #endregion
