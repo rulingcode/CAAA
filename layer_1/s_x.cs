@@ -10,7 +10,7 @@ namespace layer_1
     {
         List<z_service> list = new List<z_service>();
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        public async void add(m_x endpoint)
+        public async void add(c_m_x endpoint)
         {
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(i => i.x_m == endpoint);
@@ -23,7 +23,7 @@ namespace layer_1
             list.Add(dv);
             locker.Release();
         }
-        public async void remove(m_x endpoint)
+        public async void remove(c_m_x endpoint)
         {
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(i => i.x_m == endpoint);

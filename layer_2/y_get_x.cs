@@ -12,7 +12,7 @@ namespace layer_2
         public override e_permission z_permission => e_permission.k;
         public class output : y_output
         {
-            public m_x[] list { get; set; }
+            public c_m_x[] list { get; set; }
         }
     }
 }

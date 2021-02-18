@@ -13,7 +13,7 @@ namespace layer_1
     class z_questioner_pool
     {
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        public m_x x_m { get; }
+        public c_m_x x_m { get; }
         internal async void close()
         {
             await locker.WaitAsync();
@@ -22,7 +22,7 @@ namespace layer_1
             list.Clear();
             locker.Release();
         }
-        public z_questioner_pool(m_x x_m) => this.x_m = x_m;
+        public z_questioner_pool(c_m_x x_m) => this.x_m = x_m;
 
         List<z_questioner> list = new List<z_questioner>();
         async Task<z_questioner> get()

@@ -10,10 +10,10 @@ namespace layer_2
 {
     class s_x
     {
-        internal async void add_x(m_x rsv)
+        internal async void add_x(c_m_x rsv)
         {
             a.o1.add_x(rsv);
-            if (rsv.id == a.o2.x_m.id)
+            if (rsv.id == a.o2.c_m_x.id)
             {
                 a.o2.add_y<get_x>();
                 a.o2.add_y<set_x>();

@@ -19,7 +19,7 @@ namespace layer_2.implement
                 return;
             }
             await locker.WaitAsync();
-            List<m_x> l = new List<m_x>(get_x.o.list);
+            List<c_m_x> l = new List<c_m_x>(get_x.o.list);
             l.Add(a_x_m);
             get_x.o.list = l.ToArray();
             locker.Release();

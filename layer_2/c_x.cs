@@ -9,12 +9,12 @@ namespace layer_2
 {
     internal class c_x
     {
-        m_x[] list = new m_x[0];
+        c_m_x[] list = new c_m_x[0];
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        internal async Task<m_x> get(string xid)
+        internal async Task<c_m_x> get(string xid)
         {
             if (xid == a.x_center)
-                return a.o2.x_m;
+                return a.o2.c_m_x;
             retry:
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(j => j.id == xid);

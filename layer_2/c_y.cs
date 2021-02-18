@@ -15,22 +15,22 @@ namespace layer_2
                 yid = y.z_yid,
                 data = JsonConvert.SerializeObject(y)
             };
-            var data = z_crypto.convert(packet_y);
+            var data = p_crypto.convert(packet_y);
             m_key key = await a.o2.c_get_key();
             if (key != null)
-                data = z_crypto.Encrypt(data, key);
+                data = p_crypto.Encrypt(data, key);
             m_packet packet = new m_packet()
             {
-                deviceid = key?.deviceid,
+                deviceid = key?.id,
                 xid = y.z_xid,
                 data = data
             };
-            data = z_crypto.convert(packet);
-            m_x endpoint = await a.x_c.get(y.z_xid);
+            data = p_crypto.convert(packet);
+            c_m_x endpoint = await a.x_c.get(y.z_xid);
             data = await a.o1.run_c(endpoint, data);
             if (key != null)
-                data = z_crypto.Decrypt(data, key);
-            return z_crypto.convert<output>(data);
+                data = p_crypto.Decrypt(data, key);
+            return p_crypto.convert<output>(data);
         }
     }
 }

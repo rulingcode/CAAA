@@ -13,8 +13,8 @@ namespace layer_1
     class z_service
     {
         WatsonTcpServer server;
-        public readonly m_x x_m;
-        public z_service(m_x x_m)
+        public readonly c_m_x x_m;
+        public z_service(c_m_x x_m)
         {
             this.x_m = x_m ?? throw new ArgumentNullException(nameof(x_m));
             server = new WatsonTcpServer(x_m.address, x_m.port);

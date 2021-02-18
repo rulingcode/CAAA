@@ -8,8 +8,8 @@ namespace layer_1
 {
     class z_questioner
     {
-        public m_x x_m { get; }
-        public z_questioner(m_x val) => x_m = val;
+        public c_m_x x_m { get; }
+        public z_questioner(c_m_x val) => x_m = val;
 
         WatsonTcpClient client;
         byte[] input = null;

@@ -18,18 +18,24 @@ namespace layer_2
         #endregion
 
         #region overwrite
-        public c_report report_c { get => a.o1.report; set => a.o1.report = value; }
+        public c_report c_report { get => a.o1.report; set => a.o1.report = value; }
         #endregion
 
-        #region new features
-        public m_x x_m { get; set; }
+        #region exchange
+        public c_m_x c_m_x { get; set; }
         public c_get_key c_get_key { get; set; }
         public s_get_key s_get_key { get; set; }
         public s_check_userid check_userid_s { get; set; }
         public c_run run(string userid = null) => new z_run(userid);
         public void add_y<T>() where T : y, new() => a.y_s.add_y<T>();
-        public void add_x(m_x rsv) => a.x_s.add_x(rsv);
-        public Task<m_x> c_get_x(string xid) => a.x_c.get(xid);
+        public void s_add_x(c_m_x rsv) => a.x_s.add_x(rsv);
+        public Task<c_m_x> c_get_x(string xid) => a.x_c.get(xid);
+        #endregion
+
+        #region notify
+        public void send_notify_s(string xid, string userid, string command) => a.s_sender.send_notify(xid, userid, command);
+        public c_receive_notify recive_notify_c { get; set; }
+        public s_get_all_device s_get_all_device { get; set; }
         #endregion
     }
 }

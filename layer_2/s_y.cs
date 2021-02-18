@@ -26,15 +26,15 @@ namespace layer_2
         }
         async void y_s(byte[] data, s_reply reply)
         {
-            var packet = z_crypto.convert<m_packet>(data);
-            var keys = await a.o2.s_get_key(packet.deviceid);
+            var packet = p_crypto.convert<m_packet>(data);
+            var keys = await a.o2.s_get_key(packet.xid, packet.deviceid);
             if (packet.deviceid != null)
             {
                 if (keys == null)
                     met(null, e_error.invalid_deviceid);
                 try
                 {
-                    packet.data = z_crypto.Decrypt(packet.data, keys);
+                    packet.data = p_crypto.Decrypt(packet.data, keys);
                 }
                 catch
                 {
@@ -42,7 +42,7 @@ namespace layer_2
                     return;
                 }
             }
-            var packet_y = z_crypto.convert<m_packet_y>(packet.data);
+            var packet_y = p_crypto.convert<m_packet_y>(packet.data);
             var type = await get(packet.xid, packet_y.yid);
             if (type == null)
             {
@@ -92,11 +92,11 @@ namespace layer_2
                 if (data == null)
                 {
                     y_output obj = new y_output() { z_error = e };
-                    data = z_crypto.convert(obj);
+                    data = p_crypto.convert(obj);
                 }
 
                 if (keys != null)
-                    data = z_crypto.Encrypt(data, keys);
+                    data = p_crypto.Encrypt(data, keys);
                 reply(data, e);
             }
         }
