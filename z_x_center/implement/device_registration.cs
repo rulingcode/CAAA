@@ -23,9 +23,9 @@ namespace z_x_center.implement
             m_login m_login = p_crypto.convert<m_login>(a_login);
             if (!check_login(m_login))
                 reply(new output() { z_error = e_error.invalid_device_info });
-            var db = a.o3.s_db.all<m_key>();
+            var db = z_db.a_share<m_key>();
             key.id = ObjectId.GenerateNewId().ToString();
-            await db.InsertOneAsync(key);
+            await db.upsert(key);
             reply(new output() { deviceid = key.id });
         }
         private bool check_login(m_login m_Login) => m_Login.id == "k_windows" && m_Login.password == "kfkbjgjbhdjfjbjgjnjfjbg";

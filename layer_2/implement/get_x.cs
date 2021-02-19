@@ -10,7 +10,7 @@ namespace layer_2.implement
 {
     class get_x : y_get_x
     {
-        internal static output o = new output() { list = new m_x[0] };
+        internal static output o = new output() { list = new m_xip[0] };
         protected override void implement(s_reply2<output> reply) => reply(o);
     }
 }

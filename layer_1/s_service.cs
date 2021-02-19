@@ -14,8 +14,8 @@ namespace layer_1
     class s_service
     {
         WatsonTcpServer server;
-        public readonly m_x x_m;
-        public s_service(m_x x_m)
+        public readonly m_xip x_m;
+        public s_service(m_xip x_m)
         {
             this.x_m = x_m ?? throw new ArgumentNullException(nameof(x_m));
             server = new WatsonTcpServer(x_m.address, x_m.port);

@@ -16,8 +16,8 @@ namespace z_x_center.implement
     {
         protected async override void implement(s_reply2<output> reply)
         {
-            var db = a.o3.s_db.all<m_key>();
-            var dv = await (await db.FindAsync(i => i.id == a_deviceid)).FirstOrDefaultAsync();
+            var db = z_db.a_share<m_key>();
+            var dv = await db.get(a_deviceid);
             if (dv == null)
                 reply(new output() { z_error = e_error.invalid_deviceid });
             else

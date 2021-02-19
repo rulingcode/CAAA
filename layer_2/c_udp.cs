@@ -15,8 +15,8 @@ namespace layer_2
     {
         UdpClient client = new UdpClient();
         DateTime last_receive = DateTime.Now.AddDays(-1);
-        public m_x x_m { get; }
-        public c_udp(m_x x_m)
+        public m_xip x_m { get; }
+        public c_udp(m_xip x_m)
         {
             this.x_m = x_m;
             receiver();
@@ -80,7 +80,11 @@ namespace layer_2
                             else
                             {
                                 send(new c_data() { command = c_command.i_was_informed, data = data.id });
-                                a.o2.recive_notify_c?.Invoke(dv[0], dv[1], dv[2]);
+                                a.o2.c_recive_notify?.Invoke(new m_notify()
+                                {
+                                    xid = dv[0],
+                                    userid = dv[1]
+                                });
                             }
                         }
                         break;

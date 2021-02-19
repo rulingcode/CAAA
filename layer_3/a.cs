@@ -2,6 +2,7 @@
 using layer_1;
 using layer_2;
 using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,11 @@ namespace layer_3
         internal static c_key c_key;
         internal static s_key s_key;
         internal static c_user c_user;
-        internal static p_db_factory s_db;
+        internal static s_db_ s_db;
         internal static c_db c_db;
+        internal static s_middle s_middle;
+        internal static MongoClient client = new MongoClient();
+        internal static c_receive_notify c_recive_notify;
         internal const string x_center = nameof(x_center);
         internal static c_run run(string xid = null) => o3.c_run(xid);
     }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace layer_0
 {
-    public class m_x
+    public class m_xip
     {
         public string id { get; set; }
         string dataf;
@@ -26,9 +26,9 @@ namespace layer_0
         [JsonIgnore] public string address { get; private set; }
         [JsonIgnore] public int port { get; private set; }
         public override string ToString() => data;
-        public static bool operator ==(m_x a, m_x b) => a?.data == b?.data;
-        public static bool operator !=(m_x a, m_x b) => a?.data != b?.data;
-        public override bool Equals(object obj) => (obj as m_x)?.data == data;
+        public static bool operator ==(m_xip a, m_xip b) => a?.data == b?.data;
+        public static bool operator !=(m_xip a, m_xip b) => a?.data != b?.data;
+        public override bool Equals(object obj) => (obj as m_xip)?.data == data;
         public override int GetHashCode() => 0;
     }
 }

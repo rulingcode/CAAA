@@ -19,20 +19,21 @@ namespace layer_3
             await db.ReplaceOneAsync(i => i.id == val.id, val, new ReplaceOptions() { IsUpsert = true });
         }
     }
-    class p_db_factory
+    class s_db_ : s_db
     {
-        MongoClient client = new MongoClient();
-        public s_db<T> x<T>(string xid) where T : m_id
+        private readonly string xid;
+        internal s_db_(string xid) => this.xid = xid;
+        public s_db<T> a_share<T>() where T : m_id
         {
-            return new p_db<T>(client.GetDatabase(xid).GetCollection<T>("x_" + typeof(T).Name));
+            return new p_db<T>(a.client.GetDatabase("all").GetCollection<T>(typeof(T).Name));
         }
-        public s_db<T> user<T>(string xid, string userid) where T : m_id
+        public s_db<T> a_x<T>() where T : m_id
         {
-            return new p_db<T>(client.GetDatabase(xid).GetCollection<T>("u_" + userid + "_" + typeof(T).Name));
+            return new p_db<T>(a.client.GetDatabase(xid).GetCollection<T>("x_" + typeof(T).Name));
         }
-        public s_db<T> all<T>() where T : m_id
+        public s_db<T> a_user<T>(string userid) where T : m_id
         {
-            return new p_db<T>(client.GetDatabase("all").GetCollection<T>(typeof(T).Name));
+            return new p_db<T>(a.client.GetDatabase(xid).GetCollection<T>("u_" + userid + "_" + typeof(T).Name));
         }
     }
 }

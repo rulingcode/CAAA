@@ -28,7 +28,7 @@ namespace z_x_center
         {
             InitializeComponent();
             Height = 100; Width = 300; WindowState = WindowState.Minimized;
-            a.o3.c_m_x = new m_x() { data = p_res.get_endpoint(10000).ToString() };
+            a.o3.c_m_x = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
             a.o3.c_report = c_report;
             a.o3.s_add_x(o3.c_m_x);
 

@@ -80,13 +80,14 @@ namespace layer_2
                 met(null, e_error.invalid_permission);
                 return;
             }
-            if (packet_y.userid != null && !await a.o2.check_userid_s(packet.deviceid, packet_y.userid))
-            {
-                met(null, e_error.invalid_userid);
-                return;
-            }
             y.z_userid = packet_y.userid;
             y.z_deviceid = packet.deviceid;
+            var error = await a.o2.s_middle_y(y);
+            if (error != e_error.non)
+            {
+                met(null, error);
+                return;
+            }
             y.z_run(met);
             void met(byte[] data, e_error e)
             {

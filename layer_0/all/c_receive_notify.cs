@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace layer_0
 {
-    public delegate void c_receive_notify(string xid, string userid, string command);
+    public delegate void c_receive_notify(m_notify rsv);
 }

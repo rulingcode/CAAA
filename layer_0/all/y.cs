@@ -16,6 +16,7 @@ namespace layer_0
         [JsonIgnore] public string z_deviceid { get; set; }
         [JsonIgnore] public string z_userid { get; set; }
         public abstract void z_run(s_reply reply);
+        public s_db z_db { get; set; }
     }
     public abstract class y<output> : y where output : y_output, new()
     {
