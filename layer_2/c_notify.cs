@@ -11,18 +11,19 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    class c_udp
+    class c_notify
     {
         UdpClient client = new UdpClient();
         DateTime last_receive = DateTime.Now.AddDays(-1);
-        public m_xip x_m { get; }
-        public c_udp(m_xip x_m)
+        
+        public c_notify()
         {
-            this.x_m = x_m;
             receiver();
-            live();
         }
+        public void add(m_xip rsv)
+        {
 
+        }
         async void live()
         {
         retry:
@@ -40,7 +41,7 @@ namespace layer_2
         async void send(c_data data)
         {
             var dv = p_crypto.convert(data);
-            await client.SendAsync(dv, dv.Length, x_m.endpint);
+            await client.SendAsync(dv, dv.Length, xip.endpint);
         }
         async void receiver()
         {

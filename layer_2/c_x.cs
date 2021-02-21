@@ -15,7 +15,7 @@ namespace layer_2
         internal async Task<m_xip> get(string xid)
         {
             if (xid == a.x_center)
-                return a.o2.c_m_x;
+                return a.o2.c_xip;
             retry:
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(j => j.id == xid);

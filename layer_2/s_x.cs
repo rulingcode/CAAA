@@ -14,7 +14,7 @@ namespace layer_2
         internal async void add_x(m_xip rsv)
         {
             a.o1.add_x(rsv);
-            if (rsv.id == a.o2.c_m_x.id)
+            if (rsv.id == a.o2.c_xip.id)
             {
                 a.o2.add_y<get_x>();
                 a.o2.add_y<set_x>();

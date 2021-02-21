@@ -23,7 +23,7 @@ namespace layer_2
         #endregion
 
         #region exchange
-        public m_xip c_m_x { get; set; }
+        public m_xip c_xip { get; set; }
         public c_get_key c_get_key { get; set; }
         public s_get_key s_get_key { get; set; }
         public s_middle_y s_middle_y { get; set; }
@@ -35,7 +35,8 @@ namespace layer_2
         #endregion
 
         #region notify
-        public void send_notify_s(string xid, string userid, string command) => a.s_sender.send_notify(xid, userid, command);
+        public void c_add_notify(string xid)=>a.c_udp.xip
+        public void s_send_notify(string xid, string userid, string command) => a.s_sender.send_notify(xid, userid, command);
         public c_receive_notify c_recive_notify { get; set; }
         public s_get_all_device s_get_all_device { get; set; }
         #endregion

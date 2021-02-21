@@ -24,9 +24,13 @@ namespace layer_3
             var dv = type.Assembly.GetTypes().Where(i => i.IsSubclassOf(type)).Select(i => new item(i)).ToArray();
             list.AddRange(dv);
         }
-        internal void run(m_notify rsv)
+        internal async void run(m_notify rsv)
         {
-
+            y_sync y = new y_sync()
+            {
+                a_xid = rsv.xid
+            };
+            
         }
     }
 }

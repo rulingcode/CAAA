@@ -12,7 +12,7 @@ namespace layer_3
         public override string z_xid => a_xid;
         public override string z_yid => nameof(y_sync);
         public string a_xid { get; set; }
-        public long index { get; set; }
+        public long a_index { get; set; }
         public class output : y_output
         {
             public long index { get; set; }
