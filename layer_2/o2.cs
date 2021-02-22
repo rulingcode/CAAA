@@ -2,6 +2,7 @@
 using layer_1;
 using System;
 using System.Threading.Tasks;
+using layer_0.all;
 
 namespace layer_2
 {
@@ -35,7 +36,9 @@ namespace layer_2
         #endregion
 
         #region notify
-        public void c_add_notify(string xid)=>a.c_udp.xip
+        public void c_add_notify(string xid)
+        {
+        }
         public void s_send_notify(string xid, string userid, string command) => a.s_sender.send_notify(xid, userid, command);
         public c_receive_notify c_recive_notify { get; set; }
         public s_get_all_device s_get_all_device { get; set; }

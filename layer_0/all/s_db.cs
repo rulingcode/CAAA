@@ -1,11 +1,7 @@
-﻿using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using MongoDB.Driver;
 
-namespace layer_0
+namespace layer_0.all
 {
     public interface s_db<T> where T : m_id
     {

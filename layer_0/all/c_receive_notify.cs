@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace layer_0
+﻿namespace layer_0.all
 {
     public delegate void c_receive_notify(m_notify rsv);
 }

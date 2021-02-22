@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace layer_0
+namespace layer_0.all
 {
     public interface c_run
     {

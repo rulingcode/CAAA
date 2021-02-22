@@ -1,4 +1,4 @@
-﻿namespace layer_0
+﻿namespace layer_0.all
 {
     public enum e_permission
     {

@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace layer_0
+﻿namespace layer_0.all
 {
     public abstract class m_sync : m_id
     {

@@ -1,12 +1,8 @@
-﻿using layer_0;
-
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace layer_0
+namespace layer_0.all
 {
     public abstract class y
     {

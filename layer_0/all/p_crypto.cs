@@ -1,12 +1,11 @@
-﻿
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using Newtonsoft.Json;
 
-namespace layer_0
+namespace layer_0.all
 {
     public class p_crypto
     {

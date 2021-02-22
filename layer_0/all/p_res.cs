@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Net;
 using System.Net.Sockets;
 
-namespace layer_0
+namespace layer_0.all
 {
     public class p_res
     {
