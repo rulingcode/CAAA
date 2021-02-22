@@ -11,11 +11,11 @@ using layer_0.all;
 
 namespace layer_2
 {
-    class s_receiver
+    class s_notify_receiver
     {
         private readonly IPEndPoint endpoint;
         UdpClient reciver;
-        public s_receiver(IPEndPoint endpoint)
+        public s_notify_receiver(IPEndPoint endpoint)
         {
             this.endpoint = endpoint;
             reciver = new UdpClient(endpoint);
@@ -49,7 +49,10 @@ namespace layer_2
             }
             catch
             {
-
+                await a.o2.c_report(new m_report()
+                {
+                    errorid = "lfkvjghbhfhfhvhf",
+                });
             }
         }
     }

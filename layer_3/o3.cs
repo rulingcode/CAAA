@@ -24,8 +24,9 @@ namespace layer_3
 
         #region old
         public c_report c_report { get => a.o2.c_report; set => a.o2.c_report = value; }
-        public m_xip c_m_x { get => a.o2.c_xip; set => a.o2.c_xip = value; }
+        public m_xip c_xip { get => a.o2.c_xip; set => a.o2.c_xip = value; }
         public c_run c_run(string userid = null) => a.o2.run(userid);
+        public void c_notify(string rsv) => a.o2.c_notify(rsv);
         public void s_add_x(m_xip rsv) => a.o2.s_add_x(rsv);
         public void s_add_y<T>() where T : y, new() => a.o2.add_y<T>();
         #endregion

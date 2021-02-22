@@ -46,11 +46,15 @@ namespace layer_2
             locker.Release();
             return dv;
         }
-        public async void add(m_xip rsv)
+        public async void add(string rsv)
         {
+
             await locker.WaitAsync();
-            if (!list.Any(i => i.xip == rsv))
-                list.Add(new item() { xip = rsv, time = DateTime.Now.AddDays(-1) });
+            if (!list.Any(i => i.xip.id == rsv))
+            {
+                var dv = await a.x_c.get(rsv);
+                list.Add(new item() { xip = dv, time = DateTime.Now.AddDays(-1) });
+            }
             locker.Release();
         }
         async void connect(item rsv)

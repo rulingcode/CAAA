@@ -32,14 +32,12 @@ namespace layer_2
         public void add_y<T>() where T : y, new() => a.y_s.add_y<T>();
         public void s_add_x(m_xip rsv) => a.x_s.add_x(rsv);
         public Task<m_xip> c_get_x(string xid) => a.x_c.get(xid);
-        
+
         #endregion
 
         #region notify
-        public void c_add_notify(string xid)
-        {
-        }
-        public void s_send_notify(string xid, string userid, string command) => a.s_sender.send_notify(xid, userid, command);
+        public void c_notify(string xid) => a.c_notify.add(xid);
+        public void s_notify(string xid, string userid, string command) => a.s_sender.send_notify(xid, userid, command);
         public c_receive_notify c_recive_notify { get; set; }
         public s_get_all_device s_get_all_device { get; set; }
         #endregion
