@@ -9,7 +9,7 @@ namespace layer_0
     public enum s_command
     {
         invalid_device,
-        live,
-        notify
+        notify,
+        live
     }
 }

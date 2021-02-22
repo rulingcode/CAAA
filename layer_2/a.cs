@@ -13,7 +13,7 @@ namespace layer_2
         internal static c_y y_c;
         internal static s_x x_s;
         internal static c_x x_c;
-        internal static s_sender s_sender;
+        internal static s_notify_sender s_sender;
         internal static c_notify c_udp;
         internal static o2 o2 { get; set; }
         internal static string x_center => a.o2.c_xip.id;

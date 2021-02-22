@@ -8,7 +8,7 @@ namespace layer_0
 {
     public enum c_command
     {
-        register_me,
-        i_was_informed
+        connect,
+        received
     }
 }

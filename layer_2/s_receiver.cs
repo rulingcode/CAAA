@@ -34,14 +34,14 @@ namespace layer_2
                 var dv = p_crypto.convert<c_data>(val.Buffer);
                 switch (dv.command)
                 {
-                    case c_command.register_me:
+                    case c_command.connect:
                         {
-                            a.s_sender.add(dv.xid, val.RemoteEndPoint, dv.data, dv.encrypt_data);
+                            a.s_sender.connect(dv.xid, val.RemoteEndPoint, dv.deviceid, dv.data);
                         }
                         break;
-                    case c_command.i_was_informed:
+                    case c_command.received:
                         {
-                            a.s_sender.informed(dv.data);
+                            a.s_sender.received(dv.message_id);
                         }
                         break;
                 }

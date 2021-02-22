@@ -10,21 +10,20 @@ using System.Threading.Tasks;
 
 namespace layer_2
 {
-    class s_sender
+    class s_notify_sender
     {
         UdpClient sender = new UdpClient();
-        List<device> list = new List<device>();
-        SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        SemaphoreSlim locker2 = new SemaphoreSlim(1, 1);
-        List<sent_item> list2 = new List<sent_item>();
+        List<device> device_list = new List<device>();
+        SemaphoreSlim device_locker = new SemaphoreSlim(1, 1);
+        SemaphoreSlim notify_locker = new SemaphoreSlim(1, 1);
+        List<notify> notify_list = new List<notify>();
         long n = 1;
         class device
         {
-            public string endpont_str { get; set; }
             public IPEndPoint endpont { get; set; }
             public string deviceid { get; set; }
         }
-        class sent_item
+        class notify
         {
             public byte[] data { get; set; }
             public string id { get; set; }
@@ -32,7 +31,7 @@ namespace layer_2
             public IPEndPoint endpoint { get; set; }
             public DateTime time { get; set; }
         }
-        public s_sender()
+        public s_notify_sender()
         {
             checker();
         }
@@ -40,40 +39,39 @@ namespace layer_2
         {
             TimeSpan span = TimeSpan.FromMilliseconds(1000);
         retry:
-            await locker2.WaitAsync();
-            var dv = list2.Where(i => DateTime.Now - i.time > span).ToArray();
+            await notify_locker.WaitAsync();
+            var dv = notify_list.Where(i => DateTime.Now - i.time > span).ToArray();
             foreach (var i in dv)
             {
                 i.n++;
                 send(i.endpoint, i.data);
                 if (i.n >= 5)
-                    list2.Remove(i);
+                    notify_list.Remove(i);
             }
-            locker2.Release();
+            notify_locker.Release();
             await Task.Delay(100);
             goto retry;
         }
-        internal async void add(string xid, IPEndPoint endpoint, string deviceid, byte[] data)
+        internal async void connect(string xid, IPEndPoint ip, string deviceid, byte[] data)
         {
             var key = await a.o2.s_get_key(xid, deviceid);
             try
             {
                 data = p_crypto.Decrypt(data, key);
-                await locker.WaitAsync();
-                var dv = list.FirstOrDefault();
+                await device_locker.WaitAsync();
+                var dv = device_list.FirstOrDefault();
                 if (dv == null)
                 {
                     dv = new device() { deviceid = deviceid };
-                    list.Add(dv);
+                    device_list.Add(dv);
                 }
-                dv.endpont = endpoint;
-                dv.endpont_str = endpoint.ToString();
-                locker.Release();
-                send(endpoint, new s_data() { command = s_command.live });
+                dv.endpont = ip;
+                device_locker.Release();
+                send(ip, new s_data() { command = s_command.live });
             }
             catch
             {
-                send(endpoint, new s_data() { command = s_command.invalid_device });
+                send(ip, new s_data() { command = s_command.invalid_device });
             }
         }
         internal void send(IPEndPoint endPoint, s_data data)
@@ -88,39 +86,39 @@ namespace layer_2
         public async void send_notify(string xid, string userid, string command)
         {
             var dv = await a.o2.s_get_all_device(userid);
-            await locker.WaitAsync();
-            var dev = list.Where(i => dv.Contains(i.deviceid)).ToArray();
-            locker.Release();
+            await device_locker.WaitAsync();
+            var dev = device_list.Where(i => dv.Contains(i.deviceid)).ToArray();
+            device_locker.Release();
             if (dev.Length != 0)
                 foreach (var i in dev)
                     await send(xid, userid, command, i);
         }
         async Task send(string xid, string userid, string command, device i)
         {
-            await locker2.WaitAsync();
+            await notify_locker.WaitAsync();
             n++;
             var data = new s_data()
             {
                 command = s_command.notify,
-                id = n.ToString(),
-                data = xid + "*" + userid + "*" + command
+                mesageid = n.ToString(),
+                userid = xid + "*" + userid + "*" + command
             };
-            var item = new sent_item()
+            var item = new notify()
             {
                 endpoint = i.endpont,
-                id = data.id,
+                id = data.mesageid,
                 data = p_crypto.convert(data),
                 time = DateTime.Now
             };
             send(item.endpoint, item.data);
-            list2.Add(item);
-            locker2.Release();
+            notify_list.Add(item);
+            notify_locker.Release();
         }
-        internal async void informed(string id)
+        internal async void received(string message_id)
         {
-            await locker2.WaitAsync();
-            list2.RemoveAll(i => i.id == id);
-            locker2.Release();
+            await notify_locker.WaitAsync();
+            notify_list.RemoveAll(i => i.id == message_id);
+            notify_locker.Release();
         }
     }
 }

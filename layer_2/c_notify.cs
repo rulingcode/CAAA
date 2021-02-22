@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace layer_2
@@ -14,31 +15,53 @@ namespace layer_2
     class c_notify
     {
         UdpClient client = new UdpClient();
-        DateTime last_receive = DateTime.Now.AddDays(-1);
-        
+        List<item> list = new List<item>();
+        SemaphoreSlim locker = new SemaphoreSlim(1, 1);
+        class item
+        {
+            public m_xip xip { get; set; }
+            public DateTime time { get; set; }
+        }
         public c_notify()
         {
             receiver();
-        }
-        public void add(m_xip rsv)
-        {
-
+            live();
         }
         async void live()
         {
         retry:
-            if (DateTime.Now - last_receive > TimeSpan.FromSeconds(5))
-            {
-                byte[] bfr = new byte[10];
-                p_crypto.random.NextBytes(bfr);
-                var key = await a.o2.c_get_key();
-                bfr = p_crypto.Encrypt(bfr, key);
-                send(new c_data() { command = c_command.register_me, encrypt_data = bfr, data = key.id });
-            }
-            await Task.Delay(1000);
+            await locker.WaitAsync();
+            var dv = list.Where(i => DateTime.Now - i.time > TimeSpan.FromMilliseconds(5000)).ToArray();
+            locker.Release();
+            foreach (var i in dv)
+                connect(i);
+            await Task.Delay(250);
             goto retry;
         }
-        async void send(c_data data)
+        async Task<item> get(string xid)
+        {
+            await locker.WaitAsync();
+            var dv = list.FirstOrDefault(i => i.xip.id == xid);
+            locker.Release();
+            return dv;
+        }
+        public async void add(m_xip rsv)
+        {
+            await locker.WaitAsync();
+            if (!list.Any(i => i.xip == rsv))
+                list.Add(new item() { xip = rsv, time = DateTime.Now.AddDays(-1) });
+            locker.Release();
+        }
+        async void connect(item rsv)
+        {
+            byte[] bfr = new byte[10];
+            p_crypto.random.NextBytes(bfr);
+            var key = await a.o2.c_get_key();
+            bfr = p_crypto.Encrypt(bfr, key);
+            send(rsv.xip, new c_data() { command = c_command.connect, data = bfr, deviceid = key.id });
+            rsv.time = DateTime.Now;
+        }
+        async void send(m_xip xip, c_data data)
         {
             var dv = p_crypto.convert(data);
             await client.SendAsync(dv, dv.Length, xip.endpint);
@@ -63,30 +86,20 @@ namespace layer_2
                         break;
                     case s_command.live:
                         {
-                            last_receive = DateTime.Now;
+                            var dv = await get(data.xid);
+                            dv.time = DateTime.Now;
                         }
                         break;
                     case s_command.notify:
                         {
-                            var dv = data.data.Split('*');
-                            if (dv.Length != 3)
+                            var dv = await get(data.xid);
+                            dv.time = DateTime.Now;
+                            send(dv.xip, new c_data() { command = c_command.received, message_id = data.mesageid });
+                            a.o2.c_recive_notify?.Invoke(new m_notify()
                             {
-                                await a.o2.c_report(new m_report()
-                                {
-                                    errorid = "kjkdkvjfhbjhfhjv",
-                                    message = "invalid notify format",
-                                    value = data.data
-                                });
-                            }
-                            else
-                            {
-                                send(new c_data() { command = c_command.i_was_informed, data = data.id });
-                                a.o2.c_recive_notify?.Invoke(new m_notify()
-                                {
-                                    xid = dv[0],
-                                    userid = dv[1]
-                                });
-                            }
+                                xid = data.xid,
+                                userid = data.userid
+                            });
                         }
                         break;
                 }
