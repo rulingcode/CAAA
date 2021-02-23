@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_0", "layer_0\layer_0.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_2", "layer_2\layer_2.csproj", "{A066F6D7-D21D-429C-91EB-66BE23110BF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "layer_4", "layer_4\layer_4.csproj", "{EAEEC596-6E9E-4FF8-85E5-280DF74EDAF0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_3", "layer_3\layer_3.csproj", "{95C5766F-7407-459B-A90C-1E48BB535E1D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "z_x_center", "z_x_center\z_x_center.csproj", "{9C2DB2D0-9E7D-444E-A055-12A7B4B19AB3}"
@@ -33,10 +31,6 @@ Global
 		{A066F6D7-D21D-429C-91EB-66BE23110BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A066F6D7-D21D-429C-91EB-66BE23110BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A066F6D7-D21D-429C-91EB-66BE23110BF9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAEEC596-6E9E-4FF8-85E5-280DF74EDAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAEEC596-6E9E-4FF8-85E5-280DF74EDAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAEEC596-6E9E-4FF8-85E5-280DF74EDAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAEEC596-6E9E-4FF8-85E5-280DF74EDAF0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95C5766F-7407-459B-A90C-1E48BB535E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95C5766F-7407-459B-A90C-1E48BB535E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95C5766F-7407-459B-A90C-1E48BB535E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU

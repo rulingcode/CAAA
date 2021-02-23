@@ -32,7 +32,6 @@ namespace layer_4
 
         internal static void start(Window window, s_lib lib)
         {
-            p_crypto.filekeys(Environment.SpecialFolder.MyDocuments);
             if (a.window != null)
                 throw new Exception("ekvifbjjvhdhvjgjvjd");
             a.window = window;
