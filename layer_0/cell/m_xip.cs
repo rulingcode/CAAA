@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using Newtonsoft.Json;
 
-namespace layer_0.all
+namespace layer_0.cell
 {
     public class m_xip
     {

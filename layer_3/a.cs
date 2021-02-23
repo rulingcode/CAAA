@@ -8,14 +8,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using layer_0.all;
+using layer_0.cell;
 
 namespace layer_3
 {
     class a
     {
         internal static o o3;
-        internal static layer_0.all.o2 o2;
+        internal static layer_0.cell.o2 o2;
         internal static c_key c_key;
         internal static s_key s_key;
         internal static c_user c_user;

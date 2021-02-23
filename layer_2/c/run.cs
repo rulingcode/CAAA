@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using layer_0.all;
+using layer_0.cell;
 
 namespace layer_2.c
 {
@@ -11,6 +11,6 @@ namespace layer_2.c
     {
         readonly string userid;
         internal run(string userid) => this.userid = userid;
-        public Task<T> get<T>(layer_0.all.y y) where T : y_output => a.c_y.run<T>(userid, y);
+        public Task<T> get<T>(layer_0.cell.y y) where T : y_output => a.c_y.run<T>(userid, y);
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using layer_0.all;
+using layer_0.cell;
 
 namespace layer_2.s
 {
@@ -48,7 +48,7 @@ namespace layer_2.s
                 met(null, e_error.no_implement);
                 return;
             }
-            var y = JsonConvert.DeserializeObject(packet_y.data, type) as layer_0.all.y;
+            var y = JsonConvert.DeserializeObject(packet_y.data, type) as layer_0.cell.y;
             e_permission p = 0;
             if (packet.deviceid == null)
             {
@@ -100,7 +100,7 @@ namespace layer_2.s
                 reply(data, e);
             }
         }
-        internal async void add_y<T>() where T : layer_0.all.y, new()
+        internal async void add_y<T>() where T : layer_0.cell.y, new()
         {
             await locker.WaitAsync();
             T dv = new T();

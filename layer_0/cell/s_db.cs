@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MongoDB.Driver;
 
-namespace layer_0.all
+namespace layer_0.cell
 {
     public interface s_db<T> where T : m_id
     {

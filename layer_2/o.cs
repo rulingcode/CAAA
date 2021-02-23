@@ -2,7 +2,7 @@
 using layer_1;
 using System;
 using System.Threading.Tasks;
-using layer_0.all;
+using layer_0.cell;
 
 namespace layer_2
 {
@@ -21,7 +21,7 @@ namespace layer_2
         public c_run run(string userid = null) => new c.run(userid);
         public s_get_key s_get_key { get; set; }
         public s_middle_y s_middle_y { get; set; }
-        public void s_add_y<T>() where T : layer_0.all.y, new() => a.s_y.add_y<T>();
+        public void s_add_y<T>() where T : layer_0.cell.y, new() => a.s_y.add_y<T>();
         public void s_add_x(m_xip rsv) => a.s_x.add_x(rsv);
         public void s_notify(string xid, string deviceid, string userid) => a.s_notify.send(xid, deviceid, userid);
         public c_notify c_notify { get; set; }

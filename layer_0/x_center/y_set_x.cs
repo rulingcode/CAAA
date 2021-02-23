@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using layer_0.all;
+using layer_0.cell;
 
 namespace layer_0.x_center
 {

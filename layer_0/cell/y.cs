@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace layer_0.all
+namespace layer_0.cell
 {
     public abstract class y
     {
