@@ -5,10 +5,8 @@ namespace layer_0.all
 {
     public class m_xip
     {
-        public string id { get; set; }
         string dataf;
-        public IPEndPoint endpint => IPEndPoint.Parse(data);
-
+        public string id { get; set; }
         public string data
         {
             get => dataf;
@@ -20,6 +18,7 @@ namespace layer_0.all
                 port = int.Parse(dv[1]);
             }
         }
+        [JsonIgnore] public IPEndPoint endpint => IPEndPoint.Parse(data);
         [JsonIgnore] public string address { get; private set; }
         [JsonIgnore] public int port { get; private set; }
         public override string ToString() => data;

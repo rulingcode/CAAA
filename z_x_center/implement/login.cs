@@ -11,7 +11,7 @@ namespace z_x_center.implement
 {
     class login : y_login
     {
-        protected async override void implement(s_reply2<output> reply)
+        protected async override void implement(s_reply<output> reply)
         {
             
         }

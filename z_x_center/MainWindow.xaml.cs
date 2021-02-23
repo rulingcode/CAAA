@@ -28,10 +28,9 @@ namespace z_x_center
         {
             InitializeComponent();
             Height = 100; Width = 300; WindowState = WindowState.Minimized;
-            a.o3.c_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
             a.o3.c_report = c_report;
-            a.o3.s_add_x(a.o3.c_xip);
             
+            a.o3.s_add_x(new m_xip() { id = "x_center", data = p_res.get_endpoint(10000).ToString() });
         }
         private Task c_report(m_report report)
         {

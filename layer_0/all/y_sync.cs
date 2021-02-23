@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using layer_0.all;
 
-namespace layer_3
+namespace layer_0.all
 {
-    class y_sync : y<y_sync.output>
+    public class y_sync : y<y_sync.output>
     {
         public override string z_xid => a_xid;
         public override string z_yid => nameof(y_sync);

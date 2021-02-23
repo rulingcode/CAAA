@@ -6,6 +6,6 @@ e = enum
 
 x = service ID prefix
 y = function ID prefix
-k = device ID prefix
+k = skelet ID prefix
 u = user ID prefix
 b = sub-user id prefix

@@ -16,7 +16,7 @@ namespace z_x_center.implement
     class device_registration : y_device_registration
     {
 
-        protected override async void implement(s_reply2<output> reply)
+        protected override async void implement(s_reply<output> reply)
         {
             a_key = p_crypto.Decrypt(a_key, private_key.data);
             m_key key = m_key.create(a_key);

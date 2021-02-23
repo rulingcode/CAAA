@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using layer_0.all;
+using layer_0.x_center;
 
 namespace layer_2.s
 {
     class set_x : y_set_x
     {
         static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        protected async override void implement(s_reply2<output> reply)
+        protected async override void implement(s_reply<output> reply)
         {
             if (a_x_m.id != z_userid)
             {

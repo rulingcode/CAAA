@@ -15,7 +15,7 @@ namespace z_x_center.implement
 {
     class get_key : y_get_key
     {
-        protected async override void implement(s_reply2<output> reply)
+        protected async override void implement(s_reply<output> reply)
         {
             var db = z_db.a_share<m_key>();
             var dv = await db.get(a_deviceid);
