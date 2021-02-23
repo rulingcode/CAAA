@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using layer_0.all;
 
-namespace layer_2.implement
+namespace layer_2.s
 {
     class get_x : y_get_x
     {

@@ -1,7 +1,4 @@
-﻿using layer_0;
-using layer_1;
-using layer_2.implement;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using layer_0.all;
 
-namespace layer_2
+namespace layer_2.s
 {
-    class s_y
+    class y
     {
         List<item> list = new List<item>();
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
@@ -22,14 +19,14 @@ namespace layer_2
             public string yid { get; set; }
             public Type type { get; set; }
         }
-        public s_y()
+        public y()
         {
             a.o1.y_s = y_s;
         }
         async void y_s(byte[] data, s_reply reply)
         {
             var packet = p_crypto.convert<m_packet>(data);
-            var keys = await a.o2.s_get_key(packet.xid, packet.deviceid);
+            var keys = await a.o2.s_get_key(packet.deviceid);
             if (packet.deviceid != null)
             {
                 if (keys == null)
@@ -51,7 +48,7 @@ namespace layer_2
                 met(null, e_error.no_implement);
                 return;
             }
-            var y = JsonConvert.DeserializeObject(packet_y.data, type) as y;
+            var y = JsonConvert.DeserializeObject(packet_y.data, type) as layer_0.all.y;
             e_permission p = 0;
             if (packet.deviceid == null)
             {
@@ -103,7 +100,7 @@ namespace layer_2
                 reply(data, e);
             }
         }
-        internal async void add_y<T>() where T : y, new()
+        internal async void add_y<T>() where T : layer_0.all.y, new()
         {
             await locker.WaitAsync();
             T dv = new T();

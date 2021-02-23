@@ -7,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using layer_0.all;
 
-namespace layer_2
+namespace layer_2.c
 {
-    class c_x
+    class x
     {
         m_xip[] list = new m_xip[0];
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);

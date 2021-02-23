@@ -6,13 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using layer_0.all;
 
-namespace layer_2
+namespace layer_0.all
 {
-    class s_data
+    public class m_login_notify
     {
-        public s_command command { get; set; }
-        public string mesageid { get; set; }
+        public string deviceid { get; set; }
         public string xid { get; set; }
-        public string userid { get; set; }
+        public byte[] data { get; set; }
     }
 }

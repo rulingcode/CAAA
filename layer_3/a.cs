@@ -14,8 +14,8 @@ namespace layer_3
 {
     class a
     {
-        internal static o3 o3;
-        internal static o2 o2;
+        internal static o o3;
+        internal static layer_0.all.o2 o2;
         internal static c_key c_key;
         internal static s_key s_key;
         internal static c_user c_user;

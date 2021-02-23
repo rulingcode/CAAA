@@ -15,7 +15,7 @@ namespace layer_3
 {
     class s_key
     {
-        internal async Task<m_key> get(string xid, string deviceid)
+        internal async Task<m_key> get(string deviceid)
         {
             var coll = a.s_db.a_share<m_key>();
             var key = await coll.get(deviceid);
@@ -25,7 +25,7 @@ namespace layer_3
                 {
                     a_deviceid = deviceid
                 };
-                var o = await y.run_c(a.run(xid));
+                var o = await y.run_c(a.run("x_any"));
                 if (o.z_error != e_error.non)
                     return null;
                 key = o.m_key;

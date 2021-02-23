@@ -5,11 +5,11 @@ using System;
 using System.Threading.Tasks;
 using layer_0.all;
 
-namespace layer_2
+namespace layer_2.c
 {
-    class c_y
+    class y
     {
-        internal async Task<output> run<output>(string userid, y y)
+        internal async Task<output> run<output>(string userid, layer_0.all.y y)
         {
             m_packet_y packet_y = new m_packet_y()
             {
@@ -28,7 +28,7 @@ namespace layer_2
                 data = data
             };
             data = p_crypto.convert(packet);
-            m_xip endpoint = await a.x_c.get(y.z_xid);
+            m_xip endpoint = await a.c_x.get(y.z_xid);
             data = await a.o1.run_c(endpoint, data);
             if (key != null)
                 data = p_crypto.Decrypt(data, key);

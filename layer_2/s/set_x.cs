@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using layer_0.all;
 
-namespace layer_2.implement
+namespace layer_2.s
 {
     class set_x : y_set_x
     {

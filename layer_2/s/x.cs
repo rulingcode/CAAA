@@ -1,24 +1,21 @@
-﻿using layer_0;
-using layer_1;
-using layer_2.implement;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using layer_0.all;
 
-namespace layer_2
+namespace layer_2.s
 {
-    class s_x
+    class x
     {
         internal async void add_x(m_xip rsv)
         {
             a.o1.add_x(rsv);
             if (rsv.id == a.o2.c_xip.id)
             {
-                a.o2.add_y<get_x>();
-                a.o2.add_y<set_x>();
+                a.o2.s_add_y<get_x>();
+                a.o2.s_add_y<set_x>();
             }
             else
             {

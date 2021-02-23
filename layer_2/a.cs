@@ -1,4 +1,5 @@
-﻿using layer_1;
+﻿using layer_0.all;
+using layer_1;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,13 +10,15 @@ namespace layer_2
     class a
     {
         internal static o1 o1;
-        internal static s_y y_s;
-        internal static c_y y_c;
-        internal static s_x x_s;
-        internal static c_x x_c;
-        internal static s_notify_sender s_sender;
-        internal static c_notify c_notify;
-        internal static o2 o2 { get; set; }
+
+        internal static s.y s_y;
+        internal static s.x s_x;
+        internal static s.notify s_notify;
+
+        internal static c.y c_y;
+        internal static c.x c_x;
+        internal static c.notify c_notify;
+        internal static o o2 { get; set; }
         internal static string x_center => a.o2.c_xip.id;
     }
 }

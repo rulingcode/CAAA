@@ -24,14 +24,13 @@ namespace z_x_center
     /// </summary>
     public partial class MainWindow : Window
     {
-        o3 o3 = o3.create();
         public MainWindow()
         {
             InitializeComponent();
             Height = 100; Width = 300; WindowState = WindowState.Minimized;
             a.o3.c_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
             a.o3.c_report = c_report;
-            a.o3.s_add_x(o3.c_xip);
+            a.o3.s_add_x(a.o3.c_xip);
 
         }
         private Task c_report(m_report report)

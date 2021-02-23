@@ -1,15 +1,14 @@
 ﻿using layer_0.all;
-using layer_3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace z_x_center
+namespace layer_3
 {
-    class a
+    public class o3_factory
     {
-       public static o3 o3 = o3_factory.create();
+        public static o3 create() => a.o3 == null ? new o() : null;
     }
 }
