@@ -1,7 +1,4 @@
-﻿using layer_0;
-using layer_1;
-using layer_3;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using layer_0.all;
 
-namespace z_x_center
+namespace layer_4
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -27,15 +23,7 @@ namespace z_x_center
         public MainWindow()
         {
             InitializeComponent();
-            Height = 100; Width = 300; WindowState = WindowState.Minimized;
-            a.o3.c_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
-            a.o3.c_report = c_report;
-            a.o3.s_add_x(a.o3.c_xip);
-            
-        }
-        private Task c_report(m_report report)
-        {
-            throw new NotImplementedException();
+            s_lib.start(this, null);
         }
     }
 }

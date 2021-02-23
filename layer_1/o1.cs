@@ -10,8 +10,8 @@ namespace layer_1
     public class o1
     {
         public c_report report { get; set; }
-        public void add_x(m_xip endpoint) => a.s_x.add(endpoint);
-        public Task<byte[]> run_c(m_xip endpoint, byte[] data) => a.y_c.run(endpoint, data);
+        public void add_x(m_xip val) => a.s_x.add(val);
+        public Task<byte[]> run_c(m_xip val, byte[] data) => a.y_c.run(val, data);
         public s_y y_s { get; set; }
         public void remove_c(m_xip endpoint) => a.y_c.close(endpoint);
         public void remove_s(m_xip endpoint) => a.s_x.remove(endpoint);
