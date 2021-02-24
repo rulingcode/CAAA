@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using layer_0.cell;
 using layer_0.x_center;
 
-namespace layer_2.s
+namespace z_x_center.implement
 {
     class set_x : y_set_x
     {

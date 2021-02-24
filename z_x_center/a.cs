@@ -10,6 +10,6 @@ namespace z_x_center
 {
     class a
     {
-       public static o3 o3 = o3_factory.create();
+        public static o3 o3;
     }
 }

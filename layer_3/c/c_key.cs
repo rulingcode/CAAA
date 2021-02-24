@@ -36,7 +36,7 @@ namespace layer_3
                     };
                     y.a_login = p_crypto.convert(login_m);
                     y.a_login = p_crypto.Encrypt(y.a_login, dv_key);
-                    var o = await y.run_c(a.run());
+                    var o = await y.run(a.run());
                     if (o.z_error == e_error.non)
                     {
                         dv_key.id = o.deviceid;

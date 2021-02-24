@@ -1,4 +1,5 @@
 ﻿using layer_0.cell;
+using layer_0.x_center;
 using layer_3;
 using System;
 using System.Collections.Generic;
@@ -30,10 +31,13 @@ namespace z_client
         async void Button_Click(object sender, RoutedEventArgs e)
         {
             o3 = o3_factory.create();
-            layer_0.x_center.y_login y = new layer_0.x_center.y_login();
+            y_send_code y = new y_send_code();
             y.a_phoneid = "09123456789";
-            y.a_password = "6789";
-            var dv = await y.run_c(o3.c_run());
+            var dv = await y.run(o3.c_run());
+            //layer_0.x_center.y_login y = new layer_0.x_center.y_login();
+            //y.a_phoneid = "09123456789";
+            //y.a_password = "6789";
+            //var dv = await y.run_c(o3.c_run());
         }
     }
 }

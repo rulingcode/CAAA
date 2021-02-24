@@ -16,7 +16,7 @@ namespace layer_0.cell
     }
     public abstract class y<output> : y where output : y_output, new()
     {
-        public virtual Task<output> run_c(c_run rsv) => rsv.get<output>(this);
+        public virtual Task<output> run(c_run rsv) => rsv.get<output>(this);
         public sealed override async void z_run(s_reply reply)
         {
             Action action = () =>

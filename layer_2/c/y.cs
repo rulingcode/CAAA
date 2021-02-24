@@ -9,7 +9,7 @@ namespace layer_2.c
 {
     class y
     {
-        internal async Task<output> run<output>(string userid, layer_0.cell.y y)
+        internal async Task<output> run<output>(string userid, layer_0.cell.y y) where output : y_output
         {
             m_packet_y packet_y = new m_packet_y()
             {
@@ -32,7 +32,9 @@ namespace layer_2.c
             data = await a.o1.run_c(endpoint, data);
             if (key != null)
                 data = p_crypto.Decrypt(data, key);
-            return p_crypto.convert<output>(data);
+            var o = p_crypto.convert<output>(data);
+            await a.o2.c_middle_y(y, o);
+            return o;
         }
     }
 }

@@ -26,8 +26,9 @@ namespace layer_2.c
             {
                 await Task.Delay(100);
                 y_get_x y = new y_get_x();
-                var o = await y.run_c(a.o2.run(null));
+                var o = await y.run(a.o2.c_run(null));
                 list = o.list;
+                a.c_notify.connect(list);
                 goto retry;
             }
             return dv;
