@@ -11,8 +11,8 @@ namespace layer_0.cell
         [JsonIgnore] public virtual e_permission z_permission => e_permission.u;
         [JsonIgnore] public string z_deviceid { get; set; }
         [JsonIgnore] public string z_userid { get; set; }
+        [JsonIgnore] public s_db_factory z_db { get; set; }
         public abstract void z_run(s_reply reply);
-        public s_db_factory z_db { get; set; }
     }
     public abstract class y<output> : y where output : y_output, new()
     {

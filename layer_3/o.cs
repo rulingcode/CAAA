@@ -15,7 +15,15 @@ namespace layer_3
         {
             a.o3 = this;
             a.o2 = o2_factory.create();
-            a.client = new MongoClient();
+
+            a.c_db = new c.db();
+            a.c_key = new c.key();
+            a.c_recive_notify = new c.receive_notify();
+
+            a.s_key = new key();
+            a.s_middle = new middle();
+            a.s_db_engin = new MongoClient();
+
             a.o2.c_get_key = a.c_key.get;
             a.o2.s_get_key = a.s_key.get;
             a.o2.s_middle_y = a.s_middle.run;

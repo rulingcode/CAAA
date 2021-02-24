@@ -15,11 +15,11 @@ namespace layer_3.s
         internal db_factory(string xid) => this.xid = xid;
         public s_db<T> a_x<T>() where T : m_id
         {
-            return new db<T>(a.client.GetDatabase(xid).GetCollection<T>("x_" + typeof(T).Name));
+            return new db<T>(a.s_db_engin.GetDatabase(xid).GetCollection<T>("x_" + typeof(T).Name));
         }
         public s_db<T> a_user<T>(string userid) where T : m_id
         {
-            return new db<T>(a.client.GetDatabase(xid).GetCollection<T>("u_" + userid + "_" + typeof(T).Name));
+            return new db<T>(a.s_db_engin.GetDatabase(xid).GetCollection<T>("u_" + userid + "_" + typeof(T).Name));
         }
     }
 }

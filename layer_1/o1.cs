@@ -11,11 +11,16 @@ namespace layer_1
     {
         public c_report report { get; set; }
         public void add_x(m_xip val) => a.s_x.add(val);
-        public Task<byte[]> run_c(m_xip val, byte[] data) => a.y_c.run(val, data);
+        public Task<byte[]> run_c(m_xip val, byte[] data) => a.c_y.run(val, data);
         public s_y y_s { get; set; }
-        public void remove_c(m_xip endpoint) => a.y_c.close(endpoint);
+        public void remove_c(m_xip endpoint) => a.c_y.close(endpoint);
         public void remove_s(m_xip endpoint) => a.s_x.remove(endpoint);
-        o1() => a.o1 = this;
+        o1()
+        {
+            a.o1 = this;
+            a.s_x = new s_x();
+            a.c_y = new c_y();
+        }
         public static o1 create() => a.o1 == null ? new o1() : null;
     }
 }

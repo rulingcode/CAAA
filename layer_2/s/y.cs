@@ -18,6 +18,10 @@ namespace layer_2.s
             public string xid { get; set; }
             public string yid { get; set; }
             public Type type { get; set; }
+            public override string ToString()
+            {
+                return xid + "." + yid + " : " + type.FullName;
+            }
         }
         public y()
         {

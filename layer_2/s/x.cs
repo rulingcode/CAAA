@@ -13,7 +13,8 @@ namespace layer_2.s
         internal async void add_x(m_xip rsv)
         {
             a.o1.add_x(rsv);
-
+            if (rsv.id == "x_center")
+                return;
             y_set_x y = new y_set_x()
             {
                 a_x_m = rsv

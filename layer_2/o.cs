@@ -12,6 +12,11 @@ namespace layer_2
         {
             a.o2 = this;
             a.o1 = o1.create();
+
+            a.c_notify = new c.notify();
+            a.c_x = new c.x();
+            a.c_y = new c.y();
+            
             a.s_y = new s.y();
             a.s_x = new s.x();
         }

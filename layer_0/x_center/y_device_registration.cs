@@ -10,7 +10,7 @@ namespace layer_0.x_center
 {
     public class y_device_registration : y<y_device_registration.output>
     {
-        public override string z_yid => nameof(y_login);
+        public override string z_yid => nameof(y_device_registration);
         public override e_permission z_permission => e_permission.non;
         public byte[] a_key { get; set; }
         public byte[] a_login { get; set; }

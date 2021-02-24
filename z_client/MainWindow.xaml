@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:z_client"
         mc:Ignorable="d"
-        Title="MainWindow" SizeToContent="Height" Width="300">
+        Title="client" SizeToContent="Height" Width="300">
     <StackPanel>
-        <Button Content="client" Click="Button_Click" ></Button>
+        <Button Content="run" Click="Button_Click" ></Button>
     </StackPanel>
 </Window>

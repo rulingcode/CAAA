@@ -21,9 +21,9 @@ namespace layer_3
         internal static c.receive_notify c_recive_notify;
         internal static s.key s_key;
         internal static s.middle s_middle;
-        internal static MongoClient client;
+        internal static MongoClient s_db_engin;
         internal static c_run run(string xid = null) => o3.c_run(xid);
-        internal static s_db<T> share_db<T>() where T : m_id => new s.db<T>(client.GetDatabase("share").GetCollection<T>(typeof(T).Name));
+        internal static s_db<T> share_db<T>() where T : m_id => new s.db<T>(s_db_engin.GetDatabase("share").GetCollection<T>(typeof(T).Name));
 
     }
 }

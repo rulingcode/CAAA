@@ -17,13 +17,16 @@ namespace layer_3.c
             var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "caaa");
             Directory.CreateDirectory(folder);
             var file = Path.Combine(folder, "local.db");
-            lite = new LiteDB.LiteDatabase(file);
+            lite = new LiteDatabase(new ConnectionString() { Connection = ConnectionType.Shared, Filename = file });
         }
-        public ILiteCollection<T> get<T>(string name = null) => lite.GetCollection<T>(name);
-        public byte[] get(string name)
+        public ILiteCollection<T> get<T>(string name = null)
         {
-            return get<item>(file).FindOne(i => i.id == name)?.data;
+            if (name == null)
+                name = typeof(T).Name;
+            return lite.GetCollection<T>(name);
         }
+
+        public byte[] get(string name) => get<item>(file).FindOne(i => i.id == name)?.data;
         public void set(string name, byte[] data)
         {
             get<item>(file).Upsert(new item() { id = name, data = data });
