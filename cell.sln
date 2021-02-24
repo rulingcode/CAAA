@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "layer_3", "layer_3\layer_3.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "z_x_center", "z_x_center\z_x_center.csproj", "{9C2DB2D0-9E7D-444E-A055-12A7B4B19AB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "z_client", "z_client\z_client.csproj", "{360F73EE-3115-4BAF-8EF0-27AEA62ABE97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9C2DB2D0-9E7D-444E-A055-12A7B4B19AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C2DB2D0-9E7D-444E-A055-12A7B4B19AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C2DB2D0-9E7D-444E-A055-12A7B4B19AB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360F73EE-3115-4BAF-8EF0-27AEA62ABE97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360F73EE-3115-4BAF-8EF0-27AEA62ABE97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360F73EE-3115-4BAF-8EF0-27AEA62ABE97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360F73EE-3115-4BAF-8EF0-27AEA62ABE97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
