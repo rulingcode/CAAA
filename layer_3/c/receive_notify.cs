@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using layer_0.cell;
 
-namespace layer_3
+namespace layer_3.c
 {
-    internal class c_receive_notify
+    internal class receive_notify
     {
         List<item> list = new List<item>();
         class item
@@ -19,7 +19,7 @@ namespace layer_3
                 this.type = type;
             }
         }
-        public c_receive_notify()
+        public receive_notify()
         {
             var type = typeof(m_sync);
             var dv = type.Assembly.GetTypes().Where(i => i.IsSubclassOf(type)).Select(i => new item(i)).ToArray();

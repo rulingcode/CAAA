@@ -10,17 +10,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using layer_0.cell;
 
-namespace layer_3
+namespace layer_3.c
 {
-    class c_key
+    class key
     {
         private const string key_str = "key";
-        m_key key = null;
+        m_key m_key = null;
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
         internal async Task<m_key> get()
         {
             await locker.WaitAsync();
-            if (key == null)
+            if (m_key == null)
             {
                 var dv = a.c_db.get(key_str);
                 if (dv == null)
@@ -41,18 +41,18 @@ namespace layer_3
                     {
                         dv_key.id = o.deviceid;
                         a.c_db.set(key_str, p_crypto.convert(dv_key));
-                        key = dv_key;
+                        m_key = dv_key;
                     }
                     else
                         throw new Exception("gkfvjghvfchfbvhgndc");
                 }
                 else
                 {
-                    key = p_crypto.convert<m_key>(dv);
+                    m_key = p_crypto.convert<m_key>(dv);
                 }
             }
             locker.Release();
-            return key;
+            return m_key;
         }
     }
 }

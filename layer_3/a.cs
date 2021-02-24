@@ -16,13 +16,14 @@ namespace layer_3
     {
         internal static o o3;
         internal static o2 o2;
-        internal static c_key c_key;
-        internal static s_key s_key;
-        internal static s_db_ s_db;
-        internal static c_db c_db;
-        internal static middle s_middle;
+        internal static c.key c_key;
+        internal static c.db c_db;
+        internal static c.receive_notify c_recive_notify;
+        internal static s.key s_key;
+        internal static s.middle s_middle;
         internal static MongoClient client;
-        internal static c_receive_notify c_recive_notify;
         internal static c_run run(string xid = null) => o3.c_run(xid);
+        internal static s_db<T> share_db<T>() where T : m_id => new s.db<T>(client.GetDatabase("share").GetCollection<T>(typeof(T).Name));
+
     }
 }

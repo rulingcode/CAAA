@@ -1,29 +1,20 @@
-﻿using layer_0;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using layer_0.cell;
+﻿using layer_0.cell;
+using MongoDB.Driver;
+using System.Threading.Tasks;
 
 namespace layer_3.s
 {
-    class db : s_db
+    class db<T> : s_db<T> where T : m_id
     {
-        private readonly string xid;
-        internal db(string xid) => this.xid = xid;
-        public s_db<T> a_share<T>() where T : m_id
+        public IMongoCollection<T> coll { get; }
+        internal db(IMongoCollection<T> coll) => this.coll = coll;
+        public async Task<T> get(string id)
         {
-            return new p_db<T>(a.client.GetDatabase("all").GetCollection<T>(typeof(T).Name));
+            return await (await coll.FindAsync(i => i.id == id)).FirstOrDefaultAsync();
         }
-        public s_db<T> a_x<T>() where T : m_id
+        public async Task upsert(T val)
         {
-            return new p_db<T>(a.client.GetDatabase(xid).GetCollection<T>("x_" + typeof(T).Name));
-        }
-        public s_db<T> a_user<T>(string userid) where T : m_id
-        {
-            return new p_db<T>(a.client.GetDatabase(xid).GetCollection<T>("u_" + userid + "_" + typeof(T).Name));
+            await coll.ReplaceOneAsync(i => i.id == val.id, val, new ReplaceOptions() { IsUpsert = true });
         }
     }
 }

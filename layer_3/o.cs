@@ -5,6 +5,7 @@ using System;
 using System.Threading.Tasks;
 using layer_0.cell;
 using MongoDB.Driver;
+using layer_3.s;
 
 namespace layer_3
 {
@@ -15,9 +16,6 @@ namespace layer_3
             a.o3 = this;
             a.o2 = o2_factory.create();
             a.client = new MongoClient();
-            a.s_db=new s_db_()
-
-
             a.o2.c_get_key = a.c_key.get;
             a.o2.s_get_key = a.s_key.get;
             a.o2.s_middle_y = a.s_middle.run;

@@ -17,7 +17,7 @@ namespace z_x_center.implement
     {
         protected async override void implement(s_reply<output> reply)
         {
-            var db = z_db.a_share<m_key>();
+            var db = z_db.a_x<m_key>();
             var dv = await db.get(a_deviceid);
             if (dv == null)
                 reply(new output() { z_error = e_error.invalid_deviceid });

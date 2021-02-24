@@ -6,20 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_3
+namespace layer_3.c
 {
-    class c_db
+    class db
     {
         private const string file = "file";
-        LiteDB.LiteDatabase db;
-        public c_db()
+        LiteDB.LiteDatabase lite;
+        public db()
         {
             var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "caaa");
             Directory.CreateDirectory(folder);
             var file = Path.Combine(folder, "local.db");
-            db = new LiteDB.LiteDatabase(file);
+            lite = new LiteDB.LiteDatabase(file);
         }
-        public ILiteCollection<T> get<T>(string name = null) => db.GetCollection<T>(name);
+        public ILiteCollection<T> get<T>(string name = null) => lite.GetCollection<T>(name);
         public byte[] get(string name)
         {
             return get<item>(file).FindOne(i => i.id == name)?.data;
