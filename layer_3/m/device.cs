@@ -8,7 +8,7 @@ using layer_0.cell;
 
 namespace layer_3.data_model
 {
-    class m_device : m_id
+    class device : m_id
     {
         public List<string> users = new List<string>();
     }

@@ -13,7 +13,7 @@ namespace layer_0.x_center
         public override string z_yid => nameof(y_device_registration);
         public override e_permission z_permission => e_permission.non;
         public byte[] a_key { get; set; }
-        public byte[] a_login { get; set; }
+        public byte[] a_login_skelet { get; set; }
         public class output : y_output
         {
             public string deviceid { get; set; }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using layer_0.cell;
+using layer_3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace z_x_message
     /// </summary>
     public partial class MainWindow : Window
     {
+        o3 o3 = o3_factory.create();
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }

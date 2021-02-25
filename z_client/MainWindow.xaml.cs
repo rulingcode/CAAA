@@ -32,13 +32,17 @@ namespace z_client
         {
             o3 = o3_factory.create();
             await o3.c_connect();
-            y_send_code y = new y_send_code();
-            y.a_phoneid = "09123456789";
-            var dv = await y.run(o3.c_run());
-            //layer_0.x_center.y_login y = new layer_0.x_center.y_login();
-            //y.a_phoneid = "09123456789";
-            //y.a_password = "6789";
-            //var dv = await y.run_c(o3.c_run());
+            {
+                y_send_code y = new y_send_code();
+                y.a_phoneid = "09123456789";
+                var dv = await y.run(o3.c_run());
+            }
+            {
+                y_login y = new y_login();
+                y.a_phoneid = "09123456789";
+                y.a_password = "10650";
+                var dv = await y.run(o3.c_run());
+            }
         }
     }
 }

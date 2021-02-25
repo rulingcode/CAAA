@@ -24,13 +24,14 @@ namespace layer_3.c
                 var dv_key = p_crypto.create_symmetrical_keys();
                 y.a_key = m_key.create(dv_key);
                 y.a_key = p_crypto.Encrypt(y.a_key, public_key.data);
-                m_login login_m = new m_login()
+                m_login_skelet login_m = new m_login_skelet()
                 {
-                    id = "k_windows",
-                    password = "kfkbjgjbhdjfjbjgjnjfjbg"
+                    skelet_id = "k_windows",
+                    password = "kfkbjgjbhdjfjbjgjnjfjbg",
+                    device_name = Environment.MachineName
                 };
-                y.a_login = p_crypto.convert(login_m);
-                y.a_login = p_crypto.Encrypt(y.a_login, dv_key);
+                y.a_login_skelet = p_crypto.convert(login_m);
+                y.a_login_skelet = p_crypto.Encrypt(y.a_login_skelet, dv_key);
                 var o = await y.run(a.run());
                 if (o.z_error == e_error.non)
                 {

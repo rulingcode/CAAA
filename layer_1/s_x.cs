@@ -12,23 +12,20 @@ namespace layer_1
     {
         List<s_service> list = new List<s_service>();
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        public async void add(m_xip endpoint)
+        public async void add(m_xip val)
         {
             await locker.WaitAsync();
-            var dv = list.FirstOrDefault(i => i.x_m == endpoint);
+            var dv = list.FirstOrDefault(i => i.x_m == val);
             if (dv != null)
-            {
-                dv.close();
-                list.Remove(dv);
-            }
-            dv = new s_service(endpoint);
+                throw new Exception("kgjjbjcjfjvds");
+            dv = new s_service(val);
             list.Add(dv);
             locker.Release();
         }
-        public async void remove(m_xip endpoint)
+        public async void remove(m_xip val)
         {
             await locker.WaitAsync();
-            var dv = list.FirstOrDefault(i => i.x_m == endpoint);
+            var dv = list.FirstOrDefault(i => i.x_m == val);
             dv.close();
             list.Remove(dv);
             locker.Release();

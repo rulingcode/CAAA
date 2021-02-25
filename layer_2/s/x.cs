@@ -12,6 +12,8 @@ namespace layer_2.s
     {
         internal async void add_x(m_xip rsv)
         {
+            if (rsv.port % 2 != 0)
+                throw new Exception("kvkjnjjjfjcdjbgjbfnd");
             a.o1.add_x(rsv);
             if (rsv.id == "x_center")
                 return;

@@ -10,6 +10,7 @@ namespace layer_0.cell
         c_run c_run(string userid = null);
         void s_add_x(m_xip rsv);
         void s_add_y<T>() where T : y, new();
-        s_db<T> s_db_share<T>() where T : m_id;
+        s_get_key z_get_key { get; set; }
+        s_db_factory s_db_factory(string xid);
     }
 }

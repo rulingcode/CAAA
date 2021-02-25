@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using MongoDB.Driver;
 
 namespace layer_0.cell
@@ -8,5 +10,6 @@ namespace layer_0.cell
         IMongoCollection<T> coll { get; }
         Task upsert(T val);
         Task<T> get(string id);
+        Task<T> get(Expression<Func<T, bool>> filter);
     }
 }

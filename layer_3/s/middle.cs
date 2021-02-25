@@ -13,7 +13,7 @@ namespace layer_3.s
         {
             if (y.z_userid != null)
             {
-                var db = a.share_db<m_device>();
+                var db = a.share_db<device>();
                 var dv = await db.get(y.z_deviceid);
                 if (dv == null)
                     return e_error.invalid_deviceid;

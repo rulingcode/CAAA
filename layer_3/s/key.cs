@@ -17,6 +17,8 @@ namespace layer_3.s
     {
         internal async Task<m_key> get(string deviceid)
         {
+            if (a.o3.z_get_key != null)
+                return await a.o3.z_get_key(deviceid);
             var coll = a.share_db<m_key>();
             var key = await coll.get(deviceid);
             if (key == null)

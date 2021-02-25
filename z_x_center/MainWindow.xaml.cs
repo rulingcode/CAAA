@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using layer_0.cell;
-using z_x_center.implement;
+using z_x_center.z;
 
 namespace z_x_center
 {
@@ -29,9 +29,14 @@ namespace z_x_center
         {
             InitializeComponent();
             Height = 100; Width = 300; WindowState = WindowState.Minimized;
+            start();
+        }
+
+        async void start()
+        {
             a.o3 = o3_factory.create();
             a.o3.c_report = c_report;
-           
+            a.o3.z_get_key = get_key.get;
 
             a.o3.s_add_y<device_registration>();
             a.o3.s_add_y<get_key>();
@@ -40,7 +45,9 @@ namespace z_x_center
             a.o3.s_add_y<send_code>();
             a.o3.s_add_y<set_x>();
             a.o3.s_add_x(new m_xip() { id = "x_center", data = p_res.get_endpoint(10000).ToString() });
+            await a.o3.c_connect();
         }
+
         private Task c_report(m_report report)
         {
             return Task.CompletedTask;

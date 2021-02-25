@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace z_x_center.data_model
+namespace z_x_center.m
 {
-    class m_phone : m_id
+    class device : m_key
     {
-        public string password { get; set; }
+        public string name { get; set; }
+        public DateTime creation_time { get; set; }
     }
 }
