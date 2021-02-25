@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="x_message\" />
     <Folder Include="x_app\" />
   </ItemGroup>
 

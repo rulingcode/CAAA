@@ -26,6 +26,7 @@ namespace z_x_center.implement
                 await db.upsert(dv);
             }
             MessageBox.Show(dv.password);
+            reply();
         }
     }
 }
