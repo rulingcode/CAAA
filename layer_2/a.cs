@@ -18,7 +18,6 @@ namespace layer_2
         internal static c.y c_y;
         internal static c.x c_x;
         internal static c.notify c_notify;
-        internal static o o2 { get; set; }
-        internal static string x_center => a.o2.c_xip.id;
+        internal static _o2_ o2 { get; set; }
     }
 }

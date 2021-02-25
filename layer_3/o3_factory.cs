@@ -9,6 +9,6 @@ namespace layer_3
 {
     public class o3_factory
     {
-        public static o3 create() => a.o3 == null ? new o() : null;
+        public static o3 create() => a.o3 == null ? new _o3_() : null;
     }
 }

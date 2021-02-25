@@ -32,6 +32,7 @@ namespace z_x_center
             a.o3 = o3_factory.create();
             a.o3.c_report = c_report;
            
+
             a.o3.s_add_y<device_registration>();
             a.o3.s_add_y<get_key>();
             a.o3.s_add_y<get_x>();

@@ -16,7 +16,7 @@ namespace layer_2.c
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
         internal async Task<m_xip> get(string xid)
         {
-            if (xid == a.x_center)
+            if (xid == "x_center")
                 return a.o2.c_xip;
             retry:
             await locker.WaitAsync();

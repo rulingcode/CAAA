@@ -39,7 +39,7 @@ namespace layer_2.c
                 await Task.Run(client.Connect);
                 byte[] bfr = new byte[10];
                 p_crypto.random.NextBytes(bfr);
-                var key = await a.o2.c_get_key();
+                var key = a.o2.c_key;
                 bfr = p_crypto.Encrypt(bfr, key);
                 m_login_notify data = new()
                 {

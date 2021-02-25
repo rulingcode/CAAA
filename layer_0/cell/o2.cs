@@ -2,7 +2,7 @@
 {
     public interface o2
     {
-        c_get_key c_get_key { get; set; }
+        m_key c_key { get; set; }
         c_notify c_notify { get; set; }
         c_report c_report { get; set; }
         m_xip c_xip { get; set; }

@@ -24,7 +24,7 @@ namespace z_x_center.implement
             m_login m_login = p_crypto.convert<m_login>(a_login);
             if (!check_login(m_login))
                 reply(new output() { z_error = e_error.invalid_device_info });
-            var db = z_db.a_x<m_key>();
+            var db = a.o3.s_db_share<m_key>();
             key.id = ObjectId.GenerateNewId().ToString();
             await db.upsert(key);
             reply(new output() { deviceid = key.id });

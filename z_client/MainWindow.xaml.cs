@@ -31,6 +31,7 @@ namespace z_client
         async void Button_Click(object sender, RoutedEventArgs e)
         {
             o3 = o3_factory.create();
+            await o3.c_connect();
             y_send_code y = new y_send_code();
             y.a_phoneid = "09123456789";
             var dv = await y.run(o3.c_run());

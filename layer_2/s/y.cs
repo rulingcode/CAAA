@@ -30,11 +30,15 @@ namespace layer_2.s
         async void y_s(byte[] data, s_reply reply)
         {
             var packet = p_crypto.convert<m_packet>(data);
-            var keys = await a.o2.s_get_key(packet.deviceid);
+            m_key keys = null;
             if (packet.deviceid != null)
             {
+                keys = await a.o2.s_get_key(packet.deviceid);
                 if (keys == null)
+                {
                     met(null, e_error.invalid_deviceid);
+                    return;
+                }
                 try
                 {
                     packet.data = p_crypto.Decrypt(packet.data, keys);
@@ -45,6 +49,7 @@ namespace layer_2.s
                     return;
                 }
             }
+
             var packet_y = p_crypto.convert<m_packet_y>(packet.data);
             var type = await get(packet.xid, packet_y.yid);
             if (type == null)
