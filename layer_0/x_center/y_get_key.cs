@@ -13,7 +13,7 @@ namespace layer_0.x_center
         public override string z_yid => nameof(y_get_key);
         public override e_permission z_permission => e_permission.x;
         public string a_deviceid { get; set; }
-        public class output : o
+        public class output : o_base
         {
             public m_key m_key { get; set; }
         }

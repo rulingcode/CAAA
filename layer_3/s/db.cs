@@ -18,15 +18,13 @@ namespace layer_3.s
         {
             return await (await coll.FindAsync(filter)).FirstOrDefaultAsync();
         }
-
-        private bool mm(T arg)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task upsert(T val)
         {
             await coll.ReplaceOneAsync(i => i.id == val.id, val, new ReplaceOptions() { IsUpsert = true });
+        }
+        public async Task<bool> any(Expression<Func<T, bool>> filter)
+        {
+            return await (await coll.FindAsync(filter)).AnyAsync();
         }
     }
 }

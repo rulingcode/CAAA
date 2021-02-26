@@ -11,11 +11,12 @@ namespace layer_0.x_user
     {
         public override string z_yid => nameof(y_upsert_name);
         public string a_fullname { get; set; }
-        public class o : o<error> { }
+        public class o : o_base<error> { }
     }
     public enum error
     {
         non,
-        permission_required
+        permission_required,
+        duplicate_name
     }
 }

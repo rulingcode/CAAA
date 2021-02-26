@@ -4,6 +4,6 @@ namespace layer_0.cell
 {
     public interface c_run
     {
-        Task<T> get<T>(y y) where T : o;
+        Task<T> get<T>(y y) where T : o_base;
     }
 }

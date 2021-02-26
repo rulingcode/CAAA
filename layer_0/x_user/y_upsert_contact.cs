@@ -11,6 +11,6 @@ namespace layer_0.x_user
     {
         public override string z_yid => nameof(y_upsert_contact);
         public e_contact a_contact { get; set; }
-        public class o : cell.o { }
+        public class o : cell.o_base { }
     }
 }

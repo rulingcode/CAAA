@@ -14,7 +14,7 @@ namespace layer_0.cell
         public override string z_yid => nameof(y_sync);
         public string a_xid { get; set; }
         public long a_index { get; set; }
-        public class output : o
+        public class output : o_base
         {
             public long index { get; set; }
             public string[] deleted { get; set; }

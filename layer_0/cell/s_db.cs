@@ -11,5 +11,6 @@ namespace layer_0.cell
         Task upsert(T val);
         Task<T> get(string id);
         Task<T> get(Expression<Func<T, bool>> filter);
+        Task<bool> any(Expression<Func<T, bool>> filter);
     }
 }

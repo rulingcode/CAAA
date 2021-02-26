@@ -11,6 +11,6 @@ namespace layer_2.c
     {
         readonly string userid;
         internal run(string userid) => this.userid = userid;
-        public Task<T> get<T>(layer_0.cell.y y) where T : o => a.c_y.run<T>(userid, y);
+        public Task<T> get<T>(layer_0.cell.y y) where T : o_base => a.c_y.run<T>(userid, y);
     }
 }

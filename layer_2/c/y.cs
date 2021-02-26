@@ -9,7 +9,7 @@ namespace layer_2.c
 {
     class y
     {
-        internal async Task<output> run<output>(string userid, layer_0.cell.y y) where output : o
+        internal async Task<output> run<output>(string userid, layer_0.cell.y y) where output : o_base
         {
             m_packet_y packet_y = new m_packet_y()
             {

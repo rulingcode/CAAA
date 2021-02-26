@@ -6,7 +6,7 @@ namespace layer_3.c
 {
     internal class middle
     {
-        internal async Task run(y y, o o)
+        internal async Task run(y y, o_base o)
         {
             switch (y)
             {

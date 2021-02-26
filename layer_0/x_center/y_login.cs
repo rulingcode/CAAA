@@ -14,7 +14,7 @@ namespace layer_0.x_center
         public override e_permission z_permission => e_permission.k;
         public string a_phoneid { get; set; }
         public string a_password { get; set; }
-        public class output : o<error>
+        public class output : o_base<error>
         {
             public string userid { get; set; }
         }
