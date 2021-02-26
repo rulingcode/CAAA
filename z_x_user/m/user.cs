@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_3
+namespace z_x_user.m
 {
-    public class o3_factory
+    class user : m_id
     {
-        public static o3 create() => a.o3 == null ? new _o3_() : null;
+        public string fullname { get; set; }
     }
 }

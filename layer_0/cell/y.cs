@@ -14,7 +14,7 @@ namespace layer_0.cell
         [JsonIgnore] public s_db_factory z_db { get; set; }
         public abstract void z_run(s_reply reply);
     }
-    public abstract class y<output> : y where output : y_output, new()
+    public abstract class y<output> : y where output : o, new()
     {
         public virtual Task<output> run(c_run rsv) => rsv.get<output>(this);
         public sealed override async void z_run(s_reply reply)
@@ -36,11 +36,11 @@ namespace layer_0.cell
             throw new Exception("ldkvjgjbjfhcbfjvjfb");
         }
     }
-    public class y_output
+    public class o
     {
         public e_error z_error { get; set; }
     }
-    public class y_output<error> : y_output where error : Enum
+    public class o<error> : o where error : Enum
     {
         public error a_error { get; set; }
     }

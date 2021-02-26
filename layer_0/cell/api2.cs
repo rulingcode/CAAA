@@ -1,6 +1,6 @@
 ﻿namespace layer_0.cell
 {
-    public interface o2
+    public interface api2
     {
         m_key c_key { get; set; }
         c_notify c_notify { get; set; }

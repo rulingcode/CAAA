@@ -100,7 +100,7 @@ namespace layer_2.s
             {
                 if (data == null)
                 {
-                    y_output obj = new y_output() { z_error = e };
+                    o obj = new o() { z_error = e };
                     data = p_crypto.convert(obj);
                 }
 

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_2
+namespace layer_0.x_user
 {
-    public class o2_factory
+    public enum e_contact
     {
-        public static layer_0.cell.o2 create() => a.o2 == null ? new _o2_() : null;
+        connected, disconnected, favorite, blocked
     }
 }

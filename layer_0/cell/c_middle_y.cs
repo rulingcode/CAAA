@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace layer_0.cell
 {
-    public delegate Task c_middle_y(y y, y_output o);
+    public delegate Task c_middle_y(y y, o o);
 }

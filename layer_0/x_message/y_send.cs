@@ -11,7 +11,7 @@ namespace layer_0.x_message
     {
         public override string z_yid => nameof(y_send);
         public string a_partner { get; set; }
-        public class output : y_output
+        public class output : o
         {
 
         }

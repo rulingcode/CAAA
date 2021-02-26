@@ -1,15 +1,14 @@
 ﻿using layer_0.cell;
-using layer_3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace z_x_center
+namespace layer_3
 {
-    class a
+    public class api3_factory
     {
-        public static api3 o3;
+        public static api3 create() => a.o3 == null ? new _api3_() : null;
     }
 }

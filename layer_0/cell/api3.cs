@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace layer_0.cell
 {
-    public interface o3
+    public interface api3
     {
         Task c_connect();
         c_report c_report { get; set; }

@@ -9,12 +9,12 @@ using layer_3.s;
 
 namespace layer_3
 {
-    class _o3_ : o3
+    class _api3_ : api3
     {
-        internal _o3_()
+        internal _api3_()
         {
             a.o3 = this;
-            a.o2 = o2_factory.create();
+            a.o2 = api2_factory.create();
 
             a.c_db = new c.db();
             a.c_key = new c.key();

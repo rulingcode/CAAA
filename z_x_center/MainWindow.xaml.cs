@@ -34,7 +34,7 @@ namespace z_x_center
 
         async void start()
         {
-            a.o3 = o3_factory.create();
+            a.o3 = api3_factory.create();
             a.o3.c_report = c_report;
             a.o3.z_get_key = get_key.get;
 

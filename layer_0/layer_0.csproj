@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="x_user\" />
     <Folder Include="x_app\" />
   </ItemGroup>
 

@@ -1,5 +1,4 @@
 ﻿using layer_0.cell;
-using layer_0.x_center;
 using layer_3;
 using System;
 using System.Collections.Generic;
@@ -16,33 +15,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace z_client
+namespace z_x_user
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        api3 o3;
         public MainWindow()
         {
             InitializeComponent();
+            start();
         }
-        api3 o3;
-        async void Button_Click(object sender, RoutedEventArgs e)
+        async void start()
         {
             o3 = api3_factory.create();
+            o3.c_report = report;
             await o3.c_connect();
-            {
-                y_send_code y = new y_send_code();
-                y.a_phoneid = "09123456789";
-                var dv = await y.run(o3.c_run());
-            }
-            {
-                y_login y = new y_login();
-                y.a_phoneid = "09123456789";
-                y.a_password = "10650";
-                var dv = await y.run(o3.c_run());
-            }
+        }
+
+        private Task report(m_report report)
+        {
+            return Task.CompletedTask;
         }
     }
 }

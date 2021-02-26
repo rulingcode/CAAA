@@ -6,9 +6,9 @@ using layer_0.cell;
 
 namespace layer_2
 {
-    class _o2_ : o2
+    class _api2_ : api2
     {
-        internal _o2_()
+        internal _api2_()
         {
             a.o2 = this;
             a.o1 = o1.create();
