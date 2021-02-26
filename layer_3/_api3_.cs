@@ -23,7 +23,7 @@ namespace layer_3
 
             a.s_key = new key();
             a.s_middle = new middle();
-            a.s_db_engin = new MongoClient();
+            a.s_db = new MongoClient();
 
             a.o2.s_get_key = a.s_key.get;
             a.o2.s_middle_y = a.s_middle.run;

@@ -1,15 +1,14 @@
-﻿using layer_0;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using layer_0.cell;
 
 namespace layer_3.m
 {
-    class device : m_id
+    class data_item
     {
-        public List<string> users = new List<string>();
+        public string id { get; set; }
+        public byte[] data { get; set; }
     }
 }

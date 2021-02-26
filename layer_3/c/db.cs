@@ -14,27 +14,17 @@ namespace layer_3.c
         LiteDB.LiteDatabase lite;
         public db()
         {
-            var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "caaa");
+            var folder = AppDomain.CurrentDomain.BaseDirectory;
+            //var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "caaa");
             Directory.CreateDirectory(folder);
-            var file = Path.Combine(folder, "local.db");
-            lite = new LiteDatabase(new ConnectionString() { Connection = ConnectionType.Shared, Filename = file });
+            var file = Path.Combine(folder, "api.db");
+            lite = new LiteDatabase(new ConnectionString() { Connection = ConnectionType.Direct, Filename = file });
         }
-        public ILiteCollection<T> get<T>(string name = null)
+        public ILiteCollection<T> api<T>(string name = null)
         {
             if (name == null)
                 name = typeof(T).Name;
             return lite.GetCollection<T>(name);
-        }
-
-        public byte[] get(string name) => get<item>(file).FindOne(i => i.id == name)?.data;
-        public void set(string name, byte[] data)
-        {
-            get<item>(file).Upsert(new item() { id = name, data = data });
-        }
-        class item
-        {
-            public string id { get; set; }
-            public byte[] data { get; set; }
         }
     }
 }

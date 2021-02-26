@@ -40,7 +40,7 @@ namespace z_client
             {
                 y_login y = new y_login();
                 y.a_phoneid = "09123456789";
-                y.a_password = "10650";
+                y.a_password = "38615";
                 var dv = await y.run(o3.c_run());
             }
         }

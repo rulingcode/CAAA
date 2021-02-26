@@ -19,8 +19,8 @@ namespace layer_3.s
         {
             if (a.o3.z_get_key != null)
                 return await a.o3.z_get_key(deviceid);
-            var coll = a.share_db<m_key>();
-            var key = await coll.get(deviceid);
+            var coll = a.c_db.api<m_key>();
+            var key = coll.FindOne(i => i.id == deviceid);
             if (key == null)
             {
                 y_get_key y = new y_get_key()
@@ -31,7 +31,7 @@ namespace layer_3.s
                 if (o.z_error != e_error.non)
                     return null;
                 key = o.m_key;
-                await coll.upsert(key);
+                coll.Upsert(key);
             }
             return key;
         }

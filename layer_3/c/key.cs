@@ -17,7 +17,8 @@ namespace layer_3.c
         private const string key_str = "key";
         internal async Task connect()
         {
-            var dv = a.c_db.get(key_str);
+            var db = a.c_db.api<m.data_item>();
+            var dv = db.FindOne(i => i.id == key_str)?.data;
             if (dv == null)
             {
                 y_device_registration y = new y_device_registration();
@@ -36,16 +37,18 @@ namespace layer_3.c
                 if (o.z_error == e_error.non)
                 {
                     dv_key.id = o.deviceid;
-                    a.c_db.set(key_str, p_crypto.convert(dv_key));
+                    db.Upsert(new m.data_item()
+                    {
+                        id = key_str,
+                        data = p_crypto.convert(dv_key)
+                    });
                     a.o2.c_key = dv_key;
                 }
                 else
                     throw new Exception("gkfvjghvfchfbvhgndc");
             }
             else
-            {
                 a.o2.c_key = p_crypto.convert<m_key>(dv);
-            }
         }
     }
 }
