@@ -19,7 +19,7 @@ namespace z_x_center.z
         {
             if (a_xid == null || a_password == null)
             {
-                reply(new o() { a_error = e_error.invalid_parametrs });
+                reply(new o() { z_error = e_error.invalid_parametrs });
                 return;
             }
             var dv = info.GetValueOrDefault(a_xid);
@@ -29,7 +29,7 @@ namespace z_x_center.z
                 reply();
             }
             else
-                reply(new o() { a_error = e_error.invalid_parametrs });
+                reply(new o() { z_error = e_error.invalid_parametrs });
         }
     }
 }

@@ -18,7 +18,7 @@ namespace z_x_center.z
         {
             if (a_xip.id != z_userid)
             {
-                reply(new o() { z_error = e_error_base.invalid_xid });
+                reply(new o() { z_error = e_error.invalid_xid });
                 return;
             }
             await locker.WaitAsync();

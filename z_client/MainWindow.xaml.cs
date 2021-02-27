@@ -33,7 +33,7 @@ namespace z_client
         async void Button_Click(object sender, RoutedEventArgs e)
         {
             o3 = api3_factory.create();
-            await o3.c_connect();
+            await o3.c_connect("d_client");
             layer_0.x_user.y_upsert_name y = new()
             {
                 a_fullname = "ali",

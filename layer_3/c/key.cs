@@ -15,7 +15,7 @@ namespace layer_3.c
     class key
     {
         private const string key_str = "key";
-        internal async Task connect()
+        internal async Task connect(string device_name)
         {
             var db = a.c_db.api<m.data_item>();
             var dv = db.FindOne(i => i.id == key_str)?.data;
@@ -29,12 +29,12 @@ namespace layer_3.c
                 {
                     skelet_id = "k_windows",
                     password = "kfkbjgjbhdjfjbjgjnjfjbg",
-                    device_name = Environment.MachineName
+                    device_name = device_name
                 };
                 y.a_login_skelet = p_crypto.convert(login_m);
                 y.a_login_skelet = p_crypto.Encrypt(y.a_login_skelet, dv_key);
                 var o = await y.run(a.run());
-                if (o.z_error == e_error_base.non)
+                if (o.z_error == e_error.non)
                 {
                     dv_key.id = o.deviceid;
                     db.Upsert(new m.data_item()

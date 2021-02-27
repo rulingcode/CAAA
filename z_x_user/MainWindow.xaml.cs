@@ -37,7 +37,7 @@ namespace z_x_user
         {
             o3 = api3_factory.create();
             o3.c_report = report;
-            await o3.c_connect();
+            await o3.c_connect("d_user");
             layer_0.x_center.y_xlogin login = new layer_0.x_center.y_xlogin()
             {
                 a_xid = "x_user",

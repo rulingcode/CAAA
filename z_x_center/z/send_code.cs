@@ -39,7 +39,7 @@ namespace z_x_center.z
 
         private static string new_pass()
         {
-            return p_crypto.random.Next(10000, 99999).ToString();
+            return "12345";
         }
     }
 }

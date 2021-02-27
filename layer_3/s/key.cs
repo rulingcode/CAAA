@@ -28,7 +28,7 @@ namespace layer_3.s
                     a_deviceid = deviceid
                 };
                 var o = await y.run(a.run("x_any"));
-                if (o.z_error != e_error_base.non)
+                if (o.z_error != e_error.non)
                     return null;
                 key = o.m_key;
                 coll.Upsert(key);

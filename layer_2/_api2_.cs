@@ -28,12 +28,14 @@ namespace layer_2
         public m_key c_key { get; set; }
         public c_run c_run(string userid = null) => new c.run(userid);
         public c_notify c_notify { get; set; }
-        public c_middle_y c_middle_y { get; set; }
+        public y_before c_before { get; set; }
+        public y_after c_after { get; set; }
 
         //-----------------------------------------------------------
 
         public s_get_key s_get_key { get; set; }
-        public s_middle_y s_middle_y { get; set; }
+        public y_before s_before { get; set; }
+        public y_after s_after { get; set; }
 
         public void s_add_y<T>() where T : layer_0.cell.y, new() => a.s_y.add_y<T>();
         public void s_add_x(m_xip rsv) => a.s_x.add_x(rsv);

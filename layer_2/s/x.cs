@@ -23,7 +23,7 @@ namespace layer_2.s
             };
             c_run run = a.o2.c_run(rsv.id);
             var dv = await y.run(run);
-            if (dv.z_error != e_error_base.non)
+            if (dv.z_error != e_error.non)
                 throw new Exception("lfvhfnbgnvnndn");
         }
     }

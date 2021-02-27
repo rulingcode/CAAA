@@ -47,7 +47,7 @@ namespace z_x_center
             a.o3.s_add_y<set_x>();
             a.o3.s_add_y<xlogin>();
             a.o3.s_add_x(new m_xip() { id = "x_center", data = p_res.get_endpoint(10000).ToString() });
-            await a.o3.c_connect();
+            await a.o3.c_connect("d_center");
         }
         private Task c_report(m_report report)
         {

@@ -32,15 +32,15 @@ namespace z_x_center
             dv.users.Add(userid);
             await a.device_user.upsert(dv);
         }
-        public static async Task<e_error_base> middle_y(y y)
+        public static async Task<e_error> middle_y(y y)
         {
             var dv = await device_user.get(y.z_deviceid);
             if (dv == null)
-                return e_error_base.invalid_deviceid;
+                return e_error.invalid_deviceid;
             if (y.z_userid == "x_any")
-                return dv.users.Any(i => i.Substring(0, 2) == "x_") ? e_error_base.non : e_error_base.invalid_permission;
+                return dv.users.Any(i => i.Substring(0, 2) == "x_") ? e_error.non : e_error.invalid_permission;
             else
-                return dv.users.Contains(y.z_userid) ? e_error_base.non : e_error_base.invalid_userid;
+                return dv.users.Contains(y.z_userid) ? e_error.non : e_error.invalid_userid;
         }
     }
 }

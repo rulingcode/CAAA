@@ -13,6 +13,6 @@ namespace layer_0.x_center
         public sealed override e_permission z_permission =>  e_permission.k;
         public string a_xid { get; set; }
         public string a_password { get; set; }
-        public class o : o_base<e_error> { }
+        public class o : o_base { }
     }
 }
