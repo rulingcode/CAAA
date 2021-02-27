@@ -16,8 +16,8 @@ namespace layer_2.c
         public m_xip xip { get; }
         public notify_item(m_xip xip)
         {
-            live();
             this.xip = xip;
+            live();
         }
         async void live()
         {
@@ -58,6 +58,7 @@ namespace layer_2.c
         }
         private void close_connection()
         {
+            if (client == null) return;
             try
             {
                 client.Events.MessageReceived -= Events_MessageReceived;

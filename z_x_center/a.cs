@@ -37,9 +37,10 @@ namespace z_x_center
             var dv = await device_user.get(y.z_deviceid);
             if (dv == null)
                 return e_error_base.invalid_deviceid;
-            if (!dv.users.Contains(y.z_userid))
-                return e_error_base.invalid_userid;
-            return e_error_base.non;
+            if (y.z_userid == "x_any")
+                return dv.users.Any(i => i.Substring(0, 2) == "x_") ? e_error_base.non : e_error_base.invalid_permission;
+            else
+                return dv.users.Contains(y.z_userid) ? e_error_base.non : e_error_base.invalid_userid;
         }
     }
 }

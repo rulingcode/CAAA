@@ -27,11 +27,23 @@ namespace z_client
         {
             InitializeComponent();
         }
+
+        private const string u1 = "u_60392e5baa60c82edbb21fb3";
         api3 o3;
         async void Button_Click(object sender, RoutedEventArgs e)
         {
             o3 = api3_factory.create();
             await o3.c_connect();
+            layer_0.x_user.y_upsert_name y = new()
+            {
+                a_fullname = "ali",
+                a_userid = u1
+            };
+            var dv = await y.run(o3.c_run(u1));
+        }
+
+        private async Task login()
+        {
             {
                 y_send_code y = new y_send_code();
                 y.a_phoneid = "09123456789";

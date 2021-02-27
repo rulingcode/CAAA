@@ -43,6 +43,7 @@ namespace z_x_user
                 a_xid = "x_user",
                 a_password = "1234"
             };
+            o3.s_add_y<z.upsert_name>();
             m_xip m_xip = new m_xip() { data = p_res.get_endpoint(10002).ToString(), id = "x_user" };
             o3.s_add_x(m_xip);
         }
