@@ -34,7 +34,7 @@ namespace layer_3.c
                 y.a_login_skelet = p_crypto.convert(login_m);
                 y.a_login_skelet = p_crypto.Encrypt(y.a_login_skelet, dv_key);
                 var o = await y.run(a.run());
-                if (o.z_error == e_error.non)
+                if (o.z_error == e_error_base.non)
                 {
                     dv_key.id = o.deviceid;
                     db.Upsert(new m.data_item()

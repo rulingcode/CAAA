@@ -38,9 +38,9 @@ namespace z_client
                 var dv = await y.run(o3.c_run());
             }
             {
-                y_login y = new y_login();
+                y_phone_login y = new y_phone_login();
                 y.a_phoneid = "09123456789";
-                y.a_password = "38615";
+                y.a_password = "26520";
                 var dv = await y.run(o3.c_run());
             }
         }

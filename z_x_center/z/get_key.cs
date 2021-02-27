@@ -19,7 +19,7 @@ namespace z_x_center.z
         {
             var dv = await get(a_deviceid);
             if (dv == null)
-                reply(new output() { z_error = e_error.invalid_deviceid });
+                reply(new output() { z_error = e_error_base.invalid_deviceid });
             else
                 reply(new output() { m_key = dv });
         }

@@ -19,11 +19,11 @@ namespace layer_2.s
                 return;
             y_set_x y = new y_set_x()
             {
-                a_x_m = rsv
+                a_xip = rsv
             };
             c_run run = a.o2.c_run(rsv.id);
             var dv = await y.run(run);
-            if (dv.z_error != e_error.non)
+            if (dv.z_error != e_error_base.non)
                 throw new Exception("lfvhfnbgnvnndn");
         }
     }

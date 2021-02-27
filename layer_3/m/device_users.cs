@@ -8,7 +8,7 @@ using layer_0.cell;
 
 namespace layer_3.m
 {
-    class device : m_id
+    class device_users : m_id
     {
         public List<string> users = new List<string>();
     }

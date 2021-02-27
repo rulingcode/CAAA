@@ -10,6 +10,27 @@ namespace z_x_center
 {
     class a
     {
-        public static api3 o3;
+        static s_db_factory db_factory;
+        static api3 api3f;
+        static s_db<m.device_users> device_user;
+        public static api3 o3
+        {
+            get => api3f;
+            set
+            {
+                api3f = value;
+                db_factory = o3.s_db_factory("x_center");
+                device_user = db_factory.a_x<m.device_users>();
+            }
+        }
+        internal static async Task add_user(string deviceid, string userid)
+        {
+            var dv = await a.device_user.get(deviceid);
+            if (dv == null)
+                dv = new m.device_users() { id = deviceid };
+            dv.users.Remove(userid);
+            dv.users.Add(userid);
+            await a.device_user.upsert(dv);
+        }
     }
 }

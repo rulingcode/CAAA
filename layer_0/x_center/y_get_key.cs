@@ -8,7 +8,7 @@ using layer_0.cell;
 
 namespace layer_0.x_center
 {
-    public class y_get_key : y<y_get_key.output>
+    public class y_get_key : z_y<y_get_key.output>
     {
         public override string z_yid => nameof(y_get_key);
         public override e_permission z_permission => e_permission.x;

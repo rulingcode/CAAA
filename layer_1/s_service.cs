@@ -25,10 +25,10 @@ namespace layer_1
         }
         void Events_MessageReceivedAsync(object sender, MessageReceivedEventArgs e)
         {
-            void met(byte[] answer, e_error reply) => this.answer(e.IpPort, reply, answer);
+            void met(byte[] answer, e_error_base reply) => this.answer(e.IpPort, reply, answer);
             a.o1.y_s.Invoke(e.Data, met);
         }
-        private void answer(string ipPort, e_error error, byte[] data) => server.SendAsync(ipPort, data);
+        private void answer(string ipPort, e_error_base error, byte[] data) => server.SendAsync(ipPort, data);
         public void close() => server.Dispose();
     }
 }

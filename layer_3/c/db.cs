@@ -19,6 +19,7 @@ namespace layer_3.c
             Directory.CreateDirectory(folder);
             var file = Path.Combine(folder, "api.db");
             lite = new LiteDatabase(new ConnectionString() { Connection = ConnectionType.Direct, Filename = file });
+            lite.Checkpoint();
         }
         public ILiteCollection<T> api<T>(string name = null)
         {

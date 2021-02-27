@@ -5,7 +5,7 @@ using layer_0.cell;
 
 namespace layer_0.x_center
 {
-    public class y_get_x : y<y_get_x.output>
+    public class y_get_x : z_y<y_get_x.output>
     {
         public override string z_yid => nameof(y_get_x);
         public override e_permission z_permission => e_permission.k;

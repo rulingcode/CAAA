@@ -38,7 +38,7 @@ namespace layer_0.cell
     }
     public class o_base
     {
-        public e_error z_error { get; set; }
+        public e_error_base z_error { get; set; }
     }
     public class o_base<error> : o_base where error : Enum
     {

@@ -7,7 +7,7 @@ using layer_0.cell;
 
 namespace layer_0.x_center
 {
-    public class y_send_code : y<y_send_code.output>
+    public class y_send_code : z_y<y_send_code.output>
     {
         public override string z_yid => nameof(y_send_code);
         public override e_permission z_permission => e_permission.k;
