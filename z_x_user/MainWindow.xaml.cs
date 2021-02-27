@@ -27,24 +27,24 @@ namespace z_x_user
         public MainWindow()
         {
             InitializeComponent();
+            start();
         }
         private Task report(m_report report)
         {
             return Task.CompletedTask;
         }
-        async void Button_Click(object sender, RoutedEventArgs e)
+        private async void start()
         {
             o3 = api3_factory.create();
             o3.c_report = report;
             await o3.c_connect();
-            //layer_0.x_center.y_xlogin login = new layer_0.x_center.y_xlogin()
-            //{
-            //    a_xid = "x_user",
-            //    a_password = "1234"
-            //};
-            //var dv = await login.run(o3.c_run());
-            y_set_x y = new y_set_x() { a_xip = new m_xip() { data = p_res.get_endpoint(10002).ToString() } };
-            var dv = await y.run(o3.c_run("x_user"));
+            layer_0.x_center.y_xlogin login = new layer_0.x_center.y_xlogin()
+            {
+                a_xid = "x_user",
+                a_password = "1234"
+            };
+            m_xip m_xip = new m_xip() { data = p_res.get_endpoint(10002).ToString(), id = "x_user" };
+            o3.s_add_x(m_xip);
         }
     }
 }

@@ -32,5 +32,14 @@ namespace z_x_center
             dv.users.Add(userid);
             await a.device_user.upsert(dv);
         }
+        public static async Task<e_error_base> middle_y(y y)
+        {
+            var dv = await device_user.get(y.z_deviceid);
+            if (dv == null)
+                return e_error_base.invalid_deviceid;
+            if (!dv.users.Contains(y.z_userid))
+                return e_error_base.invalid_userid;
+            return e_error_base.non;
+        }
     }
 }

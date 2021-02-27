@@ -1,4 +1,4 @@
 ﻿namespace layer_0.cell
 {
-    public delegate void s_reply<output>(output rsv = default) where output : o_base;
+    public delegate void s_reply<o>(o rsv = default) where o : o_base;
 }

@@ -25,7 +25,7 @@ namespace layer_1
             return await send_chak();
         }
         DateTime time = DateTime.Now;
-        TimeSpan timeout = TimeSpan.FromSeconds(100);//9053
+        TimeSpan timeout = TimeSpan.FromSeconds(60 * 15);//9053
         async Task<byte[]> send_chak()
         {
             bool in_send = false;
@@ -55,7 +55,7 @@ namespace layer_1
         async Task send()
         {
             await locker.WaitAsync();
-            retry:
+        retry:
             if (client != null && !client.Connected) close();
             if (client == null)
             {

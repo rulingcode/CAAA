@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="x_user" SizeToContent="Height" Width="300">
     <StackPanel>
-        <Button Content="run" Click="Button_Click"></Button>
+        <Button Content="run"></Button>
     </StackPanel>
 </Window>

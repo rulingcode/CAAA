@@ -37,6 +37,7 @@ namespace z_x_center
             a.o3 = api3_factory.create();
             a.o3.c_report = c_report;
             a.o3.z_get_key = get_key.get;
+            a.o3.z_middle_y = a.middle_y;
 
             a.o3.s_add_y<device_registration>();
             a.o3.s_add_y<get_key>();
@@ -48,7 +49,6 @@ namespace z_x_center
             a.o3.s_add_x(new m_xip() { id = "x_center", data = p_res.get_endpoint(10000).ToString() });
             await a.o3.c_connect();
         }
-
         private Task c_report(m_report report)
         {
             return Task.CompletedTask;

@@ -32,11 +32,12 @@ namespace layer_3
             a.o2.c_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
         }
         public c_report c_report { get => a.o2.c_report; set => a.o2.c_report = value; }
-        public s_get_key z_get_key { get; set; }
         public Task c_connect() => a.c_key.connect();
         public c_run c_run(string userid = null) => a.o2.c_run(userid);
         public void s_add_x(m_xip rsv) => a.o2.s_add_x(rsv);
         public void s_add_y<T>() where T : y, new() => a.o2.s_add_y<T>();
         public s_db_factory s_db_factory(string xid) => new s.db_factory(xid);
+        public s_get_key z_get_key { get; set; }
+        public s_middle_y z_middle_y { get; set; }
     }
 }
