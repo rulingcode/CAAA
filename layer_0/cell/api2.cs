@@ -13,7 +13,7 @@
         y_before s_before { get; set; }
         y_after s_after { get; set; }
         void s_add_y<T>() where T : y, new();
-        void s_add_x(m_xip rsv);
+        m_xip s_xip { get; set; }
         void s_notify(string xid, string deviceid, string userid);
     }
 }

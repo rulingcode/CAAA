@@ -35,7 +35,7 @@ namespace layer_3
         public c_get_password c_get_password { get; set; }
         public Task c_connect(string device_name) => a.c_key.connect(device_name);
         public c_run c_run(string userid = null) => a.o2.c_run(userid);
-        public void s_add_x(m_xip rsv) => a.o2.s_add_x(rsv);
+        public m_xip s_xip { get => a.o2.s_xip; set => a.o2.s_xip = value; }
         public void s_add_y<T>() where T : y, new() => a.o2.s_add_y<T>();
         public s_db_factory s_db_factory(string xid) => new s.db_factory(xid);
         public s_get_key z_get_key { get; set; }

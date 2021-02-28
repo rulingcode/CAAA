@@ -10,11 +10,11 @@ namespace layer_2.s
 {
     class x
     {
-        internal async void add_x(m_xip rsv)
+        internal async void set_x(m_xip rsv)
         {
             if (rsv.port % 2 != 0)
                 throw new Exception("kvkjnjjjfjcdjbgjbfnd");
-            a.o1.add_x(rsv);
+            a.o1.s_xip = rsv;
             if (rsv.id == "x_center")
                 return;
             y_set_x y = new y_set_x()

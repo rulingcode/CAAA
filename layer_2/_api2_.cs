@@ -38,7 +38,14 @@ namespace layer_2
         public y_after s_after { get; set; }
 
         public void s_add_y<T>() where T : layer_0.cell.y, new() => a.s_y.add_y<T>();
-        public void s_add_x(m_xip rsv) => a.s_x.add_x(rsv);
+        public m_xip s_xip
+        {
+            get => a.o1.s_xip;
+            set
+            {
+                a.s_x.set_x(value);
+            }
+        }
         public void s_notify(string xid, string deviceid, string userid) => a.s_notify.send(xid, deviceid, userid);
     }
 }

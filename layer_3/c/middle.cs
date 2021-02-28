@@ -24,18 +24,7 @@ namespace layer_3.c
             await locker.WaitAsync();
             var dv = users.Contains(y.z_userid);
             locker.Release();
-            if (dv)
-                return e_error.non;
-            else
-            {
-                if (y.z_userid[0] != 'u')
-                    return e_error.invalid_userid;
-                var password = await a.o3.c_get_password(y.z_userid);
-                y_phone_login y = new()
-                {
-                    
-                };
-            }
+            return dv ? e_error.non : e_error.invalid_userid;
         }
         internal async Task after(y y, o_base o)
         {
