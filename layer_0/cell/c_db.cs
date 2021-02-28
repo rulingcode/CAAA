@@ -6,5 +6,7 @@ using System.Threading.Tasks;
 
 namespace layer_0.cell
 {
-    public delegate Task<string> c_get_password(string userid);
+    class c_db
+    {
+    }
 }

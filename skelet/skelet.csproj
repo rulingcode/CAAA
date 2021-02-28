@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\layer_x\layer_x.csproj" />
+    <ProjectReference Include="..\layer_3\layer_3.csproj" />
   </ItemGroup>
 
 </Project>

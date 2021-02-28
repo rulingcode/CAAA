@@ -1,6 +1,4 @@
-﻿using layer_0.cell;
-using layer_x;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace z_x_user
+namespace layer_x
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        x_core core;
         public MainWindow()
         {
             InitializeComponent();
-            core = x_factory.create("x_user", this);
         }
     }
 }

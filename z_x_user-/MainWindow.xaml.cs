@@ -1,4 +1,6 @@
 ﻿using layer_0.cell;
+using layer_0.x_center;
+using layer_3;
 using layer_x;
 using System;
 using System.Collections.Generic;
@@ -26,7 +28,7 @@ namespace z_x_user
         public MainWindow()
         {
             InitializeComponent();
-            core = x_factory.create("x_user", this);
+            core = layer_x.apix_factory.create("x_user", this);
         }
     }
 }
