@@ -32,7 +32,7 @@ namespace layer_3
             a.o2.c_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
         }
         public c_report c_report { get => a.o2.c_report; set => a.o2.c_report = value; }
-        public Task<string> c_get_password { get; set; }
+        public c_get_password c_get_password { get; set; }
         public Task c_connect(string device_name) => a.c_key.connect(device_name);
         public c_run c_run(string userid = null) => a.o2.c_run(userid);
         public void s_add_x(m_xip rsv) => a.o2.s_add_x(rsv);

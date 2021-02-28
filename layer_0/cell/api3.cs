@@ -9,7 +9,7 @@ namespace layer_0.cell
         Task c_connect(string device_name);
         c_report c_report { get; set; }
         c_run c_run(string userid = null);
-        Task<string> c_get_password { get; set; }
+        c_get_password c_get_password { get; set; }
         void s_add_x(m_xip rsv);
         void s_add_y<T>() where T : y, new();
         s_db_factory s_db_factory(string xid);
