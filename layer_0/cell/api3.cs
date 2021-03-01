@@ -6,7 +6,8 @@ namespace layer_0.cell
 {
     public interface api3
     {
-        Task c_connect(string device_name);
+        Task<e_error> c_connect(string skeletid, string password, string xid);
+        Task<e_error> c_connect();
         c_report c_report { get; set; }
         c_run c_run(string userid = null);
         m_xip s_xip { get; set; }

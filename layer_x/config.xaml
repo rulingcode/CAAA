@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:layer_x"
              mc:Ignorable="d"     >
-    <Grid Margin="10">
+    <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70" />
             <ColumnDefinition Width="200"/>
@@ -15,13 +15,32 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.ColumnSpan="2" TextWrapping="Wrap" Margin="1" Name="lbl_state"  Padding="5"/>
-        <Label Content="End Point" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="1" Name="txt_endpoint" Padding="5"/>
-        <Label Grid.Row="2" Grid.Column="0" Content="password"  HorizontalContentAlignment="Center"/>
-        <PasswordBox Grid.Row="2" Grid.Column="1" Margin="1" Name="txt_password" Padding="5"/>
-        <Grid Grid.Row="3" Grid.Column="1" Margin="1">
+
+        <Label Content="state" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Border CornerRadius="2" Margin="2" Padding="4" BorderThickness="2" BorderBrush="LightBlue" Grid.Column="1">
+            <TextBlock  TextWrapping="Wrap" Margin="1" Name="lbl_state"  Padding="5"/>
+        </Border>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="password"  HorizontalContentAlignment="Center"/>
+        <PasswordBox Grid.Row="1" Grid.Column="1" Margin="1" Name="txt_password" Padding="5"/>
+
+
+        <Grid Grid.Row="2" Grid.Column="1" Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="login" Name="btn_login" Click="btn_login_Click" Margin="1" Padding="5"/>
+            <Button Content="logout" Name="btn_logout" Click="btn_logout_Click" Grid.Column="1" Margin="1"/>
+        </Grid>
+
+        <Label Content="My Host" Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="1" Name="txt_endpoint" Padding="5"/>
+
+
+        <Grid Grid.Row="4" Grid.Column="1" Margin="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

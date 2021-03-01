@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_3
+namespace z_x_center.m
 {
-    public class api3_factory
+    public class info : m_id
     {
-        public static api3 create(string name) => a.o3 == null ? new _api3_(name) : null;
+        public string password { get; set; }
     }
 }

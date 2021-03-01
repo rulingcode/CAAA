@@ -11,12 +11,13 @@ namespace layer_3
 {
     class _api3_ : api3
     {
-        internal _api3_()
+        internal _api3_(string name)
         {
+            a.name = name;
             a.o3 = this;
             a.o2 = api2_factory.create();
 
-            a.c_db = new c.db();
+            a.c_db = new c.db(name);
             a.c_key = new c.key();
             a.c_recive_notify = new c.receive_notify();
             a.c_middle = new c.middle();
@@ -32,7 +33,8 @@ namespace layer_3
             a.o2.c_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
         }
         public c_report c_report { get => a.o2.c_report; set => a.o2.c_report = value; }
-        public Task c_connect(string device_name) => a.c_key.connect(device_name);
+        public Task<e_error> c_connect(string skeletid, string password, string xid) => a.c_key.connect(skeletid, password, xid);
+        public Task<e_error> c_connect() => a.c_key.connect();
         public c_run c_run(string userid = null) => a.o2.c_run(userid);
         public m_xip s_xip { get => a.o2.s_xip; set => a.o2.s_xip = value; }
         public void s_add_y<T>() where T : y, new() => a.o2.s_add_y<T>();

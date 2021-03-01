@@ -10,13 +10,13 @@ namespace layer_x
 {
     public static class x_factory
     {
-        public static x_core create(string xid, Window window)
+        public static x create(string xid, Window window)
         {
             if (a.core != null)
                 throw new Exception("lkfkbkgjbfjvjfc");
             window.Title = xid;
             a.xid = xid;
-            a.core = new x_core();
+            a.core = new x();
             config config = new config();
             window.Content = config;
             window.SizeToContent = SizeToContent.WidthAndHeight;

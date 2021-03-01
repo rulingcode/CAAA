@@ -23,6 +23,8 @@ namespace layer_3
         internal static s.middle s_middle;
         internal static MongoClient s_db;
         internal static c.middle c_middle;
+        internal static string name;
+
         internal static c_run run(string xid = null) => o3.c_run(xid);
     }
 }

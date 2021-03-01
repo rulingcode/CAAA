@@ -23,7 +23,7 @@ namespace skelet
     /// </summary>
     public partial class MainWindow : Window
     {
-        api3 api3 = api3_factory.create();
+        api3 api3 = api3_factory.create("db_skelet");
         public MainWindow()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace skelet
         async void start()
         {
             txt_phone.IsEnabled = txt_pass.IsEnabled = false;
-            await api3.c_connect(Environment.MachineName);
+            await api3.c_connect("wpf_client", "wpf_client_password", null);
             txt_phone.IsEnabled = txt_pass.IsEnabled = true;
         }
         private Task report(m_report report)

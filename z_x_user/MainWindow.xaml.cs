@@ -22,7 +22,7 @@ namespace z_x_user
     /// </summary>
     public partial class MainWindow : Window
     {
-        x_core core;
+        x core;
         public MainWindow()
         {
             InitializeComponent();

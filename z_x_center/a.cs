@@ -10,17 +10,18 @@ namespace z_x_center
 {
     class a
     {
-        static s_db_factory db_factory;
+        static s_db_factory db;
         static api3 api3f;
         static s_db<m.device_users> device_user;
+        internal static string password;
         public static api3 o3
         {
             get => api3f;
             set
             {
                 api3f = value;
-                db_factory = o3.s_db_factory("x_center");
-                device_user = db_factory.a_x<m.device_users>();
+                db = o3.s_db_factory("x_center");
+                device_user = db.a_x<m.device_users>();
             }
         }
         internal static async Task add_user(string deviceid, string userid)
@@ -41,6 +42,12 @@ namespace z_x_center
                 return dv.users.Any(i => i.Substring(0, 2) == "x_") ? e_error.non : e_error.invalid_permission;
             else
                 return dv.users.Contains(y.z_userid) ? e_error.non : e_error.invalid_userid;
+        }
+        public static async Task<string> get_password(string xid)
+        {
+            var db = a.db.a_x<m.info>();
+            var dv = await db.get(xid);
+            return dv?.password;
         }
     }
 }

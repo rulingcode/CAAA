@@ -31,10 +31,9 @@ namespace z_x_center
             Height = 100; Width = 300; WindowState = WindowState.Minimized;
             start();
         }
-
         async void start()
         {
-            a.o3 = api3_factory.create();
+            a.o3 = api3_factory.create("db_x_center");
             a.o3.c_report = c_report;
             a.o3.z_get_key = get_key.get;
             a.o3.z_middle_y = a.middle_y;
@@ -45,9 +44,9 @@ namespace z_x_center
             a.o3.s_add_y<phone_login>();
             a.o3.s_add_y<send_code>();
             a.o3.s_add_y<set_x>();
-            a.o3.s_add_y<xlogin>();
             a.o3.s_xip = new m_xip() { id = "x_center", data = p_res.get_endpoint(10000).ToString() };
-            await a.o3.c_connect("d_center");
+            a.password = p_crypto.random.Next().ToString();
+            await a.o3.c_connect("center", a.password, "x_center");
         }
         private Task c_report(m_report report)
         {

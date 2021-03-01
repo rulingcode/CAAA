@@ -67,7 +67,11 @@ namespace layer_1
                 }
                 catch (Exception e)
                 {
-                    await a.o1.report?.Invoke(new m_report() { message = e.Message });
+                    await a.o1.report?.Invoke(new m_report()
+                    {
+                        message = e.Message,
+                        errorid="vkfbjhjbjfjbjf"
+                    });
                     await Task.Delay(500);
                     goto retry;
                 }

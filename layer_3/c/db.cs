@@ -12,12 +12,12 @@ namespace layer_3.c
     {
         private const string file = "file";
         LiteDB.LiteDatabase lite;
-        public db()
+        public db(string c_db_name)
         {
-            var folder = AppDomain.CurrentDomain.BaseDirectory;
-            //var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "caaa");
+            //var folder = AppDomain.CurrentDomain.BaseDirectory;
+            var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "caaa");
             Directory.CreateDirectory(folder);
-            var file = Path.Combine(folder, "api.db");
+            var file = Path.Combine(folder, c_db_name + ".db");
             lite = new LiteDatabase(new ConnectionString() { Connection = ConnectionType.Direct, Filename = file });
             lite.Checkpoint();
         }

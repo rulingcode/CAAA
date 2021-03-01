@@ -11,6 +11,7 @@
         invalid_userid,
         invalid_xid,
         invalid_device_info,
-        invalid_parametrs
+        invalid_parametrs,
+        null_c_key
     }
 }
