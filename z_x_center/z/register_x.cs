@@ -13,7 +13,7 @@ using layer_0.cell;
 
 namespace z_x_center.z
 {
-    class register_x : y_register_c
+    class register_x : y_register_x
     {
         protected override async void implement(s_reply_o<o> reply)
         {
@@ -42,7 +42,7 @@ namespace z_x_center.z
         {
             if (val.a_xid.Substring(0, 2) != "x_")
                 return false;
-            var password = await a.get_password(val.a_xid);
+            var password = val.a_xid == "x_center" ? a.password : await a.get_password(val.a_xid);
             return val.a_password == password;
         }
     }

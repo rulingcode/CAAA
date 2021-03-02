@@ -33,20 +33,28 @@ namespace z_x_center
         }
         async void start()
         {
-            a.o3 = api3_factory.create("db_x_center");
-            a.o3.c_report = c_report;
-            a.o3.z_get_key = get_key.get;
-            a.o3.z_middle_y = a.middle_y;
+            a.api3 = api3_factory.create("db_x_center");
+            a.api3.c_report = c_report;
+            a.api3.z_get_key = get_key.get;
+            a.api3.z_middle_y = a.middle_y;
+            a.key = new key();
 
-            a.o3.s_add_y<register_c>();
-            a.o3.s_add_y<get_key>();
-            a.o3.s_add_y<get_x>();
-            a.o3.s_add_y<phone_login>();
-            a.o3.s_add_y<send_code>();
-            a.o3.s_add_y<set_x>();
-            a.o3.s_xip = new m_xip() { id = "x_center", data = p_res.get_endpoint(10000).ToString() };
+            a.api3.s_add_y<register_x>();
+            a.api3.s_add_y<register_c>();
+            a.api3.s_add_y<get_key>();
+            a.api3.s_add_y<get_x>();
+            a.api3.s_add_y<phone_login>();
+            a.api3.s_add_y<send_code>();
+            a.api3.s_add_y<set_x>();
+            a.api3.s_xip = new m_xip() { id = "x_center", data = p_res.get_endpoint(10000).ToString() };
             a.password = p_crypto.random.Next().ToString();
-            //await a.o3.c_connect("center", a.password, "x_center");
+            if ((a.key.connect()) == e_error.non)
+                txt_message.Text = "Connect";
+            else
+            {
+                var dv = await a.key.connect(a.password);
+                txt_message.Text = dv == e_error.non ? "Connect" : "Error : " + dv;
+            }
         }
         private Task c_report(m_report report)
         {

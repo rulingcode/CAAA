@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using layer_0.cell;
 using LiteDB;
 
-namespace layer_x
+namespace z_x_center
 {
     class key
     {
@@ -29,13 +29,13 @@ namespace layer_x
         }
         internal async Task<e_error> connect(string password)
         {
-            y_register_x y = new y_register_x();
+            y_register_x y = new();
             var dv_key = p_crypto.create_symmetrical_keys();
             y.a_key_data = m_key.create(dv_key);
             y.a_key_data = p_crypto.Encrypt(y.a_key_data, public_key.data);
             var login_m = new m_register_x()
             {
-                a_xid = a.xid,
+                a_xid = "x_center",
                 a_password = password
             };
             y.a_register_data = p_crypto.convert(login_m);

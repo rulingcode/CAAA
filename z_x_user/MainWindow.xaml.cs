@@ -26,7 +26,7 @@ namespace z_x_user
         public MainWindow()
         {
             InitializeComponent();
-            core = x_factory.create("x_user", this);
+            core = x.z_create("x_user", this);
         }
     }
 }

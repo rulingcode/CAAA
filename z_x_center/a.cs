@@ -14,13 +14,15 @@ namespace z_x_center
         static api3 api3f;
         static s_db<m.device_users> device_user;
         internal static string password;
-        public static api3 o3
+        internal static key key;
+
+        public static api3 api3
         {
             get => api3f;
             set
             {
                 api3f = value;
-                db = o3.s_db_factory("x_center");
+                db = api3.s_db_factory("x_center");
                 device_user = db.a_x<m.device_users>();
             }
         }

@@ -3,6 +3,7 @@ using layer_0.x_center;
 using layer_3;
 using System;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace layer_x
 {
@@ -19,5 +20,17 @@ namespace layer_x
         public static s_db_factory db => a.db;
         public static c_run run { get; private set; }
         public static void add_y<T>() where T : y, new() => a.api3.s_add_y<T>();
+        public static x z_create(string xid, Window window)
+        {
+            if (a.core != null)
+                throw new Exception("lkfkbkgjbfjvjfc");
+            window.Title = xid;
+            a.xid = xid;
+            a.core = new x();
+            config config = new config();
+            window.Content = config;
+            window.SizeToContent = SizeToContent.WidthAndHeight;
+            return a.core;
+        }
     }
 }

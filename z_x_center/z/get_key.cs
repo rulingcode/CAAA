@@ -25,7 +25,7 @@ namespace z_x_center.z
         }
         public static async Task<m_key> get(string deviceid)
         {
-            var db = a.o3.s_db_factory("x_center").a_x<m.device>();
+            var db = a.api3.s_db_factory("x_center").a_x<m.device>();
             var dv = await db.get(deviceid);
             return dv == null ? null : new m_key()
             {

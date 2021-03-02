@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:z_x_center"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="x_center" SizeToContent="Height" Width="300">
+    <StackPanel>
+        <TextBlock Padding="20" Background="LightBlue" x:Name="txt_message"></TextBlock>
+    </StackPanel>
 </Window>

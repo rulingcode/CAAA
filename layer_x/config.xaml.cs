@@ -170,8 +170,6 @@ namespace layer_x
         }
         async void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            btn_login.IsEnabled = txt_password.IsEnabled = false;
-
             if (txt_password.Password == null || txt_password.Password.Length < 5)
             {
                 add("invalid password", Brushes.Brown, true);
