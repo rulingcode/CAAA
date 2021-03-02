@@ -29,7 +29,7 @@ namespace layer_2.c
             };
             data = p_crypto.convert(packet);
             m_xip endpoint = await a.c_x.get(y.z_xid);
-            data = await a.o1.run_c(endpoint, data);
+            data = await a.api1.c_exchange(endpoint, data);
             if (key != null)
                 data = p_crypto.Decrypt(data, key);
             var o = p_crypto.convert<output>(data);

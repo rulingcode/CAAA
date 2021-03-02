@@ -15,7 +15,7 @@ namespace layer_3.s
                 if (a.o3.z_middle_y == null)
                 {
                     var db = a.c_db.api<m.device_users>();
-                    var dv = db.FindOne(i => i.id == y.z_deviceid);
+                    var dv = db.get(i => i.id == y.z_deviceid);
                     if (dv == null)
                         return e_error.invalid_deviceid;
                     if (!dv.users.Contains(y.z_userid))

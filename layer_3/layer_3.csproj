@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiteDB" Version="5.0.10" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\layer_2\layer_2.csproj" />
   </ItemGroup>
 

@@ -25,9 +25,9 @@ namespace layer_2.s
         }
         public y()
         {
-            a.o1.y_s = y_s;
+            a.api1.s_exchange = y_s;
         }
-        async void y_s(byte[] data, s_reply reply)
+        async void y_s(byte[] data, s_reply_data reply)
         {
             var packet = p_crypto.convert<m_packet>(data);
             m_key keys = null;

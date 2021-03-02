@@ -11,7 +11,7 @@ namespace z_x_center.z
 {
     class phone_login : y_phone_login
     {
-        protected async override void implement(s_reply<o> reply)
+        protected async override void implement(s_reply_o<o> reply)
         {
             if (a_password == null)
             {

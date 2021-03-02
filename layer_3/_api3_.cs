@@ -17,7 +17,8 @@ namespace layer_3
             a.o3 = this;
             a.o2 = api2_factory.create();
 
-            a.c_db = new c.db(name);
+            a.c_db = new c.db_factory(name);
+            c_db = a.c_db.api<m_data_item>();
             a.c_key = new c.key();
             a.c_recive_notify = new c.receive_notify();
             a.c_middle = new c.middle();
@@ -34,8 +35,9 @@ namespace layer_3
         }
         public c_report c_report { get => a.o2.c_report; set => a.o2.c_report = value; }
         public Task<e_error> c_connect(string skeletid, string password, string xid) => a.c_key.connect(skeletid, password, xid);
-        public Task<e_error> c_connect() => a.c_key.connect();
+        public e_error c_connect() => a.c_key.connect();
         public c_run c_run(string userid = null) => a.o2.c_run(userid);
+        public c_db<m_data_item> c_db { get; }
         public m_xip s_xip { get => a.o2.s_xip; set => a.o2.s_xip = value; }
         public void s_add_y<T>() where T : y, new() => a.o2.s_add_y<T>();
         public s_db_factory s_db_factory(string xid) => new s.db_factory(xid);

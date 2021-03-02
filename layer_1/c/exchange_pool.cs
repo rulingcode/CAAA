@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using layer_0.cell;
 using WatsonTcp;
 
-namespace layer_1
+namespace layer_1.c
 {
-    class c_questioner_pool
+    class exchange_pool
     {
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
         public m_xip x_m { get; }
@@ -24,16 +24,16 @@ namespace layer_1
             list.Clear();
             locker.Release();
         }
-        public c_questioner_pool(m_xip x_m) => this.x_m = x_m;
+        public exchange_pool(m_xip x_m) => this.x_m = x_m;
 
-        List<c_questioner> list = new List<c_questioner>();
-        async Task<c_questioner> get()
+        List<exchange_item> list = new List<exchange_item>();
+        async Task<exchange_item> get()
         {
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(i => !i.inp);
             if (dv == null)
             {
-                dv = new c_questioner(x_m);
+                dv = new exchange_item(x_m);
                 list.Add(dv);
             }
             dv.inp = true;

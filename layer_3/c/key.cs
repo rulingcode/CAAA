@@ -15,10 +15,10 @@ namespace layer_3.c
     class key
     {
         private const string key_str = "key";
-        internal async Task<e_error> connect()
+        internal e_error connect()
         {
-            var db = a.c_db.api<m.data_item>();
-            var dv = db.FindOne(i => i.id == key_str)?.data;
+            var db = a.c_db.api<m_data_item>();
+            var dv = db.get(i => i.id == key_str)?.data;
             if (dv == null)
                 return e_error.null_c_key;
             else
@@ -46,8 +46,8 @@ namespace layer_3.c
             if (o.z_error == e_error.non)
             {
                 dv_key.id = o.deviceid;
-                var db = a.c_db.api<m.data_item>();
-                db.Upsert(new m.data_item()
+                var db = a.c_db.api<m_data_item>();
+                db.upsert(new m_data_item()
                 {
                     id = key_str,
                     data = p_crypto.convert(dv_key)

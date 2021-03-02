@@ -14,7 +14,7 @@ namespace z_x_center.z
     class set_x : y_set_x
     {
         static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        protected async override void implement(s_reply<o> reply)
+        protected async override void implement(s_reply_o<o> reply)
         {
             if (a_xip.id != z_userid)
             {

@@ -14,7 +14,7 @@ namespace layer_2.s
         {
             if (rsv.port % 2 != 0)
                 throw new Exception("kvkjnjjjfjcdjbgjbfnd");
-            a.o1.s_xip = rsv;
+            a.api1.s_xip = rsv;
             if (rsv.id == "x_center")
                 return;
             y_set_x y = new y_set_x()

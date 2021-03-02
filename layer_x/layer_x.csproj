@@ -10,4 +10,8 @@
     <ProjectReference Include="..\layer_3\layer_3.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="m\" />
+  </ItemGroup>
+
 </Project>

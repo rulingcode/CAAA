@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using layer_0.cell;
 using WatsonTcp;
 
-namespace layer_1
+namespace layer_1.c
 {
-    class c_questioner
+    class exchange_item
     {
         public m_xip x_m { get; }
-        public c_questioner(m_xip val) => x_m = val;
+        public exchange_item(m_xip val) => x_m = val;
 
         WatsonTcpClient client;
         byte[] input = null;
@@ -67,7 +67,7 @@ namespace layer_1
                 }
                 catch (Exception e)
                 {
-                    await a.o1.report?.Invoke(new m_report()
+                    await a.api1.c_report?.Invoke(new m_report()
                     {
                         message = e.Message,
                         errorid="vkfbjhjbjfjbjf"
@@ -86,7 +86,7 @@ namespace layer_1
             }
             catch (Exception e)
             {
-                await a.o1.report?.Invoke(new m_report()
+                await a.api1.c_report?.Invoke(new m_report()
                 {
                     message = e.Message
                 });

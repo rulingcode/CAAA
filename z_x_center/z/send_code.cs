@@ -14,7 +14,7 @@ namespace z_x_center.z
     class send_code : y_send_code
     {
 
-        protected async override void implement(s_reply<output> reply)
+        protected async override void implement(s_reply_o<output> reply)
         {
             var db = z_db.a_x<user>();
             var dv = await db.get(i => i.phoneid == a_phoneid);

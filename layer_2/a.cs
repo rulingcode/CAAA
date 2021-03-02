@@ -9,7 +9,7 @@ namespace layer_2
 {
     class a
     {
-        internal static o1 o1;
+        internal static api1 api1;
 
         internal static s.y s_y;
         internal static s.x s_x;

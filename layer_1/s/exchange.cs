@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 using layer_0.cell;
 using WatsonTcp;
 
-namespace layer_1
+namespace layer_1.s
 {
-    class s_service
+    class exchange
     {
         WatsonTcpServer server;
         public readonly m_xip x_m;
-        public s_service(m_xip x_m)
+        public exchange(m_xip x_m)
         {
             this.x_m = x_m ?? throw new ArgumentNullException(nameof(x_m));
             server = new WatsonTcpServer(x_m.address, x_m.port);
@@ -26,7 +26,7 @@ namespace layer_1
         void Events_MessageReceivedAsync(object sender, MessageReceivedEventArgs e)
         {
             void met(byte[] answer, e_error reply) => this.answer(e.IpPort, reply, answer);
-            a.o1.y_s.Invoke(e.Data, met);
+            a.api1.s_exchange.Invoke(e.Data, met);
         }
         private void answer(string ipPort, e_error error, byte[] data) => server.SendAsync(ipPort, data);
         public void close() => server.Dispose();

@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:layer_x"
              mc:Ignorable="d"     >
-    <Grid Margin="20">
+    <Grid x:Name="body" Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="100" />
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -37,7 +37,7 @@
         </Grid>
 
         <Label Content="My Host" Grid.Row="3" Grid.Column="0" HorizontalContentAlignment="Center"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="1" Name="txt_endpoint" Padding="5"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="1" Name="txt_myhost" Padding="5"/>
 
 
         <Grid Grid.Row="4" Grid.Column="1" Margin="1">
@@ -48,5 +48,6 @@
             <Button Content="start" Name="btn_start" Click="btn_start_Click" Margin="1" Padding="5"/>
             <Button Content="stop" Name="btn_stop" Click="btn_stop_Click" Grid.Column="1" Margin="1"/>
         </Grid>
+        <CheckBox x:Name="ch_auto" HorizontalAlignment="Center"  Content="auto start" VerticalAlignment="Center" Grid.Row="4"/>
     </Grid>
 </UserControl>

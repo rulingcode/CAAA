@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_3.m
+namespace layer_1
 {
-    class data_item
+    public class api1_factory
     {
-        public string id { get; set; }
-        public byte[] data { get; set; }
+        public static api1 create() => a.api1 == null ? new _api1_() : null;
     }
 }

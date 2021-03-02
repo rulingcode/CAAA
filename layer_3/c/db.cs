@@ -1,31 +1,21 @@
-﻿using LiteDB;
+﻿using layer_0.cell;
+using LiteDB;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace layer_3.c
 {
-    class db
+    class db<T> : c_db<T> where T : m_id
     {
-        private const string file = "file";
-        LiteDB.LiteDatabase lite;
-        public db(string c_db_name)
-        {
-            //var folder = AppDomain.CurrentDomain.BaseDirectory;
-            var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "caaa");
-            Directory.CreateDirectory(folder);
-            var file = Path.Combine(folder, c_db_name + ".db");
-            lite = new LiteDatabase(new ConnectionString() { Connection = ConnectionType.Direct, Filename = file });
-            lite.Checkpoint();
-        }
-        public ILiteCollection<T> api<T>(string name = null)
-        {
-            if (name == null)
-                name = typeof(T).Name;
-            return lite.GetCollection<T>(name);
-        }
+        public ILiteCollection<T> coll { get; }
+        internal db(ILiteCollection<T> lite) => coll = lite;
+        public bool any(Expression<Func<T, bool>> filter) => coll.Find(filter).Any();
+        public T get(string id) => coll.FindOne(i => i.id == id);
+        public T get(Expression<Func<T, bool>> filter) => coll.FindOne(filter);
+        public void upsert(T val) => coll.Upsert(val);
     }
 }

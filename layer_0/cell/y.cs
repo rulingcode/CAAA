@@ -12,12 +12,12 @@ namespace layer_0.cell
         [JsonIgnore] public string z_deviceid { get; set; }
         [JsonIgnore] public string z_userid { get; set; }
         [JsonIgnore] public s_db_factory z_db { get; set; }
-        public abstract void z_run(s_reply reply);
+        public abstract void z_run(s_reply_data reply);
     }
     public abstract class y<output> : y where output : o_base, new()
     {
         public virtual Task<output> run(c_run rsv) => rsv.get<output>(this);
-        public sealed override async void z_run(s_reply reply)
+        public sealed override async void z_run(s_reply_data reply)
         {
             Action action = () =>
             {
@@ -31,7 +31,7 @@ namespace layer_0.cell
             };
             await Task.Run(action);
         }
-        protected virtual void implement(s_reply<output> reply)
+        protected virtual void implement(s_reply_o<output> reply)
         {
             throw new Exception("ldkvjgjbjfhcbfjvjfb");
         }

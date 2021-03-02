@@ -15,7 +15,7 @@ namespace z_x_center.z
 {
     class get_key : y_get_key
     {
-        protected async override void implement(s_reply<output> reply)
+        protected async override void implement(s_reply_o<output> reply)
         {
             var dv = await get(a_deviceid);
             if (dv == null)
