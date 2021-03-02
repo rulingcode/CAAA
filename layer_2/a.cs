@@ -12,7 +12,6 @@ namespace layer_2
         internal static api1 api1;
 
         internal static s.y s_y;
-        internal static s.x s_x;
         internal static s.notify s_notify;
 
         internal static c.y c_y;

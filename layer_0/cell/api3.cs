@@ -8,6 +8,7 @@ namespace layer_0.cell
     {
         Task<e_error> c_connect(string skeletid, string password, string xid);
         e_error c_connect();
+        m_key c_key { get; set; }
         c_report c_report { get; set; }
         c_run c_run(string userid = null);
         c_db<m_data_item> c_db { get; }

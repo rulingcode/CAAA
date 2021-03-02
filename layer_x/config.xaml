@@ -48,6 +48,5 @@
             <Button Content="start" Name="btn_start" Click="btn_start_Click" Margin="1" Padding="5"/>
             <Button Content="stop" Name="btn_stop" Click="btn_stop_Click" Grid.Column="1" Margin="1"/>
         </Grid>
-        <CheckBox x:Name="ch_auto" HorizontalAlignment="Center"  Content="auto start" VerticalAlignment="Center" Grid.Row="4"/>
     </Grid>
 </UserControl>

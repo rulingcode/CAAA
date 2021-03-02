@@ -8,6 +8,7 @@ namespace layer_1
     class a
     {
         internal static c.exchange c_exchange;
+       internal static s.exchange s_exchange;
         internal static _api1_ api1 { get; set; }
     }
 }

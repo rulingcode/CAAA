@@ -54,7 +54,6 @@ namespace layer_x
                         btn_logout.IsEnabled =
 
                         txt_myhost.IsEnabled =
-                        ch_auto.IsEnabled =
                         btn_start.IsEnabled =
                         btn_stop.IsEnabled = false;
                     }
@@ -66,7 +65,6 @@ namespace layer_x
                         btn_logout.IsEnabled =
 
                         txt_myhost.IsEnabled =
-                        ch_auto.IsEnabled =
                         btn_start.IsEnabled =
                         btn_stop.IsEnabled = false;
                     }
@@ -78,7 +76,6 @@ namespace layer_x
                         btn_logout.IsEnabled = true;
 
                         txt_myhost.IsEnabled =
-                        ch_auto.IsEnabled =
                         btn_start.IsEnabled = true;
                         btn_stop.IsEnabled = false;
                     }
@@ -90,9 +87,9 @@ namespace layer_x
                         btn_logout.IsEnabled = false;
 
                         txt_myhost.IsEnabled = false;
-                        ch_auto.IsEnabled = true;
                         btn_start.IsEnabled = false;
-                        btn_stop.IsEnabled = false;
+                        btn_stop.IsEnabled = true;
+                        add("Host Runing", Brushes.Green, true);
                     }
                     break;
             }
@@ -102,7 +99,9 @@ namespace layer_x
             reset();
             var dv = a.api3.c_connect();
             if (dv == e_error.non)
-                hosting();
+            {
+                host_runing();
+            }
             else
             {
                 btn_login.IsEnabled = true;
@@ -126,13 +125,32 @@ namespace layer_x
                 add("invalid IP address", Brushes.Brown, true);
                 return;
             }
+            a.api3.c_db.upsert(new m_data_item()
+            {
+                data = p_crypto.convert(xip.data),
+                id = "xip"
+            });
+            host_runing();
+        }
+        private void host_runing()
+        {
+            byte[] data = a.api3.c_db.get("xip")?.data;
+            if (data == null)
+            {
+                state = e_state.host_stop;
+                return;
+            }
             try
             {
-                a.api3.s_xip = xip;
+                txt_myhost.Text = p_crypto.convert<string>(data);
+                a.api3.s_xip = new m_xip() { data = txt_myhost.Text };
+                state = e_state.host_runing;
             }
-            catch
+            catch (Exception ex)
             {
-                add("ffff", Brushes.Brown, true);
+                state = e_state.host_stop;
+                add(ex.Message, Brushes.Brown, true);
+                return;
             }
         }
         private void add(string v, SolidColorBrush brush, bool clear = false)
@@ -147,7 +165,7 @@ namespace layer_x
         }
         private void btn_stop_Click(object sender, RoutedEventArgs e)
         {
-
+            a.api3.s_xip = null;
         }
         async void btn_login_Click(object sender, RoutedEventArgs e)
         {
@@ -162,7 +180,7 @@ namespace layer_x
 
             var dv = await a.api3.c_connect("wpf_x", txt_password.Password, a.xid);
             if (dv == e_error.non)
-                hosting();
+                host_runing();
             else
             {
                 btn_login.IsEnabled = txt_password.IsEnabled = true;
@@ -170,18 +188,9 @@ namespace layer_x
                 add(dv.ToString(), Brushes.Brown);
             }
         }
-        private void hosting()
-        {
-            state = e_state.host_stop;
-            var data = a.api3.c_db.get("xip")?.data;
-            if (data != null)
-                txt_myhost.Text = p_crypto.convert<string>(data);
-            else
-                txt_myhost.Text = p_res.get_endpoint(0).ToString();
-        }
         private void btn_logout_Click(object sender, RoutedEventArgs e)
         {
-
+            a.api3.
         }
     }
 }

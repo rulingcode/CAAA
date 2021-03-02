@@ -18,7 +18,6 @@ namespace layer_2
             a.c_y = new c.y();
 
             a.s_y = new s.y();
-            a.s_x = new s.x();
         }
 
         //---------------------------------------------------------
@@ -43,7 +42,9 @@ namespace layer_2
             get => a.api1.s_xip;
             set
             {
-                a.s_x.set_x(value);
+                if (value.port % 2 != 0)
+                    throw new Exception("kvkjnjjjfjcdjbgjbfnd");
+                a.api1.s_xip = value;
             }
         }
         public void s_notify(string xid, string deviceid, string userid) => a.s_notify.send(xid, deviceid, userid);
