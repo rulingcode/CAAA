@@ -44,7 +44,7 @@ namespace layer_2.s
                 }
                 else
                 {
-                    var dv = p_crypto.convert<m_login_notify>(e.Data);
+                    var dv = p_crypto.convert<m_packet>(e.Data);
                     var key = await a.o2.s_get_key(dv.deviceid);
                     dv.data = p_crypto.Decrypt(dv.data, key);
                     await locker.WaitAsync();

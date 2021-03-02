@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace layer_0.cell
 {
-    public class m_data_item : m_id
+    public class m_register_x
     {
-        public byte[] data { get; set; }
+        public string a_xid { get; set; }
+        public string a_password { get; set; }
     }
 }

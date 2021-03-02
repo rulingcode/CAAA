@@ -42,7 +42,7 @@ namespace layer_2
             get => a.api1.s_xip;
             set
             {
-                if (value.port % 2 != 0)
+                if (value != null && value.port % 2 != 0)
                     throw new Exception("kvkjnjjjfjcdjbgjbfnd");
                 a.api1.s_xip = value;
             }

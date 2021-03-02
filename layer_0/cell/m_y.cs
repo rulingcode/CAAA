@@ -4,7 +4,7 @@ using System.Text;
 
 namespace layer_0.cell
 {
-    public class m_packet_y
+    public class m_y
     {
         public string yid { get; set; }
         public string userid { get; set; }

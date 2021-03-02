@@ -41,7 +41,7 @@ namespace layer_2.c
                 p_crypto.random.NextBytes(bfr);
                 var key = a.o2.c_key;
                 bfr = p_crypto.Encrypt(bfr, key);
-                m_login_notify data = new()
+                m_packet data = new()
                 {
                     data = bfr,
                     deviceid = key.id,

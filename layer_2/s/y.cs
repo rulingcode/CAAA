@@ -50,7 +50,7 @@ namespace layer_2.s
                 }
             }
 
-            var packet_y = p_crypto.convert<m_packet_y>(packet.data);
+            var packet_y = p_crypto.convert<m_y>(packet.data);
             var type = await get(packet.xid, packet_y.yid);
             if (type == null)
             {

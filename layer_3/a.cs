@@ -16,7 +16,6 @@ namespace layer_3
     {
         internal static api3 o3;
         internal static api2 o2;
-        internal static c.key c_key;
         internal static c.db_factory c_db;
         internal static c.receive_notify c_recive_notify;
         internal static s.key s_key;

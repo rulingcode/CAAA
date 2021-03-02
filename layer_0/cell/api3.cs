@@ -6,12 +6,10 @@ namespace layer_0.cell
 {
     public interface api3
     {
-        Task<e_error> c_connect(string skeletid, string password, string xid);
-        e_error c_connect();
         m_key c_key { get; set; }
         c_report c_report { get; set; }
         c_run c_run(string userid = null);
-        c_db<m_data_item> c_db { get; }
+        c_db<m_data> c_db { get; }
         m_xip s_xip { get; set; }
         void s_add_y<T>() where T : y, new();
         s_db_factory s_db_factory(string xid);

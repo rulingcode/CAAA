@@ -13,5 +13,6 @@ namespace layer_x
         internal static api3 api3;
         internal static string xid;
         internal static s_db_factory db;
+        internal static key key;
     }
 }

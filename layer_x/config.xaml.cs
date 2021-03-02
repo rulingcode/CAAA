@@ -97,7 +97,7 @@ namespace layer_x
         void start()
         {
             reset();
-            var dv = a.api3.c_connect();
+            var dv = a.key.connect();
             if (dv == e_error.non)
             {
                 host_runing();
@@ -125,7 +125,7 @@ namespace layer_x
                 add("invalid IP address", Brushes.Brown, true);
                 return;
             }
-            a.api3.c_db.upsert(new m_data_item()
+            a.api3.c_db.upsert(new m_data()
             {
                 data = p_crypto.convert(xip.data),
                 id = "xip"
@@ -166,6 +166,7 @@ namespace layer_x
         private void btn_stop_Click(object sender, RoutedEventArgs e)
         {
             a.api3.s_xip = null;
+            state = e_state.host_stop;
         }
         async void btn_login_Click(object sender, RoutedEventArgs e)
         {
@@ -178,7 +179,7 @@ namespace layer_x
                 return;
             }
 
-            var dv = await a.api3.c_connect("wpf_x", txt_password.Password, a.xid);
+            var dv = await a.key.connect(txt_password.Password);
             if (dv == e_error.non)
                 host_runing();
             else
@@ -190,7 +191,8 @@ namespace layer_x
         }
         private void btn_logout_Click(object sender, RoutedEventArgs e)
         {
-            a.api3.
+            a.key.disconnect();
+            state = e_state.login_requiered;
         }
     }
 }

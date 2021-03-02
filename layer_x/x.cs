@@ -14,6 +14,7 @@ namespace layer_x
             a.api3 = api3_factory.create("db_" + a.xid);
             run = a.api3.c_run(a.xid);
             a.db = a.api3.s_db_factory(a.xid);
+            a.key = new key();
         }
         public static s_db_factory db => a.db;
         public static c_run run { get; private set; }

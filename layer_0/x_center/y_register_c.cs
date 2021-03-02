@@ -8,13 +8,13 @@ using layer_0.cell;
 
 namespace layer_0.x_center
 {
-    public class y_device_registration : z_y<y_device_registration.output>
+    public class y_register_c : z_y<y_register_c.o>
     {
-        public override string z_yid => nameof(y_device_registration);
+        public override string z_yid => nameof(y_register_c);
         public override e_permission z_permission => e_permission.non;
-        public byte[] a_key { get; set; }
-        public byte[] a_login_skelet { get; set; }
-        public class output : o_base
+        public byte[] a_key_data { get; set; }
+        public byte[] a_register_data { get; set; }
+        public class o : o_base
         {
             public string deviceid { get; set; }
         }

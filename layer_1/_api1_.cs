@@ -18,7 +18,10 @@ namespace layer_1
             set
             {
                 if (a.s_exchange != null)
+                {
                     a.s_exchange.close();
+                    a.s_exchange = null;
+                }
                 if (value != null)
                     a.s_exchange = new s.exchange(value);
             }

@@ -11,7 +11,7 @@ namespace layer_2.c
     {
         internal async Task<output> run<output>(string userid, layer_0.cell.y y) where output : o_base
         {
-            m_packet_y packet_y = new m_packet_y()
+            m_y packet_y = new m_y()
             {
                 userid = userid,
                 yid = y.z_yid,
