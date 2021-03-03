@@ -24,7 +24,14 @@ namespace layer_2
 
         public c_report c_report { get => a.api1.c_report; set => a.api1.c_report = value; }
         public m_xip c_xip { get; set; }
-        public m_key c_key { get; set; }
+        public m_key c_key
+        {
+            get => a.c_key; set
+            {
+                a.c_key = value;
+                a.c_notify.connect();
+            }
+        }
         public c_run c_run(string userid = null) => new c.run(userid);
         public c_notify c_notify { get; set; }
         public y_before c_before { get; set; }
@@ -45,8 +52,15 @@ namespace layer_2
                 if (value != null && value.port % 2 != 0)
                     throw new Exception("kvkjnjjjfjcdjbgjbfnd");
                 a.api1.s_xip = value;
+                if (value == null)
+                {
+                    a.s_notify?.close();
+                    a.s_notify = null;
+                }
+                else
+                    a.s_notify = new s.notify(value);
             }
         }
-        public void s_notify(string xid, string deviceid, string userid) => a.s_notify.send(xid, deviceid, userid);
+        public void s_notify(string deviceid, string userid) => a.s_notify.send(deviceid, userid);
     }
 }

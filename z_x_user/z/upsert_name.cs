@@ -11,7 +11,7 @@ namespace z_x_user.z
 {
     class upsert_name : y_upsert_name
     {
-        protected async override void implement(s_reply<o> reply)
+        protected async override void implement(s_reply_o<o> reply)
         {
             if (z_userid == a_userid)
             {

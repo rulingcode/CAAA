@@ -1,7 +1,4 @@
 ﻿using layer_0.cell;
-using layer_0.x_center;
-using layer_3;
-using layer_x;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,18 +14,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace z_x_user
+namespace layer_x
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for body.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class body : UserControl
     {
-        x_core core;
-        public MainWindow()
+        public body()
         {
             InitializeComponent();
-            core = layer_x.apix_factory.create("x_user", this);
+            a.api3.c_report = report;
+        }
+        private Task report(m_report report)
+        {
+            return Task.CompletedTask;
         }
     }
 }

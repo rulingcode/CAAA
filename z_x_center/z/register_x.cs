@@ -42,7 +42,7 @@ namespace z_x_center.z
         {
             if (val.a_xid.Substring(0, 2) != "x_")
                 return false;
-            var password = val.a_xid == "x_center" ? a.password : await a.get_password(val.a_xid);
+            var password = await a.get_password(val.a_xid);
             return val.a_password == password;
         }
     }

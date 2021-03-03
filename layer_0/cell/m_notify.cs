@@ -4,5 +4,6 @@
     {
         public string xid { get; set; }
         public string userid { get; set; }
+
     }
 }

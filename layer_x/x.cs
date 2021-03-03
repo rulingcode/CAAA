@@ -4,6 +4,7 @@ using layer_3;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace layer_x
 {
@@ -11,7 +12,7 @@ namespace layer_x
     {
         internal x()
         {
-            a.core = this;
+            a.x = this;
             a.api3 = api3_factory.create("db_" + a.xid);
             run = a.api3.c_run(a.xid);
             a.db = a.api3.s_db_factory(a.xid);
@@ -22,15 +23,18 @@ namespace layer_x
         public static void add_y<T>() where T : y, new() => a.api3.s_add_y<T>();
         public static x z_create(string xid, Window window)
         {
-            if (a.core != null)
+            if (a.x != null)
                 throw new Exception("lkfkbkgjbfjvjfc");
             window.Title = xid;
             a.xid = xid;
-            a.core = new x();
-            config config = new config();
-            window.Content = config;
+            a.x = new x();
+            a.body = new body();
+            window.Content = a.body;
+            a.body.connection.start();
             window.SizeToContent = SizeToContent.WidthAndHeight;
-            return a.core;
+            return a.x;
         }
+        public event Action start;
+        internal void _start() => start?.Invoke();
     }
 }

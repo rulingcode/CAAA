@@ -10,6 +10,7 @@ namespace layer_2.c
 {
     class notify_item
     {
+        bool reset = false;
         private const string connection_established = nameof(connection_established);
         WatsonTcpClient client;
         DateTime time = DateTime.Now.AddDays(-1);
@@ -21,7 +22,7 @@ namespace layer_2.c
         }
         async void live()
         {
-            TimeSpan timeSpan = TimeSpan.FromMilliseconds(5000);
+            TimeSpan timeSpan = TimeSpan.FromMilliseconds(5000 * 100);//9053
         retry:
             if ((DateTime.Now - time) > timeSpan)
                 await connect();
@@ -61,6 +62,7 @@ namespace layer_2.c
             if (client == null) return;
             try
             {
+                reset = false;
                 client.Events.MessageReceived -= Events_MessageReceived;
                 client.Dispose();
             }
@@ -74,7 +76,14 @@ namespace layer_2.c
             {
                 e_pulse pulse = (e_pulse)e.Data[0];
                 if (pulse == e_pulse.s_live)
+                {
                     time = DateTime.Now;
+                    if (!reset)
+                    {
+                        a.c_notify.reset(xip.id);
+                        reset = true;
+                    }
+                }
                 else
                     throw new Exception("kdvjfjhsjcjfndj");
             }
@@ -86,7 +95,7 @@ namespace layer_2.c
                 if (dv.userid == null)
                     throw new Exception("kfjvjdvjfhfhshvfdhf");
                 time = DateTime.Now;
-                a.o2.c_notify(dv);
+                a.c_notify.c_notify(dv);
             }
             await Task.Delay(1000);
             await client.SendAsync(new byte[] { (byte)e_pulse.c_live });

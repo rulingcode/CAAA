@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using layer_0.cell;
+using System.Linq;
 
 namespace layer_3.s
 {
@@ -12,24 +13,14 @@ namespace layer_3.s
         {
             if (y.z_userid != null)
             {
-                if (a.o3.z_middle_y == null)
-                {
-                    var db = a.c_db.api<m.device_users>();
-                    var dv = db.get(i => i.id == y.z_deviceid);
-                    if (dv == null)
-                        return e_error.invalid_deviceid;
-                    if (!dv.users.Contains(y.z_userid))
-                        return e_error.invalid_permission;
-                }
-                else
-                {
-                    e_error rt = await a.o3.z_middle_y(y);
-                    if (rt != layer_0.cell.e_error.non)
-                        return rt;
-                }
+                var dv = await a.db_device_user.get(y.z_deviceid);
+                if (dv == null)
+                    return e_error.invalid_deviceid;
+                if (!dv.users.Contains(y.z_userid))
+                    return e_error.invalid_userid;
             }
             y.z_db = new db_factory(y.z_xid);
-            return await Task.FromResult(e_error.non);
+            return e_error.non;
         }
     }
 }

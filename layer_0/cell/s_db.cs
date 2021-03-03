@@ -9,6 +9,7 @@ namespace layer_0.cell
     {
         IMongoCollection<T> coll { get; }
         Task upsert(T val);
+        Task delete(string id);
         Task<T> get(string id);
         Task<T> get(Expression<Func<T, bool>> filter);
         Task<bool> any(Expression<Func<T, bool>> filter);
