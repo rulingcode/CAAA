@@ -37,7 +37,7 @@ namespace layer_2.s
                         var ips = list.Where(i => i.deviceid.Substring(0, 4) == "d_x_").Select(i => i.ip).ToArray();
                         locker.Release();
                         foreach (var i in ips)
-                            direct_send("x_any", i);
+                            direct_send(userid, i);
                     }
                     break;
                 case "u_any":
@@ -46,7 +46,7 @@ namespace layer_2.s
                         var ips = list.Select(i => i.ip).ToArray();
                         locker.Release();
                         foreach (var i in ips)
-                            direct_send("x_any", i);
+                            direct_send(userid, i);
                     }
                     break;
                 default:

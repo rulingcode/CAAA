@@ -32,7 +32,7 @@ namespace layer_2.c
         }
         internal void connect()
         {
-            list.Add(new notify_item(a.api2.s_xid, a.api2.c_xip));
+            list.Add(new notify_item("x_center", a.api2.c_xip));
         }
         internal void reset(string xid)
         {

@@ -36,7 +36,7 @@ namespace z_x_center
             dv.users.Remove(userid);
             dv.users.Add(userid);
             await a.db_device_user.upsert(dv);
-            a.api3.s_notify("any_x");
+            a.api3.s_notify("x_any");
         }
         public static async Task<string> get_password(string xid)
         {

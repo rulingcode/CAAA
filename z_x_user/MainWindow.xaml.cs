@@ -22,19 +22,18 @@ namespace z_x_user
     /// </summary>
     public partial class MainWindow : Window
     {
-        x x;
         public MainWindow()
         {
             InitializeComponent();
-            x = x.z_create("x_user", this);
+            x.z_create("x_user", this);
             x.add_y<z.upsert_name>();
-           // x.start += X_start;
+            // x.start += X_start;
         }
         async void X_start()
         {
         retry:
             layer_0.x_user.y_upsert_name y = new() { a_fullname = "aaa", a_userid = "bbb" };
-            var dv = await y.run(x.run);
+            var dv = await y.run(x.run_x);
             if (dv.z_error != e_error.non)
                 goto retry; var hh = e_error.invalid_deviceid;
         }

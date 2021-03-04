@@ -40,7 +40,7 @@ namespace layer_x
             };
             y.a_register_data = p_crypto.convert(login_m);
             y.a_register_data = p_crypto.Encrypt(y.a_register_data, dv_key);
-            var o = await y.run(a.api3.c_run());
+            var o = await y.run(x.run_null);
             if (o.z_error == e_error.non)
             {
                 dv_key.id = o.deviceid;

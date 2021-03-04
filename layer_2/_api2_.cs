@@ -8,7 +8,6 @@ namespace layer_2
 {
     class _api2_ : api2
     {
-        m_xip s_xipf;
         string s_xidf;
         internal _api2_()
         {
@@ -47,12 +46,12 @@ namespace layer_2
         public void s_add_y<T>() where T : layer_0.cell.y, new() => a.s_y.add_y<T>();
         public m_xip s_xip
         {
-            get => s_xipf;
+            get => a.api1.s_xip;
             set
             {
                 if (value != null && value.port % 2 != 0)
                     throw new Exception("kvkjnjjjfjcdjbgjbfnd");
-                s_xipf = value;
+                a.api1.s_xip = value;
                 if (value == null)
                 {
                     a.s_notify?.close();

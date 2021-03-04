@@ -43,19 +43,21 @@ namespace layer_3.s
             if (is_sync)
             {
                 m_history document = new m_history() { id = val.id, add = true, time = DateTime.Now };
-                await history.ReplaceOneAsync(i => i.id == val.id, document);
+                await history.ReplaceOneAsync(i => i.id == val.id, document, new ReplaceOptions() { IsUpsert = true });
             }
         }
         public async Task<y_sync.o> get_history(DateTime time)
         {
             var dv = await (await history.FindAsync(i => i.time >= time)).ToListAsync();
-            y_sync.o rt = new()
-            {
-                deleted = dv.Where(i => !i.add).Select(i => i.id).ToArray(),
-                time = dv.Max(i => i.time),
-                updated = JsonConvert.SerializeObject(dv.Where(i => i.add).ToArray())
-            };
-            return rt;
+            if (dv.Count == 0)
+                return default;
+            else
+                return new y_sync.o()
+                {
+                    deleted = dv.Where(i => !i.add).Select(i => i.id).ToArray(),
+                    time = dv.Max(i => i.time),
+                    updated = JsonConvert.SerializeObject(dv.Where(i => i.add).ToArray())
+                };
         }
         public async Task delete(string id)
         {
