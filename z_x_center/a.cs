@@ -12,9 +12,10 @@ namespace z_x_center
 {
     class a
     {
-        static s_db_factory db;
+        internal static s_db_factory db;
         static api3 api3f;
         static s_db<m_device_users> db_device_user;
+
         internal static key key;
 
         public static api3 api3

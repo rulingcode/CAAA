@@ -18,7 +18,7 @@ namespace layer_2.c
                 data = JsonConvert.SerializeObject(y)
             };
             var data = p_crypto.convert(packet_y);
-            m_key key = a.o2.c_key;
+            m_key key = a.api2.c_key;
             if (key != null)
                 data = p_crypto.Encrypt(data, key);
             m_packet packet = new m_packet()
@@ -33,7 +33,7 @@ namespace layer_2.c
             if (key != null)
                 data = p_crypto.Decrypt(data, key);
             var o = p_crypto.convert<output>(data);
-            await a.o2.c_after(y, o);
+            await a.api2.c_after(y, o);
             return o;
         }
     }

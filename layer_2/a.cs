@@ -18,7 +18,9 @@ namespace layer_2
         internal static c.x c_x;
         internal static c.notify c_notify;
         internal static m_key c_key;
+        internal static c_run run_x;
+        internal static c_run run_null;
 
-        internal static _api2_ o2 { get; set; }
+        internal static _api2_ api2 { get; set; }
     }
 }

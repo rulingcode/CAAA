@@ -17,7 +17,7 @@ namespace layer_2.c
         internal async Task<m_xip> get(string xid)
         {
             if (xid == "x_center")
-                return a.o2.c_xip;
+                return a.api2.c_xip;
             retry:
             await locker.WaitAsync();
             var dv = list.FirstOrDefault(j => j.id == xid);
@@ -28,6 +28,12 @@ namespace layer_2.c
                 goto retry;
             }
             return dv;
+        }
+        internal async void set(m_xip[] val)
+        {
+            await locker.WaitAsync();
+            list = val;
+            locker.Release();
         }
     }
 }

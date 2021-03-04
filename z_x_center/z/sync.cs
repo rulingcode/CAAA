@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace z_x_center.z
 {
-    class get_sync : y_get_sync
+    class sync : y_sync
     {
-        protected override void implement(s_reply_o<o> reply)
+        protected async override void implement(s_reply_o<o> reply)
         {
-
+            var db = a.db.a_x<m_device_users>();
+            var o = await db.get_history(a_time);
+            reply(o);
         }
     }
 }

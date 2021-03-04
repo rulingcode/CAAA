@@ -8,6 +8,6 @@ namespace layer_2
 {
     public class api2_factory
     {
-        public static layer_0.cell.api2 create() => a.o2 == null ? new _api2_() : null;
+        public static layer_0.cell.api2 create() => a.api2 == null ? new _api2_() : null;
     }
 }

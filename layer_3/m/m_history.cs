@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_3
+namespace layer_3.m
 {
-    public class api3_factory
+    public class m_history : m_id
     {
-        public static api3 create(string name) => a.api3 == null ? new _api3_(name) : null;
+        public DateTime time { get; set; }
+        public bool add { get; set; }
     }
 }

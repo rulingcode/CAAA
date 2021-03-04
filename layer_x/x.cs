@@ -34,7 +34,5 @@ namespace layer_x
             window.SizeToContent = SizeToContent.WidthAndHeight;
             return a.x;
         }
-        public event Action start;
-        internal void _start() => start?.Invoke();
     }
 }

@@ -8,15 +8,16 @@ namespace layer_2
 {
     class _api2_ : api2
     {
+        m_xip s_xipf;
+        string s_xidf;
         internal _api2_()
         {
-            a.o2 = this;
+            a.api2 = this;
             a.api1 = api1_factory.create();
-
+            a.run_null = c_run();
             a.c_notify = new c.notify();
             a.c_x = new c.x();
             a.c_y = new c.y();
-
             a.s_y = new s.y();
         }
 
@@ -46,12 +47,12 @@ namespace layer_2
         public void s_add_y<T>() where T : layer_0.cell.y, new() => a.s_y.add_y<T>();
         public m_xip s_xip
         {
-            get => a.api1.s_xip;
+            get => s_xipf;
             set
             {
                 if (value != null && value.port % 2 != 0)
                     throw new Exception("kvkjnjjjfjcdjbgjbfnd");
-                a.api1.s_xip = value;
+                s_xipf = value;
                 if (value == null)
                 {
                     a.s_notify?.close();
@@ -59,6 +60,14 @@ namespace layer_2
                 }
                 else
                     a.s_notify = new s.notify(value);
+            }
+        }
+        public string s_xid
+        {
+            get => s_xidf; set
+            {
+                s_xidf = value;
+                a.run_x = c_run(value);
             }
         }
         public void s_notify(string deviceid, string userid) => a.s_notify.send(deviceid, userid);

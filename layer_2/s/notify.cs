@@ -62,7 +62,7 @@ namespace layer_2.s
         }
         async void direct_send(string userid, string ip)
         {
-            m_notify notify = new() { userid = userid, xid = a.o2.s_xip.id };
+            m_notify notify = new() { userid = userid, xid = a.api2.s_xip.id };
             await server.SendAsync(ip, p_crypto.convert(notify));
         }
         async void Events_MessageReceived(object sender, MessageReceivedEventArgs e)
@@ -80,7 +80,7 @@ namespace layer_2.s
                 else
                 {
                     var dv = p_crypto.convert<m_packet>(e.Data);
-                    var key = await a.o2.s_get_key(dv.deviceid);
+                    var key = await a.api2.s_get_key(dv.deviceid);
                     dv.data = p_crypto.Decrypt(dv.data, key);
                     await locker.WaitAsync();
                     var item = list.FirstOrDefault(i => i.deviceid == dv.deviceid);

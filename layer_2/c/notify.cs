@@ -13,15 +13,16 @@ namespace layer_2.c
         List<notify_item> list = new List<notify_item>();
         internal void c_notify(m_notify notify)
         {
-            if (notify.xid == "x_center")
-                reload(notify.userid);
+            if (notify.xid == "x_center" && notify.userid == "u_any")
+                u_any();
             else
-                a.o2.c_notify?.Invoke(notify);
+                a.api2.c_notify?.Invoke(notify);
         }
-        async void reload(string userid)
+        async void u_any()
         {
             y_get_x y = new();
-            var o = await y.run(a.o2.c_run());
+            var o = await y.run(a.run_null);
+            a.c_x.set(o.list);
             foreach (var i in o.list)
             {
                 if (list.Any(j => i == j.xip))
@@ -31,13 +32,15 @@ namespace layer_2.c
         }
         internal void connect()
         {
-            list.Add(new notify_item(a.o2.c_xip));
-            
+            list.Add(new notify_item(a.api2.c_xip));
         }
         internal void reset(string xid)
         {
             if (xid == "x_center")
-                c_notify(new m_notify() { xid = xid, userid = "reset" });
+            {
+                c_notify(new m_notify() { xid = xid, userid = "u_any" });
+                c_notify(new m_notify() { xid = xid, userid = "x_any" });
+            }
         }
     }
 }

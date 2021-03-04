@@ -33,7 +33,7 @@ namespace layer_2.s
             m_key keys = null;
             if (packet.deviceid != null)
             {
-                keys = await a.o2.s_get_key(packet.deviceid);
+                keys = await a.api2.s_get_key(packet.deviceid);
                 if (keys == null)
                 {
                     met(null, e_error.invalid_deviceid);
@@ -89,7 +89,7 @@ namespace layer_2.s
             }
             y.z_userid = packet_y.userid;
             y.z_deviceid = packet.deviceid;
-            var error = await a.o2.s_before(y);
+            var error = await a.api2.s_before(y);
             if (error != e_error.non)
             {
                 met(null, error);

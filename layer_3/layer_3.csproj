@@ -8,8 +8,4 @@
     <ProjectReference Include="..\layer_2\layer_2.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="m\" />
-  </ItemGroup>
-
 </Project>

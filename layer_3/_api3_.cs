@@ -14,12 +14,12 @@ namespace layer_3
         internal _api3_(string name)
         {
             a.name = name;
-            a.o3 = this;
+            a.api3 = this;
             a.api2 = api2_factory.create();
 
             a.c_db = new c.db_factory(name);
             c_db = a.c_db.api<m_data>();
-            a.c_recive_notify = new c.receive_notify();
+            a.c_notify = new c.notify();
             a.c_middle = new c.middle();
 
             a.s_key = new key();
@@ -29,7 +29,7 @@ namespace layer_3
             a.api2.s_get_key = a.s_key.get;
             a.api2.s_before = a.s_middle.run;
             a.api2.c_after = a.c_middle.after;
-            a.api2.c_notify = a.c_recive_notify.run;
+            a.api2.c_notify = a.c_notify.run;
             a.api2.c_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString(), id = "x_center" };
         }
         public m_key c_key { get => a.api2.c_key; set => a.api2.c_key = value; }
@@ -42,7 +42,10 @@ namespace layer_3
             {
                 a.api2.s_xip = value;
                 if (value != null)
+                {
+                    a.run_x = c_run(value.id);
                     a.db_device_user = s_db_factory(value.id).a_x<layer_0.x_center.m_device_users>();
+                }
             }
         }
         public void s_add_y<T>() where T : y, new() => a.api2.s_add_y<T>();

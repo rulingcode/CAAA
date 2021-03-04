@@ -80,7 +80,7 @@ namespace layer_x
             }
             start();
         }
-        async Task start()
+        async void start()
         {
             try
             {
@@ -95,22 +95,11 @@ namespace layer_x
                 if (dv.z_error != e_error.non)
                     throw new Exception(dv.z_error.ToString());
                 state = e_state.runing;
-                await sync();
-                a.x._start();
             }
             catch (Exception e)
             {
                 message("error : " + e.Message, Brushes.Brown);
             }
-        }
-        async Task sync()
-        {
-            var data = a.api3.c_db.get("time")?.data;
-            DateTime time = default;
-            if (data != null)
-                time = p_crypto.convert<DateTime>(data);
-            y_get_sync y = new() { time = time };
-            var dv = await y.run(x.run);
         }
         private void message(string v, SolidColorBrush brush)
         {
