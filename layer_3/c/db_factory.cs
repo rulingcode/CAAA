@@ -12,7 +12,7 @@ namespace layer_3.c
     class db_factory
     {
         private const string file = "file";
-        LiteDB.LiteDatabase lite;
+        LiteDatabase lite;
         public db_factory(string c_db_name)
         {
             //var folder = AppDomain.CurrentDomain.BaseDirectory;

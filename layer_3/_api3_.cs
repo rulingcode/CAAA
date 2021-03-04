@@ -11,13 +11,12 @@ namespace layer_3
 {
     class _api3_ : api3
     {
-        internal _api3_(string name)
+        internal _api3_(string c_db_name)
         {
-            a.name = name;
             a.api3 = this;
             a.api2 = api2_factory.create();
 
-            a.c_db = new c.db_factory(name);
+            a.c_db = new c.db_factory(c_db_name);
             c_db = a.c_db.api<m_data>();
             a.c_notify = new c.notify();
             a.c_middle = new c.middle();

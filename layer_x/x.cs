@@ -26,8 +26,8 @@ namespace layer_x
             if (a.x != null)
                 throw new Exception("lkfkbkgjbfjvjfc");
             window.Title = xid;
-            a.xid = xid;
             a.x = new x();
+            a.xid = xid;
             a.body = new body();
             window.Content = a.body;
             a.body.connection.start();
