@@ -24,5 +24,6 @@ namespace layer_3.c
         }
         public c_db<T> api<T>() => new db<T>(lite.GetCollection<T>("free_" + typeof(T).Name));
         public c_db<T> sync<T>(string name) => new db<T>(lite.GetCollection<T>("sync_" + name));
+        public ILiteCollection<BsonDocument> sync2(string name) => lite.GetCollection("sync_" + name);
     }
 }

@@ -14,7 +14,7 @@ namespace layer_x
         public static c_run run_x { get; private set; }
         public static c_run run_null { get; private set; }
         public static void add_y<T>() where T : y, new() => a.api3.s_add_y<T>();
-        public static void z_create(string xid, Window window)
+        public static void z_create<T>(string xid, Window window) where T : m_sync
         {
             window.Title = xid;
             a.api3 = api3_factory.create("db_" + xid);
@@ -24,6 +24,7 @@ namespace layer_x
             a.db = a.api3.s_db_factory(a.xid);
             a.key = new key();
             a.body = new body();
+            add_y<sync<T>>();
             window.Content = a.body;
             a.body.connection.start();
             window.SizeToContent = SizeToContent.WidthAndHeight;

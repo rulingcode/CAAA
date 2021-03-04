@@ -59,7 +59,6 @@ namespace layer_3.c
             }
             if (o.time != time)
                 db.upsert(new m.c_history() { id = id, time = o.time });
-            var fff = a.c_db.sync<m_device_users>(id).coll.FindAll().ToArray();
         }
     }
 }
