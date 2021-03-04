@@ -62,7 +62,7 @@ namespace layer_2.s
         }
         async void direct_send(string userid, string ip)
         {
-            m_notify notify = new() { userid = userid, xid = a.api2.s_xip.id };
+            m_notify notify = new() { userid = userid, xid = a.api2.s_xid };
             await server.SendAsync(ip, p_crypto.convert(notify));
         }
         async void Events_MessageReceived(object sender, MessageReceivedEventArgs e)

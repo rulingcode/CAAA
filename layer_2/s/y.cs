@@ -15,12 +15,11 @@ namespace layer_2.s
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
         class item
         {
-            public string xid { get; set; }
             public string yid { get; set; }
             public Type type { get; set; }
             public override string ToString()
             {
-                return xid + "." + yid + " : " + type.FullName;
+                return yid + " : " + type.FullName;
             }
         }
         public y()
@@ -51,7 +50,7 @@ namespace layer_2.s
             }
 
             var packet_y = p_crypto.convert<m_y>(packet.data);
-            var type = await get(packet.xid, packet_y.yid);
+            var type = await get(packet_y.yid);
             if (type == null)
             {
                 met(null, e_error.no_implement);
@@ -113,20 +112,19 @@ namespace layer_2.s
         {
             await locker.WaitAsync();
             T dv = new T();
-            if (list.Any(i => i.xid == dv.z_xid && i.yid == dv.z_yid))
+            if (list.Any(i => i.yid == dv.z_yid))
                 throw new Exception("lfkvjbbhdnvjfnvjfnvnf");
             list.Add(new item()
             {
                 type = dv.GetType(),
-                xid = dv.z_xid,
                 yid = dv.z_yid
             });
             locker.Release();
         }
-        async Task<Type> get(string xid, string yid)
+        async Task<Type> get(string yid)
         {
             await locker.WaitAsync();
-            var dv = list.FirstOrDefault(i => i.xid == xid && i.yid == yid);
+            var dv = list.FirstOrDefault(i => i.yid == yid);
             locker.Release();
             return dv?.type;
         }

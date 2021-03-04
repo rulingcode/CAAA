@@ -7,7 +7,6 @@ namespace layer_0.cell
     public class m_packet
     {
         public string deviceid { get; set; }
-        public string xid { get; set; }
         public byte[] data { get; set; }
     }
 }

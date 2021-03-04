@@ -12,6 +12,7 @@ namespace layer_0.cell
         c_db<m_data> c_db { get; }
         c_notify c_notify { get; set; }
         m_xip s_xip { get; set; }
+        string s_xid { get; set; }
         void s_add_y<T>() where T : y, new();
         s_db_factory s_db_factory(string xid);
         s_get_key z_get_key { get; set; }

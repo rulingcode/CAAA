@@ -24,12 +24,11 @@ namespace layer_2.c
             m_packet packet = new m_packet()
             {
                 deviceid = key?.id,
-                xid = y.z_xid,
                 data = data
             };
             data = p_crypto.convert(packet);
-            m_xip endpoint = await a.c_x.get(y.z_xid);
-            data = await a.api1.c_exchange(endpoint, data);
+            m_xip xip = await a.c_x.get(y.z_xid);
+            data = await a.api1.c_exchange(xip, data);
             if (key != null)
                 data = p_crypto.Decrypt(data, key);
             var o = p_crypto.convert<output>(data);

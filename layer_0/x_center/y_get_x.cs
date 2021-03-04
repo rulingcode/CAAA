@@ -11,7 +11,12 @@ namespace layer_0.x_center
         public override e_permission z_permission => e_permission.k;
         public class output : o_base
         {
-            public m_xip[] list { get; set; }
+            public item[] list { get; set; }
+        }
+        public class item
+        {
+            public string xid { get; set; }
+            public m_xip xip { get; set; }
         }
     }
 }

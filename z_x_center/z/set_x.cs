@@ -16,15 +16,10 @@ namespace z_x_center.z
         static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
         protected async override void implement(s_reply_o<o> reply)
         {
-            if (a_xip.id != z_userid)
-            {
-                reply(new o() { z_error = e_error.invalid_xid });
-                return;
-            }
             await locker.WaitAsync();
-            List<m_xip> l = new List<m_xip>(get_x.o.list);
-            l.Remove(a_xip);
-            l.Add(a_xip);
+            List<y_get_x.item> l = new(get_x.o.list);
+            l.RemoveAll(i => i.xid == z_userid);
+            l.Add(new y_get_x.item() { xid = z_userid, xip = a_xip });
             get_x.o.list = l.ToArray();
             locker.Release();
             reply();

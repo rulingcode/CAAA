@@ -25,14 +25,14 @@ namespace layer_2.c
             a.c_x.set(o.list);
             foreach (var i in o.list)
             {
-                if (list.Any(j => i == j.xip))
+                if (list.Any(j => i.xid == j.xid))
                     continue;
-                list.Add(new notify_item(i));
+                list.Add(new notify_item(i.xid, i.xip));
             }
         }
         internal void connect()
         {
-            list.Add(new notify_item(a.api2.c_xip));
+            list.Add(new notify_item(a.api2.s_xid, a.api2.c_xip));
         }
         internal void reset(string xid)
         {

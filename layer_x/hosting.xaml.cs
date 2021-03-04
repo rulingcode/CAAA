@@ -84,7 +84,7 @@ namespace layer_x
         {
             try
             {
-                a.api3.s_xip = new m_xip() { data = txt_myhost.Text, id = a.xid };
+                a.api3.s_xip = new m_xip() { data = txt_myhost.Text };
                 a.api3.c_db.upsert(new m_data() { id = "xip", data = p_crypto.convert(txt_myhost.Text) });
                 y_set_x y = new y_set_x()
                 {

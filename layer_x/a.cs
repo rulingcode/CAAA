@@ -11,9 +11,9 @@ namespace layer_x
     {
         public static x x;
         internal static api3 api3;
-        internal static string xid;
         internal static s_db_factory db;
         internal static key key;
         internal static body body;
+        internal static string xid { get => api3.s_xid; set => api3.s_xid = value; }
     }
 }

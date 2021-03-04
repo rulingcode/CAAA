@@ -12,7 +12,7 @@ namespace layer_2.c
 {
     class x
     {
-        m_xip[] list = new m_xip[0];
+        y_get_x.item[] list = new y_get_x.item[0];
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
         internal async Task<m_xip> get(string xid)
         {
@@ -20,19 +20,19 @@ namespace layer_2.c
                 return a.api2.c_xip;
             retry:
             await locker.WaitAsync();
-            var dv = list.FirstOrDefault(j => j.id == xid);
+            var dv = list.FirstOrDefault(j => j.xid == xid);
             locker.Release();
             if (dv == null)
             {
                 await Task.Delay(100);
                 goto retry;
             }
-            return dv;
+            return dv.xip;
         }
-        internal async void set(m_xip[] val)
+        internal async void set(y_get_x.item[] list)
         {
             await locker.WaitAsync();
-            list = val;
+            this.list = list;
             locker.Release();
         }
     }

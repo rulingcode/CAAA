@@ -46,7 +46,8 @@ namespace z_x_center
             a.api3.s_add_y<phone_login>();
             a.api3.s_add_y<send_code>();
             a.api3.s_add_y<set_x>();
-            a.api3.s_xip = new m_xip() { id = "x_center", data = p_res.get_endpoint(10000).ToString() };
+            a.api3.s_xid = "x_center";
+            a.api3.s_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
             a.set_password("x_user");
         }
         private Task c_report(m_report report)

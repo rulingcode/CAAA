@@ -6,7 +6,6 @@ namespace layer_0.cell
     public class m_xip
     {
         string dataf;
-        public string id { get; set; }
         public string data
         {
             get => dataf;

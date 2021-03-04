@@ -12,11 +12,13 @@ namespace layer_2.c
     {
         bool reset = false;
         private const string connection_established = nameof(connection_established);
+        public readonly string xid;
         WatsonTcpClient client;
         DateTime time = DateTime.Now.AddDays(-1);
         public m_xip xip { get; }
-        public notify_item(m_xip xip)
+        public notify_item(string xid, m_xip xip)
         {
+            this.xid = xid;
             this.xip = xip;
             live();
         }
@@ -46,7 +48,6 @@ namespace layer_2.c
                 {
                     data = bfr,
                     deviceid = key.id,
-                    xid = xip.id
                 };
                 bfr = p_crypto.convert(data);
                 await client.SendAsync(bfr);
@@ -80,7 +81,7 @@ namespace layer_2.c
                     time = DateTime.Now;
                     if (!reset)
                     {
-                        a.c_notify.reset(xip.id);
+                        a.c_notify.reset(xid);
                         reset = true;
                     }
                 }
@@ -90,7 +91,7 @@ namespace layer_2.c
             else
             {
                 var dv = p_crypto.convert<m_notify>(e.Data);
-                if (dv.xid != xip.id)
+                if (dv.xid != xid)
                     throw new Exception("ldkjjnjgnhdhvhgnbjf");
                 if (dv.userid == null)
                     throw new Exception("kfjvjdvjfhfhshvfdhf");
