@@ -31,10 +31,14 @@ namespace z_x_center
         internal static async Task add_user(string deviceid, string userid)
         {
             var dv = await db_device_user.get(deviceid);
+            List<string> l = new List<string>();
             if (dv == null)
                 dv = new m_device_users() { id = deviceid };
-            dv.users.Remove(userid);
-            dv.users.Add(userid);
+            else
+                l.AddRange(dv.users);
+            l.Remove(userid);
+            l.Add(userid);
+            dv.users = l.ToArray();
             await a.db_device_user.upsert(dv);
             a.api3.s_notify("x_any");
         }

@@ -36,11 +36,8 @@ namespace layer_2.c
         }
         internal void reset(string xid)
         {
-            if (xid == "x_center")
-            {
-                c_notify(new m_notify() { xid = xid, userid = "u_any" });
-                c_notify(new m_notify() { xid = xid, userid = "x_any" });
-            }
+            c_notify(new m_notify() { xid = xid, userid = "u_any" });
+            c_notify(new m_notify() { xid = xid, userid = "x_any" });
         }
     }
 }

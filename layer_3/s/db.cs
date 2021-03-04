@@ -16,7 +16,7 @@ namespace layer_3.s
         private readonly string xid;
         private readonly string userid;
         public IMongoCollection<T> coll { get; }
-        IMongoCollection<m_history> history { get; }
+        IMongoCollection<s_history> history { get; }
         internal db(string xid, string userid)
         {
             this.xid = xid;
@@ -25,7 +25,7 @@ namespace layer_3.s
             is_sync = type.IsAssignableFrom(typeof(T));
             var name = userid == null ? "x_" + typeof(T).Name : "u_" + userid + "_" + typeof(T).Name;
             coll = a.s_db.GetDatabase(xid).GetCollection<T>(name);
-            history = a.s_db.GetDatabase(xid).GetCollection<m_history>(name + "_h");
+            history = a.s_db.GetDatabase(xid).GetCollection<s_history>(name + "_h");
             this.coll = coll;
         }
 
@@ -42,29 +42,32 @@ namespace layer_3.s
             await coll.ReplaceOneAsync(i => i.id == val.id, val, new ReplaceOptions() { IsUpsert = true });
             if (is_sync)
             {
-                m_history document = new m_history() { id = val.id, add = true, time = DateTime.Now };
+                s_history document = new s_history() { id = val.id, add = true, time = DateTime.Now };
                 await history.ReplaceOneAsync(i => i.id == val.id, document, new ReplaceOptions() { IsUpsert = true });
             }
         }
         public async Task<y_sync.o> get_history(DateTime time)
         {
-            var dv = await (await history.FindAsync(i => i.time >= time)).ToListAsync();
-            if (dv.Count == 0)
-                return default;
-            else
-                return new y_sync.o()
-                {
-                    deleted = dv.Where(i => !i.add).Select(i => i.id).ToArray(),
-                    time = dv.Max(i => i.time),
-                    updated = JsonConvert.SerializeObject(dv.Where(i => i.add).ToArray())
-                };
+            var all = await (await history.FindAsync(i => i.time > time)).ToListAsync();
+            var rt = new y_sync.o()
+            {
+                deleted = all.Where(i => !i.add).Select(i => i.id).ToArray(),
+                time = all.Count == 0 ? default : all.Max(i => i.time)
+            };
+            var updated_id = all.Where(i => i.add).Select(i => i.id).ToArray();
+            if (updated_id.Length != 0)
+            {
+                var updated = await (await coll.FindAsync(i => updated_id.Contains(i.id))).ToListAsync();
+                rt.updated = updated.Select(i => JsonConvert.SerializeObject(i)).ToArray();
+            }
+            return rt;
         }
         public async Task delete(string id)
         {
             await coll.DeleteOneAsync(i => i.id == id);
             if (is_sync)
             {
-                m_history document = new m_history() { id = id, add = false, time = DateTime.Now };
+                s_history document = new s_history() { id = id, add = false, time = DateTime.Now };
                 await history.ReplaceOneAsync(i => i.id == id, document);
             }
         }

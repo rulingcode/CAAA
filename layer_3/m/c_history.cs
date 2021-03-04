@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace layer_3.m
 {
-    public class m_history : m_id
+    class c_history : m_id
     {
         public DateTime time { get; set; }
-        public bool add { get; set; }
     }
 }

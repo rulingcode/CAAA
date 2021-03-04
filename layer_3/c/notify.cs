@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using layer_0.cell;
 using layer_0.x_center;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace layer_3.c
 {
@@ -14,10 +16,13 @@ namespace layer_3.c
         {
             public string xid { get; }
             public Type type { get; }
+            public e_permission permission { get; }
             public item(Type type)
             {
-                xid = type.FullName.Split('.')[1];
                 this.type = type;
+                var dv = Activator.CreateInstance(type) as m_sync;
+                xid = dv.z_xid;
+                permission = dv.permission;
             }
         }
         public notify()
@@ -28,21 +33,33 @@ namespace layer_3.c
         }
         internal async void run(m_notify rsv)
         {
-            if (rsv.xid == "x_center" && a.run_x != null)
-            {
-                if (rsv.userid != "x_any") throw new Exception("kbkgjnjjbjfjvjfhvj");
+            var type = list.FirstOrDefault(i => i.xid == rsv.xid);
+            bool x_ok() => rsv.xid == a.api3.s_xid || rsv.userid == "x_any";
+            bool no_x() => a.api3.s_xid == null || !x_ok();
+            bool paradox() => type.permission == e_permission.x && no_x();
+            if (type == null || paradox())
+                return;
 
-                var data = a.api3.c_db.get("time")?.data;
-                DateTime time = default;
-                if (data != null)
-                    time = p_crypto.convert<DateTime>(data);
-                y_sync y = new() { a_time = time, a_xid = "x_center" };
-                var dv = await y.run(a.run_x);
-            }
-            else
-            {
+            var db = a.c_db.api<m.c_history>();
+            string id = rsv.xid + "_" + rsv.userid;
+            var time = (db.get(id)?.time) ?? default;
+            y_sync y = new() { a_time = time, a_xid = "x_center" };
+            var o = await y.run(a.run_x);
 
+            if (o.deleted != null && o.deleted.Length != 0)
+            {
+                db.coll.DeleteMany(i => o.deleted.Contains(i.id));
             }
+            if (o.updated != null && o.updated.Length != 0)
+            {
+                var items = o.updated.Select(i => JsonConvert.DeserializeObject(i, type.type)).ToArray();
+                var db2 = a.c_db.sync<dynamic>(id);
+                foreach (var item in items)
+                    db2.upsert(item);
+            }
+            if (o.time != time)
+                db.upsert(new m.c_history() { id = id, time = o.time });
+            var fff = a.c_db.sync<m_device_users>(id).coll.FindAll().ToArray();
         }
     }
 }

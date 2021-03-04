@@ -18,7 +18,7 @@ namespace layer_0.cell
         {
             public DateTime time { get; set; }
             public string[] deleted { get; set; }
-            public string updated { get; set; }
+            public string[] updated { get; set; }
         }
     }
 }

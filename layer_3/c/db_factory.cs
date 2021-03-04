@@ -22,6 +22,7 @@ namespace layer_3.c
             lite = new LiteDatabase(new ConnectionString() { Connection = ConnectionType.Direct, Filename = file });
             lite.Checkpoint();
         }
-        public c_db<T> api<T>() where T : m_id => new db<T>(lite.GetCollection<T>(typeof(T).Name));
+        public c_db<T> api<T>() => new db<T>(lite.GetCollection<T>("free_" + typeof(T).Name));
+        public c_db<T> sync<T>(string name) => new db<T>(lite.GetCollection<T>("sync_" + name));
     }
 }
