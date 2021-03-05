@@ -33,12 +33,11 @@ namespace z_x_center
         }
         async void start()
         {
-            a.api3 = api3_factory.create("db_x_center");
+            a.api3 = api3_factory.create<layer_0.x_center.m_device_users>("db_x_center");
             a.api3.c_report = c_report;
             a.api3.z_get_key = get_key.get;
             a.key = new key();
 
-            a.api3.s_add_y<sync>();
             a.api3.s_add_y<register_x>();
             a.api3.s_add_y<register_c>();
             a.api3.s_add_y<get_key>();

@@ -25,7 +25,7 @@ namespace z_x_user
         public MainWindow()
         {
             InitializeComponent();
-            x.z_create("x_user", this);
+            x.z_create<m_sync>("x_user", this);
             x.add_y<z.upsert_name>();
             // x.start += X_start;
         }

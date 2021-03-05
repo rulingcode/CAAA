@@ -11,7 +11,7 @@ namespace layer_3
     {
         protected async override void implement(s_reply_o<o> reply)
         {
-            var db = a.db_device_user.db.a_x<T>();
+            var db = a.api3.s_db_factory(a.api3.s_xid).a_x<T>();
             var o = await db.get_history(a_time);
             reply(o);
         }

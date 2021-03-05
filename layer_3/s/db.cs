@@ -14,21 +14,27 @@ namespace layer_3.s
     {
         bool is_sync = false;
         private readonly string xid;
-        private readonly string userid;
+        IMongoCollection<s_history> history;
+        string userid;
         public IMongoCollection<T> coll { get; }
-        IMongoCollection<s_history> history { get; }
         internal db(string xid, string userid)
         {
             this.xid = xid;
             this.userid = userid;
             Type type = typeof(m_sync);
             is_sync = type.IsAssignableFrom(typeof(T));
-            var name = userid == null ? "x_" + typeof(T).Name : "u_" + userid + "_" + typeof(T).Name;
+            string name;
+            if (userid == null)
+            {
+                name = "x_" + typeof(T).Name;
+                this.userid = xid;
+            }
+            else
+                name = "u_" + userid + "_" + typeof(T).Name;
             coll = a.s_db.GetDatabase(xid).GetCollection<T>(name);
             history = a.s_db.GetDatabase(xid).GetCollection<s_history>(name + "_h");
             this.coll = coll;
         }
-
         public async Task<T> get(string id)
         {
             return await (await coll.FindAsync(i => i.id == id)).FirstOrDefaultAsync();
@@ -44,6 +50,7 @@ namespace layer_3.s
             {
                 s_history document = new s_history() { id = val.id, add = true, time = DateTime.Now };
                 await history.ReplaceOneAsync(i => i.id == val.id, document, new ReplaceOptions() { IsUpsert = true });
+                notify.send(userid);
             }
         }
         public async Task<y_sync.o> get_history(DateTime time)
@@ -52,7 +59,7 @@ namespace layer_3.s
             var rt = new y_sync.o()
             {
                 deleted = all.Where(i => !i.add).Select(i => i.id).ToArray(),
-                time = all.Count == 0 ? default : all.Max(i => i.time)
+                time = all.Count == 0 ? time : all.Max(i => i.time)
             };
             var updated_id = all.Where(i => i.add).Select(i => i.id).ToArray();
             if (updated_id.Length != 0)

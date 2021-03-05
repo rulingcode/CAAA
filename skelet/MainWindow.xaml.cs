@@ -23,7 +23,7 @@ namespace skelet
     /// </summary>
     public partial class MainWindow : Window
     {
-        api3 api3 = api3_factory.create("db_skelet");
+        api3 api3 = api3_factory.create<m_sync>("db_skelet");
         public MainWindow()
         {
             InitializeComponent();

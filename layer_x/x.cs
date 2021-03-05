@@ -17,14 +17,13 @@ namespace layer_x
         public static void z_create<T>(string xid, Window window) where T : m_sync
         {
             window.Title = xid;
-            a.api3 = api3_factory.create("db_" + xid);
+            a.api3 = api3_factory.create<T>("db_" + xid);
             a.xid = xid;
             run_x = a.api3.c_run(a.xid);
             run_null = a.api3.c_run();
             a.db = a.api3.s_db_factory(a.xid);
             a.key = new key();
             a.body = new body();
-            add_y<sync<T>>();
             window.Content = a.body;
             a.body.connection.start();
             window.SizeToContent = SizeToContent.WidthAndHeight;

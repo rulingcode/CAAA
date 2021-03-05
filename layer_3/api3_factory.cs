@@ -9,6 +9,13 @@ namespace layer_3
 {
     public class api3_factory
     {
-        public static api3 create(string name) => a.api3 == null ? new _api3_(name) : null;
+        public static api3 create<T>(string db_name) where T : m_sync
+        {
+            if (a.api3 != null)
+                return null;
+            new _api3_(db_name);
+            a.api3.s_add_y<sync<T>>();
+            return a.api3;
+        }
     }
 }
