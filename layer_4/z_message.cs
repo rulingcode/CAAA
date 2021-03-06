@@ -1,4 +1,4 @@
-﻿using layer_4.more_controls;
+﻿using skeleton.more_controls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace layer_4
+namespace skeleton
 {
     public class z_message : z<z_message.o>
     {

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace skeleton
 {
-    class s_page
+    public class page
     {
-        public string appid { get; set; }
-        public string pageid { get; set; }
-        public string page_name { get; set; }
+
     }
 }

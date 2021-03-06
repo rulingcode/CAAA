@@ -27,6 +27,7 @@ namespace layer_x
             window.Content = a.body;
             a.body.connection.start();
             window.SizeToContent = SizeToContent.WidthAndHeight;
+            window.WindowState = WindowState.Minimized;
         }
     }
 }

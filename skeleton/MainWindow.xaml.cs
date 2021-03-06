@@ -23,7 +23,7 @@ namespace skeleton
         public MainWindow()
         {
             InitializeComponent();
-            s_lib.start(this, null);
+            app_base.programing(this, null);
         }
     }
 }

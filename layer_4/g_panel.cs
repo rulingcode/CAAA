@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace layer_4
+namespace skeleton
 {
     class g_panel : g_ui
     {

@@ -33,6 +33,7 @@ namespace layer_x
         public connection()
         {
             InitializeComponent();
+            txt_password.Password = "qweasdzxc";
         }
         public void start()
         {

@@ -41,7 +41,6 @@ namespace layer_3
         public void s_notify(string userid) => notify.send(userid);
         public s_get_key z_get_key { get; set; }
         public y_before z_middle_y { get; set; }
-        public c_notify c_notify { get => a.api2.c_notify; set => a.api2.c_notify = value; }
         public string s_xid
         {
             get => a.api2.s_xid; set

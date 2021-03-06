@@ -120,10 +120,15 @@ namespace layer_x
             {
                 var dv = a.api3.c_db.get("xip");
                 if (dv == null)
+                {
                     txt_myhost.Text = p_res.get_endpoint(0).ToString();
+                    state = e_state.stop;
+                }
                 else
+                {
                     txt_myhost.Text = p_crypto.convert<string>(dv.data);
-                state = e_state.stop;
+                    btn_start_Click(null, null);
+                }
             }
             else
             {

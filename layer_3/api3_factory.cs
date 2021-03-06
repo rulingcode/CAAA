@@ -14,7 +14,8 @@ namespace layer_3
             if (a.api3 != null)
                 return null;
             new _api3_(db_name);
-            a.api3.s_add_y<sync<T>>();
+            if (typeof(T) != typeof(m_sync))
+                a.api3.s_add_y<sync<T>>();
             return a.api3;
         }
     }

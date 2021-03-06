@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 
-namespace layer_4
+namespace skeleton
 {
     public interface i_ui
     {

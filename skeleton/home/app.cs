@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace skeleton.home_unit
+namespace skeleton.home
 {
-    class lib : s_lib
+    class app : app_base
     {
-        public override string id => "home";
-        public lib()
+        public app()
         {
-            add_page<page_login>();
+            
         }
+        public override string app_name => "خانه";
     }
 }

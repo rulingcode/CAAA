@@ -76,6 +76,7 @@ namespace layer_3.s
             {
                 s_history document = new s_history() { id = id, add = false, time = DateTime.Now };
                 await history.ReplaceOneAsync(i => i.id == id, document);
+                notify.send(userid);
             }
         }
         public async Task<bool> any(Expression<Func<T, bool>> filter)

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace layer_4
+namespace skeleton
 {
     class s_menu
     {

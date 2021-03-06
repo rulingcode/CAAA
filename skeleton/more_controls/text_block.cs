@@ -16,7 +16,7 @@ namespace skeleton.more_controls
             set
             {
                 base.Text = value;
-                FlowDirection = text_box.get_direction(value);
+                FlowDirection = text_direct.get_direction(value);
             }
         }
     }

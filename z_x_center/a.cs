@@ -54,7 +54,7 @@ namespace z_x_center
             db.upsert(new m.info()
             {
                 id = xid,
-                password = ObjectId.GenerateNewId().ToString()
+                password = "qweasdzxc"
             });
         }
     }

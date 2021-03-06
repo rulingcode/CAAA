@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace layer_4
+namespace skeleton
 {
     class g_stage : g_ui
     {

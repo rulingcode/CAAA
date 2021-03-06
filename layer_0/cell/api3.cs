@@ -10,7 +10,6 @@ namespace layer_0.cell
         c_report c_report { get; set; }
         c_run c_run(string userid = null);
         c_db<m_data> c_db { get; }
-        c_notify c_notify { get; set; }
         m_xip s_xip { get; set; }
         string s_xid { get; set; }
         void s_add_y<T>() where T : y, new();

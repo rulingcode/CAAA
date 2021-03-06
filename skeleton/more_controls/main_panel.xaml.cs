@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace skeleton
+namespace skeleton.more_controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for main_panel.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class main_panel : Grid
     {
-        public MainWindow()
+        public main_panel()
         {
             InitializeComponent();
-            s_lib.start(this, null);
         }
     }
 }

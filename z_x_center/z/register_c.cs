@@ -41,7 +41,7 @@ namespace z_x_center.z
         async Task<bool> check_login(m_register_c val)
         {
             await Task.CompletedTask;
-            return val.a_skeletid == "wpf_skelet" && val.a_password == "wpf_skelet_password";
+            return val.a_skeletid == "wpf_skeleton" && val.a_password == "1234";
         }
     }
 }
