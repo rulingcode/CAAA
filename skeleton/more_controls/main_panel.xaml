@@ -16,17 +16,17 @@
         <RowDefinition/>
     </Grid.RowDefinitions>
 
-    <StackPanel  x:Name="stack_h"  Grid.Row="0" Margin="2" Orientation="Horizontal" Grid.Column="1">
+        <StackPanel  x:Name="h_stack"  Grid.Row="0" Margin="2" Orientation="Horizontal" Grid.Column="1">
+            <local:icon/>
+            <local:icon/>
+            <local:icon/>
+        </StackPanel>
+
+    <StackPanel x:Name="v_stack" Grid.Row="1"  Margin="2">
         <local:icon/>
         <local:icon/>
         <local:icon/>
     </StackPanel>
 
-    <StackPanel x:Name="stack_v" Grid.Row="1"  Margin="2">
-        <local:icon/>
-        <local:icon/>
-        <local:icon/>
-    </StackPanel>
-
-    <Border BorderThickness="2" BorderBrush="LightBlue" Grid.Row="1" CornerRadius="3" Padding="5"  Grid.Column="1"/>
+    <Border x:Name="stage" BorderThickness="2" BorderBrush="LightBlue" Grid.Row="1" CornerRadius="3" Padding="5"  Grid.Column="1"/>
 </Grid>

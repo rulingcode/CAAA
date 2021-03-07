@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace skeleton
 {
-    public abstract class app_base
+    public abstract class z_app
     {
         List<item> list = new List<item>();
         class item
@@ -15,13 +15,20 @@ namespace skeleton
             public string name;
             public Type type;
         }
-        public static void programing(Window window, app_base app) => connection.programing(window, app);
+        public static void programing(Window window, z_app app) => connection.programing(window, app);
         public abstract string app_name { get; }
-        public void add<T>(string name) where T : page
+        public string[] pages_name { get; private set; }
+
+        public void add<T>(string name) where T : z_page
         {
             if (list.Any(i => i.name == name))
                 throw new Exception("kkjbjgjbjfjvhdhchd");
             list.Add(new item() { name = name, type = typeof(T) });
+            pages_name = list.Select(i => i.name).ToArray();
+        }
+        internal Type get_type(string page_name)
+        {
+            return list.FirstOrDefault(i => i.name == page_name)?.type;
         }
     }
 }

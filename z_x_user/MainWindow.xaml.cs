@@ -35,7 +35,7 @@ namespace z_x_user
             layer_0.x_user.y_upsert_name y = new() { a_fullname = "aaa", a_userid = "bbb" };
             var dv = await y.run(x.run_x);
             if (dv.z_error != e_error.non)
-                goto retry; var hh = e_error.invalid_deviceid;
+                goto retry;
         }
     }
 }

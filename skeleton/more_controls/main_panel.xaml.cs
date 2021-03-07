@@ -23,6 +23,22 @@ namespace skeleton.more_controls
         public main_panel()
         {
             InitializeComponent();
+            h_stack.Children.Clear();
+            v_stack.Children.Clear();
+            for (int i = 0; i < 20; i++)
+            {
+                h_stack.Children.Add(new icon() { text = "صفحه" + i });
+                v_stack.Children.Add(new icon() { text = "نرم افزار" + i });
+            }
+        }
+        public void set(string[] apps, int app, string pages, int page)
+        {
+
+        }
+        internal void show(z_page page)
+        {
+            a.page = page;
+            stage.Child = page.z_ui;
         }
     }
 }

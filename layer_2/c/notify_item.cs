@@ -53,7 +53,7 @@ namespace layer_2.c
                 await client.SendAsync(bfr);
                 time = DateTime.Now;
             }
-            catch (Exception e)
+            catch
             {
                 goto retry;
             }

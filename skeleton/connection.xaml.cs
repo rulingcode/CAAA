@@ -127,7 +127,7 @@ namespace skeleton
             a.api3.c_db.coll.Delete("key");
             a.api3.c_key = null;
         }
-        internal static void programing(Window window, app_base api)
+        internal static void programing(Window window, z_app api)
         {
             if (a.window != null)
                 return;

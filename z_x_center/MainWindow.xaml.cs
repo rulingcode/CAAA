@@ -31,7 +31,7 @@ namespace z_x_center
             Height = 100; Width = 300; WindowState = WindowState.Minimized;
             start();
         }
-        async void start()
+        void start()
         {
             a.api3 = api3_factory.create<layer_0.x_center.m_device_users>("db_x_center");
             a.api3.c_report = c_report;

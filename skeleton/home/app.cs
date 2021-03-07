@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace skeleton.home
 {
-    class app : app_base
+    class app : z_app
     {
         public app()
         {
