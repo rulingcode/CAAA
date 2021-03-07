@@ -31,6 +31,7 @@ namespace layer_3.c
             var dv = type.Assembly.GetTypes().Where(i => i.IsSubclassOf(type)).Select(i => new item(i)).ToArray();
             list.AddRange(dv);
         }
+
         internal async void run(m_notify rsv)
         {
             var type = list.FirstOrDefault(i => i.xid == rsv.xid);

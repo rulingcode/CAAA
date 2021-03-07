@@ -23,7 +23,7 @@ namespace skeleton
         public async Task show(string userid, string appid, string page_name)
         {
             await locker.WaitAsync();
-            var page = list.FirstOrDefault(i => i.userid == userid && i.z_appid == appid && i.z_name == page_name);
+            var page = list.FirstOrDefault(i => i.a_userid == userid && i.appid == appid && i.z_name == page_name);
             locker.Release();
             if (page == null)
             {
@@ -34,9 +34,9 @@ namespace skeleton
                 if (type == null)
                     throw new Exception("kgkbhjbhfjbjgjbjfjfjbjg");
                 page = Activator.CreateInstance(type) as z_page;
-                page.userid = userid;
+                page.a_userid = userid;
                 page.z_name = page_name;
-                page.z_appid = appid;
+                page.appid = appid;
                 await locker.WaitAsync();
                 list.Add(page);
                 locker.Release();

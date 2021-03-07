@@ -11,17 +11,17 @@ using System.Windows.Media;
 
 namespace skeleton
 {
-    public abstract class z_page : g_page
+    public abstract class z_page
     {
         z_dialog dialog = default;
         internal c_run c_run = default;
         SemaphoreSlim g_locker = new SemaphoreSlim(1, 1);
         internal Grid body = new Grid();
         Border dialog_box = new Border() { Visibility = Visibility.Collapsed, Background = new SolidColorBrush(Color.FromArgb(70, 0, 0, 0)) };
-        public string z_appid { get; internal set; }
-        public string userid { get; internal set; }
+        public string appid { get; internal set; }
+        public string a_userid { get; internal set; }
         public string z_name { get; internal set; }
-        public abstract UIElement z_ui { get; }
+        public abstract UIElement ui { get; }
         protected abstract void focus();
         internal void z_focus()
         {
@@ -32,7 +32,7 @@ namespace skeleton
         }
         public z_page()
         {
-            body.Children.Add(z_ui);
+            body.Children.Add(ui);
             body.Children.Add(dialog_box);
         }
         public async Task<T> run<T>(z_dialog z)
@@ -41,10 +41,10 @@ namespace skeleton
             this.dialog = z;
             dialog_box.Child = z.ui;
             dialog_box.Visibility = Visibility.Visible;
-            z_ui.IsEnabled = false;
+            ui.IsEnabled = false;
             var dv = await z.get();
             this.dialog = null;
-            z_ui.IsEnabled = true;
+            ui.IsEnabled = true;
             focus();
             dialog_box.Visibility = Visibility.Collapsed;
             dialog_box.Child = default;

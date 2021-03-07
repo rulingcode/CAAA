@@ -38,7 +38,7 @@ namespace skeleton.more_controls
         internal void show(z_page page)
         {
             a.page = page;
-            stage.Child = page.z_ui;
+            stage.Child = page.ui;
         }
     }
 }

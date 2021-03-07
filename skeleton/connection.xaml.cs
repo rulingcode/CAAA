@@ -22,7 +22,7 @@ namespace skeleton
     /// <summary>
     /// Interaction logic for connection.xaml
     /// </summary>
-    public partial class connection : Border
+    partial class connection : Border
     {
         public connection()
         {

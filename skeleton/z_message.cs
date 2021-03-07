@@ -11,7 +11,7 @@ using System.Windows.Media;
 
 namespace skeleton
 {
-    public class z_message : z<z_message.o>, g_message
+    public class z_message : z<z_message.o>
     {
         message_box mb = new message_box() { Margin = new Thickness(20) };
         internal override UIElement ui => mb;
