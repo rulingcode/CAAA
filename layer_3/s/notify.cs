@@ -16,7 +16,7 @@ namespace layer_3.s
                 a.api2.s_notify(null, userid);
             else
             {
-                IEnumerable<m_device_users> dv = default;
+                IEnumerable<sync> dv = default;
                 if (a.api3.s_xid == "x_center")
                     dv = (await a.s_device_user.coll.FindAsync(i => i.users.Contains(userid))).ToEnumerable();
                 else

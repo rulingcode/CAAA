@@ -56,8 +56,8 @@ namespace z_test
             //    var o = await y.run(run_null);
             //}
             {
-                y_upsert_name y = new() { a_fullname = "aaaa", a_userid = "bbbb" };
-                var dv = await y.run(api3.c_run("u_6045e31484643671158e86c9"));
+                //y_upsert_name y = new() { a_fullname = "aaaa", a_userid = "bbbb" };
+                //var dv = await y.run(api3.c_run("u_6045e31484643671158e86c9"));
             }
         }
         internal bool connect()

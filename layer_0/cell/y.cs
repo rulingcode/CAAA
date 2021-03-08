@@ -17,20 +17,19 @@ namespace layer_0.cell
     public abstract class y<output> : y where output : o_base, new()
     {
         public virtual Task<output> run(c_run rsv) => rsv.get<output>(this);
-
-        public sealed override async void z_run(s_reply_data reply)
+        s_reply_data reply_data;
+        public sealed override async void z_run(s_reply_data reply_data)
         {
-            Action action = () =>
-            {
-                implement((obj) =>
-                {
-                    if (obj == null)
-                        obj = new output();
-                    var data = p_crypto.convert(obj);
-                    reply(data);
-                });
-            };
-            await Task.Run(action);
+            this.reply_data = reply_data;
+            await Task.Run(met);
+            void met() => implement(this.reply);
+        }
+        protected void reply(output obj)
+        {
+            if (obj == null)
+                obj = new output();
+            var data = p_crypto.convert(obj);
+            reply_data(data);
         }
         protected virtual void implement(s_reply_o<output> reply)
         {

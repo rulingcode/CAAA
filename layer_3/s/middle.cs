@@ -14,7 +14,7 @@ namespace layer_3.s
         {
             if (y.z_userid != null)
             {
-                m_device_users dv = default;
+                sync dv = default;
                 if (a.api3.s_xid == "x_center")
                     dv = await a.s_device_user.get(y.z_deviceid);
                 else
