@@ -32,7 +32,8 @@ namespace layer_2.c
             if (key != null)
                 data = p_crypto.Decrypt(data, key);
             var o = p_crypto.convert<output>(data);
-            await a.api2.c_after(y, o);
+            if (a.api2.c_after != null)
+                await a.api2.c_after(y, o);
             return o;
         }
     }

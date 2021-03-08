@@ -24,7 +24,7 @@ namespace z_test
     /// </summary>
     public partial class MainWindow : Window
     {
-        api3 api3 = api3_factory.create<m_sync>("db_test");
+        api3 api3 = api3_factory.create("db_test");
         c_run run_null;
 
         public MainWindow()
@@ -32,7 +32,6 @@ namespace z_test
             InitializeComponent();
             run_null = api3.c_run();
             api3.c_report = report;
-            start();
         }
         async void start()
         {
@@ -44,22 +43,21 @@ namespace z_test
             //{
             //    y_send_code y = new()
             //    {
-            //        a_phoneid= "09123456788",
+            //        a_phoneid = "09123456789",
             //    };
             //    var o = await y.run(run_null);
             //}
             //{
             //    y_phone_login y = new()
             //    {
-            //        a_phoneid = "09123456788",
+            //        a_phoneid = "09123456789",
             //        a_password = "12345"
             //    };
             //    var o = await y.run(run_null);
             //}
             {
-                await Task.Delay(5000);
                 y_upsert_name y = new() { a_fullname = "aaaa", a_userid = "bbbb" };
-                var dv = await y.run(api3.c_run("u_60451ed20a65795557b66a85"));
+                var dv = await y.run(api3.c_run("u_6045e31484643671158e86c9"));
             }
         }
         internal bool connect()
@@ -105,6 +103,10 @@ namespace z_test
         private Task report(m_report report)
         {
             return Task.CompletedTask;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            start();
         }
     }
 }

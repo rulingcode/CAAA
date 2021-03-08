@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using layer_0.x_center;
 using MongoDB.Driver;
 
 namespace layer_3.s
@@ -11,14 +12,17 @@ namespace layer_3.s
     {
         public static async void send(string userid)
         {
-            if (userid.Substring(2, 3) == "any")
+            if (userid == "k" || userid.Substring(2, 3) == "any")
                 a.api2.s_notify(null, userid);
             else
             {
-                var dv = await a.db_device_user.coll.FindAsync(i => i.users.Contains(userid));
-                var l = (await dv.ToListAsync());
-                foreach (var i in l)
-                    a.api2.s_notify(i.id, userid);
+                IEnumerable<m_device_users> dv = default;
+                if (a.api3.s_xid == "x_center")
+                    dv = (await a.s_device_user.coll.FindAsync(i => i.users.Contains(userid))).ToEnumerable();
+                else
+                    dv = a.c_device_user.coll.Find(i => i.users.Contains(userid)).ToArray();
+                foreach (var i in dv)
+                    a.api2.s_notify(deviceid: i.id, userid: userid);
             }
         }
     }

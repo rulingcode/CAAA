@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace layer_3
 {
-    class sync<T> : y_sync where T : m_sync
+    class sync<T> : y_sync where T : m_sync, new()
     {
         protected async override void implement(s_reply_o<o> reply)
         {
+            T dv = new T();
+            string prefix = dv.permission.ToString();
+            if (z_userid == null || z_userid[0] != prefix[0])
+            {
+                reply(new o() { z_error = e_error.invalid_userid });
+                return;
+            }
             var db = a.api3.s_db_factory(a.api3.s_xid).a_x<T>();
             var o = await db.get_history(a_time);
             reply(o);

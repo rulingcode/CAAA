@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using layer_0.cell;
 using System.Linq;
+using layer_0.x_center;
 
 namespace layer_3.s
 {
@@ -13,7 +14,11 @@ namespace layer_3.s
         {
             if (y.z_userid != null)
             {
-                var dv = await a.db_device_user.get(y.z_deviceid);
+                m_device_users dv = default;
+                if (a.api3.s_xid == "x_center")
+                    dv = await a.s_device_user.get(y.z_deviceid);
+                else
+                    dv = a.c_device_user.get(y.z_deviceid);
                 if (dv == null)
                     return e_error.invalid_deviceid;
                 if (!dv.users.Contains(y.z_userid))

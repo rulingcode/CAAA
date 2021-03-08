@@ -21,7 +21,6 @@ namespace layer_2
         }
 
         //---------------------------------------------------------
-
         public c_report c_report { get => a.api1.c_report; set => a.api1.c_report = value; }
         public m_xip c_xip { get; set; }
         public m_key c_key

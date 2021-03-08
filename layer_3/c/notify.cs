@@ -40,12 +40,13 @@ namespace layer_3.c
             bool paradox() => type.permission == e_permission.x && no_x();
             if (type == null || paradox())
                 return;
-
+            if (rsv.userid == "x_any")
+                rsv.userid = a.api3.s_xid;
             var db = a.c_db.api<m.c_history>();
             string id = rsv.xid + "_" + rsv.userid;
             var time = (db.get(id)?.time) ?? default;
-            y_sync y = new() { a_time = time, a_xid = "x_center" };
-            var o = await y.run(a.run_x);
+            y_sync y = new() { a_time = time, a_xid = rsv.xid };
+            var o = await y.run(a.api3.c_run(rsv.userid));
 
             if (o.deleted != null && o.deleted.Length != 0)
             {
@@ -54,8 +55,8 @@ namespace layer_3.c
             if (o.updated != null && o.updated.Length != 0)
             {
                 var items = o.updated.Select(i => JsonConvert.DeserializeObject(i, type.type)).ToArray();
-                var db2 = a.c_db.sync<dynamic>(id);
-                foreach (var item in items)
+                var db2 = a.c_db.sync<m_sync>(rsv.xid, rsv.userid);
+                foreach (m_sync item in items)
                     db2.upsert(item);
             }
             if (o.time != time)

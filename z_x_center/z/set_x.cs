@@ -23,7 +23,7 @@ namespace z_x_center.z
             get_x.o.list = l.ToArray();
             locker.Release();
             reply();
-            a.api3.s_notify("u_any");
+            a.api3.s_notify("k");
         }
     }
 }

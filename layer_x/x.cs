@@ -14,10 +14,15 @@ namespace layer_x
         public static c_run run_x { get; private set; }
         public static c_run run_null { get; private set; }
         public static void add_y<T>() where T : y, new() => a.api3.s_add_y<T>();
-        public static void z_create<T>(string xid, Window window) where T : m_sync
+        public static void z_create<T>(string xid, Window window) where T : m_sync, new()
+        {
+            a.api3 = api3_factory.create<T>("db_" + xid);
+            set(xid, window);
+        }
+
+        private static void set(string xid, Window window)
         {
             window.Title = xid;
-            a.api3 = api3_factory.create<T>("db_" + xid);
             a.xid = xid;
             run_x = a.api3.c_run(a.xid);
             run_null = a.api3.c_run();
@@ -28,6 +33,12 @@ namespace layer_x
             a.body.connection.start();
             window.SizeToContent = SizeToContent.WidthAndHeight;
             window.WindowState = WindowState.Minimized;
+        }
+
+        public static void z_create(string xid, Window window)
+        {
+            a.api3 = api3_factory.create("db_" + xid);
+            set(xid, window);
         }
     }
 }

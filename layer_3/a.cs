@@ -24,8 +24,8 @@ namespace layer_3
         internal static s.middle s_middle;
         internal static MongoClient s_db;
         internal static c.middle c_middle;
-        internal static s_db<m_device_users> db_device_user;
         internal static c_run run_x;
-        
+        internal static c_db<m_device_users> c_device_user;
+        internal static s_db<m_device_users> s_device_user;
     }
 }

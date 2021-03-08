@@ -21,13 +21,5 @@ namespace layer_3.c
         {
             return await Task.FromResult(e_error.non);
         }
-        internal async Task after(y y, o_base o)
-        {
-            switch (y)
-            {
-
-            }
-            await Task.CompletedTask;
-        }
     }
 }

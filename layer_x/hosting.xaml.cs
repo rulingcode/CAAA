@@ -127,7 +127,7 @@ namespace layer_x
                 else
                 {
                     txt_myhost.Text = p_crypto.convert<string>(dv.data);
-                    btn_start_Click(null, null);
+                    //btn_start_Click(null, null);
                 }
             }
             else

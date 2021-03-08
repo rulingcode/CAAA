@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using layer_0.cell;
 using MongoDB.Driver;
 using layer_3.s;
+using layer_0.x_center;
 
 namespace layer_3
 {
@@ -27,7 +28,6 @@ namespace layer_3
 
             a.api2.s_get_key = a.s_key.get;
             a.api2.s_before = a.s_middle.run;
-            a.api2.c_after = a.c_middle.after;
             a.api2.c_notify = a.c_notify.run;
             a.api2.c_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
         }
@@ -47,7 +47,10 @@ namespace layer_3
             {
                 a.api2.s_xid = value;
                 a.run_x = c_run(value);
-                a.db_device_user = s_db_factory(value).a_x<layer_0.x_center.m_device_users>();
+                if (value == "x_center")
+                    a.s_device_user = s_db_factory("x_center").a_x<m_device_users>();
+                else
+                    a.c_device_user = a.c_db.sync<m_device_users>("x_center", value);
             }
         }
     }

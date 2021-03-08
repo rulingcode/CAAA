@@ -15,12 +15,12 @@ namespace layer_2.c
         SemaphoreSlim locker = new SemaphoreSlim(1, 1);
         internal void c_notify(m_notify notify)
         {
-            if (notify.xid == "x_center" && notify.userid == "u_any")
-                u_any();
+            if (notify.xid == "x_center" && notify.userid == "k")
+                reload_ip();
             else
                 a.api2.c_notify?.Invoke(notify);
         }
-        async void u_any()
+        async void reload_ip()
         {
             y_get_x y = new();
             var o = await y.run(a.run_null);
@@ -40,8 +40,15 @@ namespace layer_2.c
         }
         internal void reset(string xid)
         {
-            c_notify(new m_notify() { xid = xid, userid = "u_any" });
-            c_notify(new m_notify() { xid = xid, userid = "x_any" });
+            if (a.api2.s_xid == null)
+            {
+                if (xid == "x_center")
+                    reload_ip();
+                else
+                    c_notify(new m_notify() { xid = xid, userid = "u_any" });
+            }
+            else
+                c_notify(new m_notify() { xid = xid, userid = a.api2.s_xid });
         }
     }
 }

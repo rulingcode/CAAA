@@ -40,7 +40,7 @@ namespace layer_2.s
                             direct_send(userid, i);
                     }
                     break;
-                case "u_any":
+                case "k":
                     {
                         await locker.WaitAsync();
                         var ips = list.Select(i => i.ip).ToArray();
