@@ -10,7 +10,7 @@ namespace z_x_user.z
 {
     class upsert_info : y_upsert_info
     {
-        protected override void implement(s_reply_o<o> reply)
+        protected override void implement()
         {
             if (a_userid != null && a_userid != z_userid && a_userid[0] != 'b')
             {

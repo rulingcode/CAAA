@@ -15,7 +15,7 @@ namespace z_x_center.z
 {
     class register_x : y_register_x
     {
-        protected override async void implement(s_reply_o<o> reply)
+        protected override async void implement()
         {
             a_key_data = p_crypto.Decrypt(a_key_data, private_key.data);
             m_key key = m_key.create(a_key_data);
@@ -24,6 +24,7 @@ namespace z_x_center.z
             if (!await check_login(login))
             {
                 reply(new o() { z_error = e_error.invalid_parametrs });
+                
                 return;
             }
             var db = z_db.a_x<m.device>();

@@ -14,26 +14,33 @@ namespace layer_0.cell
         [JsonIgnore] public s_db_factory z_db { get; set; }
         public abstract void z_run(s_reply_data reply);
     }
-    public abstract class y<output> : y where output : o_base, new()
+    public abstract class y<o> : y where o : o_base, new()
     {
-        public virtual Task<output> run(c_run rsv) => rsv.get<output>(this);
+        public virtual Task<o> run(c_run rsv) => rsv.get<o>(this);
         s_reply_data reply_data;
         public sealed override async void z_run(s_reply_data reply_data)
         {
             this.reply_data = reply_data;
             await Task.Run(met);
-            void met() => implement(this.reply);
+            void met() => implement();
         }
-        protected void reply(output obj)
+        protected void reply(o val = null)
         {
-            if (obj == null)
-                obj = new output();
-            var data = p_crypto.convert(obj);
+            if (val == null)
+                val = new o();
+            var data = p_crypto.convert(val);
             reply_data(data);
         }
-        protected virtual void implement(s_reply_o<output> reply)
+        protected virtual void implement()
         {
             throw new Exception("ldkvjgjbjfhcbfjvjfb");
+        }
+    }
+    public abstract class y<o, error> : y<o> where o : o_base<error>, new() where error : Enum
+    {
+        protected void reply(error e)
+        {
+            reply(new o() { a_error = e });
         }
     }
     public class o_base

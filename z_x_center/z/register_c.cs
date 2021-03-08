@@ -15,7 +15,7 @@ namespace z_x_center.z
 {
     class register_c : y_register_c
     {
-        protected override async void implement(s_reply_o<o> reply)
+        protected override async void implement()
         {
             a_key_data = p_crypto.Decrypt(a_key_data, private_key.data);
             m_key key = m_key.create(a_key_data);

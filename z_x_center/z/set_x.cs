@@ -14,7 +14,7 @@ namespace z_x_center.z
     class set_x : y_set_x
     {
         static SemaphoreSlim locker = new SemaphoreSlim(1, 1);
-        protected async override void implement(s_reply_o<o> reply)
+        protected async override void implement()
         {
             await locker.WaitAsync();
             List<y_get_x.item> l = new(get_x.o.list);

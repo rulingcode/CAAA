@@ -9,7 +9,7 @@ namespace layer_3
 {
     class sync<T> : y_sync where T : m_sync, new()
     {
-        protected async override void implement(s_reply_o<o> reply)
+        protected async override void implement()
         {
             T dv = new T();
             string prefix = dv.permission.ToString();
