@@ -14,7 +14,7 @@ namespace layer_3.s
         {
             if (y.z_userid != null)
             {
-                sync dv = default;
+                sync_center dv = default;
                 if (a.api3.s_xid == "x_center")
                     dv = await a.s_device_user.get(y.z_deviceid);
                 else
@@ -25,6 +25,7 @@ namespace layer_3.s
                     return e_error.invalid_userid;
             }
             y.z_db = new db_factory(y.z_xid);
+            y.z_db_c = a.c_db;
             return e_error.non;
         }
     }

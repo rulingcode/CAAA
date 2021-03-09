@@ -27,7 +27,7 @@ namespace z_x_center.z
             }
             user.password = null;
             await db_user.upsert(user);
-            var db_device = z_db.a_x<sync>();
+            var db_device = z_db.a_x<sync_center>();
             await a.add_user(z_deviceid, user.id);
             reply(new o() { a_userid = user.id });
         }

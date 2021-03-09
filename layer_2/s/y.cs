@@ -94,15 +94,9 @@ namespace layer_2.s
                 met(null, error);
                 return;
             }
-            y.z_run(met);
+            y.zz_reply(met);
             void met(byte[] data, e_error e)
             {
-                if (data == null)
-                {
-                    o_base obj = new o_base() { z_error = e };
-                    data = p_crypto.convert(obj);
-                }
-
                 if (keys != null)
                     data = p_crypto.Encrypt(data, keys);
                 reply(data, e);

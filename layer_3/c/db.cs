@@ -17,5 +17,6 @@ namespace layer_3.c
         public T get(string id) => coll.FindOne(i => (i as m_id).id == id);
         public T get(Expression<Func<T, bool>> filter) => coll.FindOne(filter);
         public void upsert(T val) => coll.Upsert(val);
+        public void delete(string id) => coll.Delete(id);
     }
 }

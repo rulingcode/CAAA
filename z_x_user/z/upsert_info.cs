@@ -12,34 +12,51 @@ namespace z_x_user.z
     {
         protected override void implement()
         {
-            if (a_userid != null && a_userid != z_userid && a_userid[0] != 'b')
+            if (a_name == null || a_name.Length < 5)
             {
-                reply(new o() { a_error = error.permission_required });
+                reply(new o() { z_error = error.invalid_name });
                 return;
             }
             if (a_userid == null || a_userid[0] == 'b')
-                subsidiary(reply);
+                virtual_person();
             else
-                independent(reply);
+         if (a_userid[0] == 'u')
+                real_person();
+            else
+                reply(new o() { z_error = error.invalid_userid });
         }
-        async void independent(s_reply_o<o> reply)
-        {
-            var db = z_db.a_x<m.user>();
-            if (a_status > e_status.independent)
-            {
-                reply(new o() { a_error = error.permission_required });
-                return;
-            }
-            var user = await db.get(i => i.full_name == a_full_name && i.status > e_status.independent);
-            if (user != null && user.id != a_userid)
-            {
-                reply(new o() { a_error = error.duplicate_name });
-                return;
-            }
-        }
-        private void subsidiary(s_reply_o<o> reply)
+        private void virtual_person()
         {
 
+        }
+        async void real_person()
+        {
+            if (a_state == e_status.subsidiary)
+            {
+                reply(new o() { z_error = error.invalid_state });
+                return;
+            }
+            var db = z_db.a_x<m.user>();
+            var user = await db.get(a_userid);
+            if (user == null)
+                user = new m.user() { id = a_userid };
+
+            var max_state = (e_status)Math.Max((byte)a_state, (byte)user.status);
+            bool license_requerd = max_state > e_status.independent || a_userid != z_userid;
+
+            if (license_requerd && (await z_license()) == e_license.normal)
+            {
+                reply(new o() { z_error = error.license_required });
+                return;
+            }
+            user.name = a_name;
+            user.gender = a_gender;
+            user.national_id = a_national_code;
+            user.phoneid = a_phoneid;
+            user.status = a_state;
+            await db.upsert(user);
+            await q.update_all_contact(a_userid);
+            reply(new o() { z_error = error.non });
         }
     }
 }

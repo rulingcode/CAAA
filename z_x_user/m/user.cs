@@ -10,7 +10,7 @@ namespace z_x_user.m
 {
     class user : m_id
     {
-        public string full_name { get; set; }
+        public string name { get; set; }
         public string national_id { get; set; }
         public e_status status { get; set; }
         public string phoneid { get; set; }

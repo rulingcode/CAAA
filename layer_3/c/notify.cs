@@ -22,7 +22,7 @@ namespace layer_3.c
                 this.type = type;
                 var dv = Activator.CreateInstance(type) as m_sync;
                 xid = dv.z_xid;
-                permission = dv.permission;
+                permission = dv.z_permission;
             }
         }
         public notify()
@@ -55,7 +55,7 @@ namespace layer_3.c
             if (o.updated != null && o.updated.Length != 0)
             {
                 var items = o.updated.Select(i => JsonConvert.DeserializeObject(i, type.type)).ToArray();
-                var db2 = a.c_db.sync<m_sync>(rsv.xid, rsv.userid);
+                var db2 = a.c_db.a_user<m_sync>(rsv.xid, rsv.userid);
                 foreach (m_sync item in items)
                     db2.upsert(item);
             }

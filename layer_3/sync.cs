@@ -12,13 +12,17 @@ namespace layer_3
         protected async override void implement()
         {
             T dv = new T();
-            string prefix = dv.permission.ToString();
+            string prefix = dv.z_permission.ToString();
             if (z_userid == null || z_userid[0] != prefix[0])
             {
                 reply(new o() { z_error = e_error.invalid_userid });
                 return;
             }
-            var db = a.api3.s_db_factory(a.api3.s_xid).a_x<T>();
+            s_db<T> db = null;
+            if (a.api3.s_xid == "x_center")
+                db = a.api3.s_db.a_x<T>();
+            else
+                db = a.api3.s_db.a_user<T>(z_userid);
             var o = await db.get_history(a_time);
             reply(o);
         }

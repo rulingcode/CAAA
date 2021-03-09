@@ -31,8 +31,8 @@ namespace layer_3.s
             }
             else
                 name = "u_" + userid + "_" + typeof(T).Name;
-            coll = a.s_db.GetDatabase(xid).GetCollection<T>(name);
-            history = a.s_db.GetDatabase(xid).GetCollection<s_history>(name + "_h");
+            coll = a.mongo.GetDatabase(xid).GetCollection<T>(name);
+            history = a.mongo.GetDatabase(xid).GetCollection<s_history>(name + "_h");
             this.coll = coll;
         }
         public async Task<T> get(string id)

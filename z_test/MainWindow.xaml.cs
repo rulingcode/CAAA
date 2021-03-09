@@ -63,7 +63,7 @@ namespace z_test
         internal bool connect()
         {
             var db = api3.c_db;
-            var dv = db.get(i => i.id == "key")?.data;
+            var dv = db.api<m_data>().get(i => i.id == "key")?.data;
             if (dv == null)
                 return false;
             else
@@ -90,7 +90,7 @@ namespace z_test
             if (o.z_error == e_error.non)
             {
                 dv_key.id = o.deviceid;
-                var db = api3.c_db;
+                var db = api3.c_db.api<m_data>();
                 db.upsert(new m_data()
                 {
                     id = "key",

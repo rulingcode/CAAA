@@ -10,6 +10,5 @@ namespace layer_0.x_user
     public abstract class z_y<T> : y<T> where T : o_base, new()
     {
         public sealed override string z_xid => "x_user";
-        public string a_userid { get; set; }
     }
 }

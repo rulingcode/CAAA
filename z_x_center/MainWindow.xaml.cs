@@ -33,7 +33,7 @@ namespace z_x_center
         }
         void start()
         {
-            a.api3 = api3_factory.create<layer_0.x_center.sync>("db_x_center");
+            a.api3 = api3_factory.create<layer_0.x_center.sync_center>("db_x_center");
             a.api3.c_report = c_report;
             a.api3.z_get_key = get_key.get;
             a.key = new key();
@@ -45,6 +45,7 @@ namespace z_x_center
             a.api3.s_add_y<phone_login>();
             a.api3.s_add_y<send_code>();
             a.api3.s_add_y<set_x>();
+            a.api3.s_add_y<is_exist>();
             a.api3.s_xid = "x_center";
             a.api3.s_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
             a.set_password("x_user");

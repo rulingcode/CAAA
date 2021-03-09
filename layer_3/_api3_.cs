@@ -18,13 +18,12 @@ namespace layer_3
             a.api2 = api2_factory.create();
 
             a.c_db = new c.db_factory(c_db_name);
-            c_db = a.c_db.api<m_data>();
             a.c_notify = new c.notify();
             a.c_middle = new c.middle();
 
             a.s_key = new key();
             a.s_middle = new middle();
-            a.s_db = new MongoClient();
+            a.mongo = new MongoClient();
 
             a.api2.s_get_key = a.s_key.get;
             a.api2.s_before = a.s_middle.run;
@@ -34,10 +33,10 @@ namespace layer_3
         public m_key c_key { get => a.api2.c_key; set => a.api2.c_key = value; }
         public c_report c_report { get => a.api2.c_report; set => a.api2.c_report = value; }
         public c_run c_run(string userid = null) => a.api2.c_run(userid);
-        public c_db<m_data> c_db { get; }
+        public c_db_factory c_db => a.c_db;
         public m_xip s_xip { get => a.api2.s_xip; set => a.api2.s_xip = value; }
         public void s_add_y<T>() where T : y, new() => a.api2.s_add_y<T>();
-        public s_db_factory s_db_factory(string xid) => new s.db_factory(xid);
+        public s_db_factory s_db => a.s_db;
         public void s_notify(string userid) => notify.send(userid);
         public s_get_key z_get_key { get; set; }
         public y_before z_middle_y { get; set; }
@@ -47,10 +46,11 @@ namespace layer_3
             {
                 a.api2.s_xid = value;
                 a.run_x = c_run(value);
+                a.s_db = new db_factory(value);
                 if (value == "x_center")
-                    a.s_device_user = s_db_factory("x_center").a_x<sync>();
+                    a.s_device_user = s_db.a_x<sync_center>();
                 else
-                    a.c_device_user = a.c_db.sync<sync>("x_center", value);
+                    a.c_device_user = a.c_db.a_user<sync_center>("x_center", value);
             }
         }
     }

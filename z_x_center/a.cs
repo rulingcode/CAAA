@@ -12,9 +12,9 @@ namespace z_x_center
 {
     class a
     {
-        internal static s_db_factory db;
+        internal static s_db_factory db => api3.s_db;
         static api3 api3f;
-        static s_db<sync> db_device_user;
+        static s_db<sync_center> db_device_user;
 
         internal static key key;
 
@@ -24,8 +24,7 @@ namespace z_x_center
             set
             {
                 api3f = value;
-                db = api3.s_db_factory("x_center");
-                db_device_user = db.a_x<sync>();
+                db_device_user = db.a_x<sync_center>();
             }
         }
         internal static async Task add_user(string deviceid, string userid)
@@ -33,7 +32,7 @@ namespace z_x_center
             var dv = await db_device_user.get(deviceid);
             List<string> l = new List<string>();
             if (dv == null)
-                dv = new sync() { id = deviceid };
+                dv = new sync_center() { id = deviceid };
             else
                 l.AddRange(dv.users);
             l.Remove(userid);

@@ -18,14 +18,16 @@ namespace layer_3
         internal static api3 api3;
         internal static api2 api2;
         internal static c.db_factory c_db;
+        internal static s.db_factory s_db;
+        internal static c_run run_x;
 
         internal static c.notify c_notify;
         internal static s.key s_key;
         internal static s.middle s_middle;
-        internal static MongoClient s_db;
+        internal static MongoClient mongo;
         internal static c.middle c_middle;
-        internal static c_run run_x;
-        internal static c_db<sync> c_device_user;
-        internal static s_db<sync> s_device_user;
+     
+        internal static c_db<sync_center> c_device_user;
+        internal static s_db<sync_center> s_device_user;
     }
 }

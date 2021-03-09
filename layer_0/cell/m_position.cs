@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace layer_0.x_user
+namespace layer_0.cell
 {
-    public enum e_contact
+    public class m_position : m_id
     {
-        connected, disconnected, blocked
+        public e_license e { get; set; }
     }
 }

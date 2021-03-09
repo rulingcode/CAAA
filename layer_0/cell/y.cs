@@ -12,13 +12,15 @@ namespace layer_0.cell
         [JsonIgnore] public string z_deviceid { get; set; }
         [JsonIgnore] public string z_userid { get; set; }
         [JsonIgnore] public s_db_factory z_db { get; set; }
-        public abstract void z_run(s_reply_data reply);
+        [JsonIgnore]public c_db_factory z_db_c { get; set; }
+        [JsonIgnore]public c_run z_run { get; set; }
+        public abstract void zz_reply(s_reply_data reply);
     }
     public abstract class y<o> : y where o : o_base, new()
     {
         public virtual Task<o> run(c_run rsv) => rsv.get<o>(this);
         s_reply_data reply_data;
-        public sealed override async void z_run(s_reply_data reply_data)
+        public sealed override async void zz_reply(s_reply_data reply_data)
         {
             this.reply_data = reply_data;
             await Task.Run(met);
@@ -35,20 +37,28 @@ namespace layer_0.cell
         {
             throw new Exception("ldkvjgjbjfhcbfjvjfb");
         }
-    }
-    public abstract class y<o, error> : y<o> where o : o_base<error>, new() where error : Enum
-    {
-        protected void reply(error e)
+        protected async Task<e_license> z_license()
         {
-            reply(new o() { a_error = e });
+            var db = z_db.a_x<m_position>();
+            var dv = await db.get(z_userid);
+            return dv?.e ?? e_license.normal;
+        }
+        protected async void z_license(e_license license)
+        {
+            var db = z_db.a_x<m_position>();
+            if (license == e_license.normal)
+                await db.delete(z_userid);
+            else
+                await db.upsert(new m_position() { id = z_userid, e = license });
         }
     }
     public class o_base
     {
+        internal o_base() { }
         public e_error z_error { get; set; }
     }
     public class o_base<error> : o_base where error : Enum
     {
-        public error a_error { get; set; }
+        public new error z_error { get; set; }
     }
 }

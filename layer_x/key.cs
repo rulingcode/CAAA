@@ -17,7 +17,7 @@ namespace layer_x
     {
         internal e_error connect()
         {
-            var db = a.api3.c_db;
+            var db = a.api3.c_db.api<m_data>();
             var dv = db.get(i => i.id == "key")?.data;
             if (dv == null)
                 return e_error.null_c_key;
@@ -44,7 +44,7 @@ namespace layer_x
             if (o.z_error == e_error.non)
             {
                 dv_key.id = o.deviceid;
-                var db = a.api3.c_db;
+                var db = a.api3.c_db.api<m_data>();
                 db.upsert(new m_data()
                 {
                     id = "key",
@@ -56,7 +56,7 @@ namespace layer_x
         }
         internal void disconnect()
         {
-            a.api3.c_db.coll.Delete("key");
+            a.api3.c_db.api<m_data>().delete("key");
             a.api3.c_key = null;
         }
     }

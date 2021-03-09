@@ -10,7 +10,8 @@ namespace layer_x
 {
     public static class x
     {
-        public static s_db_factory db => a.db;
+        public static c_db_factory c_db => a.api3.c_db;
+        public static s_db_factory db => a.api3.s_db;
         public static c_run run_x { get; private set; }
         public static c_run run_null { get; private set; }
         public static void add_y<T>() where T : y, new() => a.api3.s_add_y<T>();
@@ -19,26 +20,23 @@ namespace layer_x
             a.api3 = api3_factory.create<T>("db_" + xid);
             set(xid, window);
         }
-
-        private static void set(string xid, Window window)
+        public static void z_create(string xid, Window window)
+        {
+            a.api3 = api3_factory.create("db_" + xid);
+            set(xid, window);
+        }
+        static void set(string xid, Window window)
         {
             window.Title = xid;
             a.xid = xid;
             run_x = a.api3.c_run(a.xid);
             run_null = a.api3.c_run();
-            a.db = a.api3.s_db_factory(a.xid);
             a.key = new key();
             a.body = new body();
             window.Content = a.body;
             a.body.connection.start();
             window.SizeToContent = SizeToContent.WidthAndHeight;
             window.WindowState = WindowState.Minimized;
-        }
-
-        public static void z_create(string xid, Window window)
-        {
-            a.api3 = api3_factory.create("db_" + xid);
-            set(xid, window);
         }
     }
 }

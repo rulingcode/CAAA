@@ -15,5 +15,6 @@ namespace layer_0.cell
         T get(string id);
         T get(Expression<Func<T, bool>> filter);
         bool any(Expression<Func<T, bool>> filter);
+        void delete(string id);
     }
 }

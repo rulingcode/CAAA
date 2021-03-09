@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace layer_3.c
 {
-    class db_factory
+    class db_factory : c_db_factory
     {
         private const string file = "file";
         LiteDatabase lite;
@@ -24,6 +24,6 @@ namespace layer_3.c
             lite.Checkpoint();
         }
         public c_db<T> api<T>() => new db<T>(lite.GetCollection<T>("free_" + typeof(T).Name));
-        public c_db<T> sync<T>(string xid, string userid) where T : m_sync => new db<T>(lite.GetCollection<T>("sync_" + xid + "_" + userid));
+        public c_db<T> a_user<T>(string xid, string userid) where T : m_sync => new db<T>(lite.GetCollection<T>("sync_" + xid + "_" + userid));
     }
 }
