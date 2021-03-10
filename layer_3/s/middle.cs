@@ -15,10 +15,7 @@ namespace layer_3.s
             if (y.z_userid != null)
             {
                 sync_center dv = default;
-                if (a.api3.s_xid == "x_center")
-                    dv = await a.s_device_user.get(y.z_deviceid);
-                else
-                    dv = a.c_device_user.get(y.z_deviceid);
+                dv = await a.s_device_user.get(y.z_deviceid);
                 if (dv == null)
                     return e_error.invalid_deviceid;
                 if (!dv.users.Contains(y.z_userid))

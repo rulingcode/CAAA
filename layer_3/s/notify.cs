@@ -17,10 +17,7 @@ namespace layer_3.s
             else
             {
                 IEnumerable<sync_center> dv = default;
-                if (a.api3.s_xid == "x_center")
-                    dv = (await a.s_device_user.coll.FindAsync(i => i.users.Contains(userid))).ToEnumerable();
-                else
-                    dv = a.c_device_user.coll.Find(i => i.users.Contains(userid)).ToArray();
+                dv = (await a.s_device_user.coll.FindAsync(i => i.users.Contains(userid))).ToEnumerable();
                 foreach (var i in dv)
                     a.api2.s_notify(deviceid: i.id, userid: userid);
             }

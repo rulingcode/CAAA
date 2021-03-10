@@ -6,6 +6,7 @@ using layer_0.cell;
 using layer_0.x_center;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace layer_3.c
 {
@@ -32,35 +33,42 @@ namespace layer_3.c
             list.AddRange(dv);
         }
 
-        internal async void run(m_notify rsv)
+        internal void run(m_notify rsv)
         {
-            var type = list.FirstOrDefault(i => i.xid == rsv.xid);
-            bool x_ok() => rsv.xid == a.api3.s_xid || rsv.userid == "x_any";
-            bool no_x() => a.api3.s_xid == null || !x_ok();
-            bool paradox() => type.permission == e_permission.x && no_x();
-            if (type == null || paradox())
+            if (rsv.xid == "x_center")
+            {
+                center_sync();
                 return;
-            if (rsv.userid == "x_any")
-                rsv.userid = a.api3.s_xid;
-            var db = a.c_db.api<m.c_history>();
-            string id = rsv.xid + "_" + rsv.userid;
-            var time = (db.get(id)?.time) ?? default;
-            y_sync y = new() { a_time = time, a_xid = rsv.xid };
-            var o = await y.run(a.api3.c_run(rsv.userid));
+            }
+            
+            ThreadPool.QueueUserWorkItem((obj) =>
+            {
+                var type = list.FirstOrDefault(i => i.xid == rsv.xid);
+                if (type == null)
+                    return;
+                var db = a.c_db.api<m.c_history>();
+                string id = rsv.xid + "_" + rsv.userid;
+                var time = (db.get(id)?.time) ?? default;
+                y_sync y = new() { a_time = time, a_xid = rsv.xid };
+                var o = y.run(a.api3.c_run(rsv.userid)).Result;
+                if (o.deleted != null && o.deleted.Length != 0)
+                {
+                    db.coll.DeleteMany(i => o.deleted.Contains(i.id));
+                }
+                if (o.updated != null && o.updated.Length != 0)
+                {
+                    var items = o.updated.Select(i => JsonConvert.DeserializeObject(i, type.type)).ToArray();
+                    var db2 = a.c_db.a_user<m_sync>(rsv.xid, rsv.userid);
+                    foreach (m_sync item in items)
+                        db2.upsert(item);
+                }
+                if (o.time != time)
+                    db.upsert(new m.c_history() { id = id, time = o.time });
+            });
+        }
+        private void center_sync()
+        {
 
-            if (o.deleted != null && o.deleted.Length != 0)
-            {
-                db.coll.DeleteMany(i => o.deleted.Contains(i.id));
-            }
-            if (o.updated != null && o.updated.Length != 0)
-            {
-                var items = o.updated.Select(i => JsonConvert.DeserializeObject(i, type.type)).ToArray();
-                var db2 = a.c_db.a_user<m_sync>(rsv.xid, rsv.userid);
-                foreach (m_sync item in items)
-                    db2.upsert(item);
-            }
-            if (o.time != time)
-                db.upsert(new m.c_history() { id = id, time = o.time });
         }
     }
 }

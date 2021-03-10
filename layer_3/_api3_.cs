@@ -47,10 +47,7 @@ namespace layer_3
                 a.api2.s_xid = value;
                 a.run_x = c_run(value);
                 a.s_db = new db_factory(value);
-                if (value == "x_center")
-                    a.s_device_user = s_db.a_x<sync_center>();
-                else
-                    a.c_device_user = a.c_db.a_user<sync_center>("x_center", value);
+                a.s_device_user = s_db.a_x<sync_center>();
             }
         }
     }
