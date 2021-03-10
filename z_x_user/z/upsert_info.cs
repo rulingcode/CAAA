@@ -14,7 +14,7 @@ namespace z_x_user.z
         {
             if (a_name == null || a_name.Length < 5)
             {
-                reply(new o() { z_error = error.invalid_name });
+                reply(new o() { a_error = error.invalid_name });
                 return;
             }
             if (a_userid == null || a_userid[0] == 'b')
@@ -23,7 +23,7 @@ namespace z_x_user.z
          if (a_userid[0] == 'u')
                 real_person();
             else
-                reply(new o() { z_error = error.invalid_userid });
+                reply(new o() { a_error = error.invalid_userid });
         }
         private void virtual_person()
         {
@@ -33,7 +33,7 @@ namespace z_x_user.z
         {
             if (a_state == e_status.subsidiary)
             {
-                reply(new o() { z_error = error.invalid_state });
+                reply(new o() { a_error = error.invalid_state });
                 return;
             }
             var db = z_db.a_x<m.user>();
@@ -46,7 +46,7 @@ namespace z_x_user.z
 
             if (license_requerd && (await z_license()) == e_license.normal)
             {
-                reply(new o() { z_error = error.license_required });
+                reply(new o() { a_error = error.license_required });
                 return;
             }
             user.name = a_name;
@@ -55,8 +55,8 @@ namespace z_x_user.z
             user.phoneid = a_phoneid;
             user.status = a_state;
             await db.upsert(user);
-            await q.update_all_contact(a_userid);
-            reply(new o() { z_error = error.non });
+            await q.update_all_contact_by_them(a_userid);
+            reply(new o() { a_error = error.non });
         }
     }
 }

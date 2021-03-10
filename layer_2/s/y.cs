@@ -53,6 +53,7 @@ namespace layer_2.s
             var type = await get(packet_y.yid);
             if (type == null)
             {
+                var dv = a.api2.s_xid;
                 met(null, e_error.no_implement);
                 return;
             }
@@ -97,6 +98,8 @@ namespace layer_2.s
             y.zz_reply(met);
             void met(byte[] data, e_error e)
             {
+                if (data == null)
+                    data = p_crypto.convert(new o_base() { z_error = e });
                 if (keys != null)
                     data = p_crypto.Encrypt(data, keys);
                 reply(data, e);

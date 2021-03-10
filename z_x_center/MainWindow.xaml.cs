@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using layer_0.cell;
 using z_x_center.z;
+using layer_0.x_center;
 
 namespace z_x_center
 {
@@ -47,6 +48,7 @@ namespace z_x_center
             a.api3.s_add_y<set_x>();
             a.api3.s_add_y<is_exist>();
             a.api3.s_xid = "x_center";
+            a.db_device_user = a.db.a_x<sync_center>();
             a.api3.s_xip = new m_xip() { data = p_res.get_endpoint(10000).ToString() };
             a.set_password("x_user");
         }

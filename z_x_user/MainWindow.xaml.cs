@@ -1,4 +1,5 @@
 ﻿using layer_0.cell;
+using layer_0.x_user;
 using layer_x;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,9 @@ namespace z_x_user
         public MainWindow()
         {
             InitializeComponent();
-            x.z_create("x_user", this);
+            x.z_create<sync_user>("x_user", this);
+            x.add_y<z.upsert_contact>();
+            x.add_y<z.upsert_info>();
         }
     }
 }

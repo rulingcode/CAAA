@@ -9,7 +9,7 @@ namespace z_x_user.m
 {
     class contact : m_id
     {
-        public List<string> mine = new List<string>();
-        public List<string> partners = new List<string>();
+        public List<string> by_me = new List<string>();
+        public List<string> by_them = new List<string>();
     }
 }

@@ -15,7 +15,6 @@ namespace z_x_center.z
         internal static output o = new output() { list = new item[0] };
         protected override void implement()
         {
-            _ = this;
             reply(o);
         }
     }

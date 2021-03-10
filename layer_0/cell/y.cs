@@ -12,26 +12,25 @@ namespace layer_0.cell
         [JsonIgnore] public string z_deviceid { get; set; }
         [JsonIgnore] public string z_userid { get; set; }
         [JsonIgnore] public s_db_factory z_db { get; set; }
-        [JsonIgnore]public c_db_factory z_db_c { get; set; }
-        [JsonIgnore]public c_run z_run { get; set; }
+        [JsonIgnore] public c_db_factory z_db_c { get; set; }
+        [JsonIgnore] public c_run z_run { get; set; }
         public abstract void zz_reply(s_reply_data reply);
     }
     public abstract class y<o> : y where o : o_base, new()
     {
-        public virtual Task<o> run(c_run rsv) => rsv.get<o>(this);
+        public virtual Task<o> run(c_run val) => val.get<o>(this);
         s_reply_data reply_data;
         public sealed override async void zz_reply(s_reply_data reply_data)
         {
             this.reply_data = reply_data;
-            await Task.Run(met);
-            void met() => implement();
+            await Task.Run(implement);
         }
         protected void reply(o val = null)
         {
             if (val == null)
                 val = new o();
             var data = p_crypto.convert(val);
-            reply_data(data);
+            reply_data(data, val.z_error);
         }
         protected virtual void implement()
         {
@@ -54,11 +53,10 @@ namespace layer_0.cell
     }
     public class o_base
     {
-        internal o_base() { }
         public e_error z_error { get; set; }
     }
     public class o_base<error> : o_base where error : Enum
     {
-        public new error z_error { get; set; }
+        public error a_error { get; set; }
     }
 }

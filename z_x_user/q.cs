@@ -30,12 +30,11 @@ namespace z_x_user
             var user = await x.db.a_x<m.user>().get(userid);
             update(owner, user);
         }
-        internal static async Task update_all_contact(string userid)
+        internal static async Task update_all_contact_by_them(string userid)
         {
             var contact = await x.db.a_x<m.contact>().get(userid);
-            var dv = contact.mine.Union(contact.partners).ToList();
             var user = await x.db.a_x<m.user>().get(userid);
-            foreach (var i in dv)
+            foreach (var i in contact.by_them)
                 update(i, user);
         }
     }

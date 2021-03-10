@@ -23,17 +23,16 @@ namespace layer_3.s
             this.userid = userid;
             Type type = typeof(m_sync);
             is_sync = type.IsAssignableFrom(typeof(T));
-            string name;
+            string collection_name;
             if (userid == null)
             {
-                name = "x_" + typeof(T).Name;
+                collection_name = "x_" + typeof(T).Name;
                 this.userid = xid;
             }
             else
-                name = "u_" + userid + "_" + typeof(T).Name;
-            coll = a.mongo.GetDatabase(xid).GetCollection<T>(name);
-            history = a.mongo.GetDatabase(xid).GetCollection<s_history>(name + "_h");
-            this.coll = coll;
+                collection_name = userid + "_" + typeof(T).Name;
+            coll = a.mongo.GetDatabase(xid).GetCollection<T>(collection_name);
+            history = a.mongo.GetDatabase(xid).GetCollection<s_history>(collection_name + "_h");
         }
         public async Task<T> get(string id)
         {

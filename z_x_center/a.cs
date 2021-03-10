@@ -13,20 +13,9 @@ namespace z_x_center
     class a
     {
         internal static s_db_factory db => api3.s_db;
-        static api3 api3f;
-        static s_db<sync_center> db_device_user;
-
+        internal static s_db<sync_center> db_device_user;
         internal static key key;
-
-        public static api3 api3
-        {
-            get => api3f;
-            set
-            {
-                api3f = value;
-                db_device_user = db.a_x<sync_center>();
-            }
-        }
+        public static api3 api3;
         internal static async Task add_user(string deviceid, string userid)
         {
             var dv = await db_device_user.get(deviceid);

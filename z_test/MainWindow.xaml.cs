@@ -33,33 +33,6 @@ namespace z_test
             run_null = api3.c_run();
             api3.c_report = report;
         }
-        async void start()
-        {
-            //Console.Beep();
-            if (!connect())
-            {
-                var dv = await connect("1234");
-            }
-            //{
-            //    y_send_code y = new()
-            //    {
-            //        a_phoneid = "09123456789",
-            //    };
-            //    var o = await y.run(run_null);
-            //}
-            //{
-            //    y_phone_login y = new()
-            //    {
-            //        a_phoneid = "09123456789",
-            //        a_password = "12345"
-            //    };
-            //    var o = await y.run(run_null);
-            //}
-            {
-                //y_upsert_name y = new() { a_fullname = "aaaa", a_userid = "bbbb" };
-                //var dv = await y.run(api3.c_run("u_6045e31484643671158e86c9"));
-            }
-        }
         internal bool connect()
         {
             var db = api3.c_db;
@@ -104,9 +77,58 @@ namespace z_test
         {
             return Task.CompletedTask;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        async void btn_upser_k(object sender, RoutedEventArgs e)
         {
-            start();
+            var userid = api3.c_db.api<m_string>().get("userid")?.data;
+            if (userid == null)
+            {
+                Console.Beep();
+                return;
+            }
+            y_upsert_info y = new() { a_name = "aaaa", a_userid = userid };
+            c_run val = api3.c_run(userid);
+            var dv = await y.run(val);
+
+            Console.Beep();
+        }
+        async void btn_login_k(object sender, RoutedEventArgs e)
+        {
+
+            y_send_code y_send = new()
+            {
+                a_phoneid = "09123456789",
+            };
+            var o1 = await y_send.run(run_null);
+
+            y_phone_login y_login = new()
+            {
+                a_phoneid = "09123456789",
+                a_password = "12345"
+            };
+            var o2 = await y_login.run(run_null);
+            if (o2.z_error == e_error.non)
+            {
+                api3.c_db.api<m_string>().upsert(new m_string() { id = "userid", data = o2.a_userid });
+                Console.Beep();
+            }
+            else
+            { }
+        }
+        async void btn_connect_k(object sender, RoutedEventArgs e)
+        {
+
+            if (connect())
+                Console.Beep();
+            else
+            {
+                var dv = await connect("1234");
+                if (dv == e_error.non)
+                    Console.Beep();
+                else
+                {
+
+                }
+            }
         }
     }
 }

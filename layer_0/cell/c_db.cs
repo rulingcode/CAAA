@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace layer_0.cell
 {
-    public interface c_db<T>
+    public interface c_db<T> where T : m_id
     {
         ILiteCollection<T> coll { get; }
         void upsert(T val);

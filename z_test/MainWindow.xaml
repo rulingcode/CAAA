@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:z_test"
         mc:Ignorable="d"
-        Title="test" Height="100" Width="300">
+        Title="test" SizeToContent="Height" Width="300">
     <StackPanel>
-        <Button Click="Button_Click" Content="run"/>
+        <Button Content="connect" Name="btn_connect" Click="btn_connect_k" />
+        <Button  Content="login" Name="btn_login" Click="btn_login_k"/>
+        <Button Content="upsert info" Name="btn_upsert" Click="btn_upser_k"/>
     </StackPanel>
 </Window>

@@ -18,15 +18,6 @@ namespace layer_x
         public static void z_create<T>(string xid, Window window) where T : m_sync, new()
         {
             a.api3 = api3_factory.create<T>("db_" + xid);
-            set(xid, window);
-        }
-        public static void z_create(string xid, Window window)
-        {
-            a.api3 = api3_factory.create("db_" + xid);
-            set(xid, window);
-        }
-        static void set(string xid, Window window)
-        {
             window.Title = xid;
             a.xid = xid;
             run_x = a.api3.c_run(a.xid);

@@ -9,8 +9,9 @@ namespace layer_0.x_center
 {
     public class sync_center : m_sync
     {
-        public string[] users { get; set; }
         public sealed override string z_xid => "x_center";
         public sealed override e_permission z_permission => e_permission.x;
+        public m_key key { get; set; }
+        public string[] users { get; set; }
     }
 }
