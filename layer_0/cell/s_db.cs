@@ -15,5 +15,6 @@ namespace layer_0.cell
         Task<T> get(Expression<Func<T, bool>> filter);
         Task<bool> any(Expression<Func<T, bool>> filter);
         Task<y_sync.o> get_history(DateTime time);
+        Task delete_many(string[] ids);
     }
 }

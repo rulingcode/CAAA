@@ -35,9 +35,9 @@ namespace layer_x
             InitializeComponent();
             txt_password.Password = "qweasdzxc";
         }
-        public void start()
+        public async void start()
         {
-            if (a.key.connect() == e_error.non)
+            if (await a.key.connect() == e_error.non)
                 state = e_state.login;
             else
                 state = e_state.logout;

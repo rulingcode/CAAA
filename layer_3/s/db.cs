@@ -82,5 +82,6 @@ namespace layer_3.s
         {
             return await (await coll.FindAsync(filter)).AnyAsync();
         }
+        public async Task delete_many(string[] ids) => await coll.DeleteManyAsync(i => ids.Contains(i.id));
     }
 }

@@ -67,13 +67,32 @@ namespace layer_3.c
                     db.upsert(new m.c_history() { id = id, time = o.time });
             });
         }
-        private void center_sync()
+        async void center_sync()
         {
-            if (a.api2.s_xid == "x_center")
+            var xid = a.api2.s_xid;
+            if (xid == "x_center" || a.api2.s_xid == null)
             {
 
             }
 
+            var db = a.s_db;
+            var time_binary = (await db.a_x<m_string>().get("last_sync"))?.data;
+            var time = time_binary == null ? default : DateTime.FromBinary(long.Parse(time_binary));
+            y_sync y = new() { a_time = time, a_xid = xid };
+            var o = await y.run(a.run_x);
+
+            if (o.deleted != null && o.deleted.Length != 0)
+                await db.a_x<m_sync>().delete_many(o.deleted);
+
+            if (o.updated != null && o.updated.Length != 0)
+            {
+                var items = o.updated.Select(i => JsonConvert.DeserializeObject<sync_center>(i)).ToArray();
+                var db2 = db.a_x<sync_center>();
+                foreach (var item in items)
+                    await db2.upsert(item);
+            }
+            if (o.time != time)
+                await db.a_x<m_string>().upsert(new m_string() { id = "last_sync", data = o.time.ToBinary().ToString() });
         }
     }
 }

@@ -17,8 +17,8 @@ namespace z_x_center
     {
         internal e_error connect()
         {
-            var db = a.api3.c_db.general<m_data>();
-            var dv = db.get(i => i.id == "key")?.data;
+            var db = a.api3.s_db.a_x<m_data>();
+            var dv = db.get(i => i.id == "key").Result?.data;
             if (dv == null)
                 return e_error.null_c_key;
             else

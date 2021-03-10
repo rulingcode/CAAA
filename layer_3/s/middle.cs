@@ -21,8 +21,7 @@ namespace layer_3.s
                 if (!dv.users.Contains(y.z_userid))
                     return e_error.invalid_userid;
             }
-            y.z_db = new db_factory(y.z_xid);
-            y.z_db_c = a.c_db;
+            y.z_db = a.s_db;
             return e_error.non;
         }
     }

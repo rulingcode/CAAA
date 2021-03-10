@@ -20,19 +20,17 @@ namespace layer_3
             a.run_x = c_run(appid);
 
             if (appid[0] == 'x')
-                a.c_db = new c.db_factory(appid);
-            else
             {
+                a.mongo = new MongoClient();
                 a.s_db = new db_factory(appid);
                 a.s_device_user = s_db.a_x<sync_center>();
             }
+            else
+                a.c_db = new c.db_factory(appid);
 
             a.c_notify = new c.notify();
-            a.c_middle = new c.middle();
-
             a.s_key = new key();
             a.s_middle = new middle();
-            a.mongo = new MongoClient();
 
             a.api2.s_get_key = a.s_key.get;
             a.api2.s_before = a.s_middle.run;

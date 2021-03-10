@@ -15,10 +15,10 @@ namespace layer_x
 {
     class key
     {
-        internal e_error connect()
+        internal async Task<e_error> connect()
         {
-            var db = a.api3.c_db.general<m_data>();
-            var dv = db.get(i => i.id == "key")?.data;
+            var db = a.api3.s_db.a_x<m_data>();
+            var dv = (await db.get(i => i.id == "key"))?.data;
             if (dv == null)
                 return e_error.null_c_key;
             else
@@ -44,8 +44,8 @@ namespace layer_x
             if (o.z_error == e_error.non)
             {
                 dv_key.id = o.deviceid;
-                var db = a.api3.c_db.general<m_data>();
-                db.upsert(new m_data()
+                var db = a.api3.s_db.a_x<m_data>();
+                await db.upsert(new m_data()
                 {
                     id = "key",
                     data = p_crypto.convert(dv_key)
@@ -54,9 +54,9 @@ namespace layer_x
             }
             return o.z_error;
         }
-        internal void disconnect()
+        internal async void disconnect()
         {
-            a.api3.c_db.general<m_data>().delete("key");
+            await a.api3.s_db.a_x<m_data>().delete("key");
             a.api3.c_key = null;
         }
     }

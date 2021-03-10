@@ -10,7 +10,6 @@ namespace layer_x
 {
     public static class x
     {
-        public static c_db_factory c_db => a.api3.c_db;
         public static s_db_factory db => a.api3.s_db;
         public static c_run run_x { get; private set; }
         public static c_run run_null { get; private set; }

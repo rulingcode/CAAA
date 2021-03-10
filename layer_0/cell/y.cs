@@ -12,7 +12,6 @@ namespace layer_0.cell
         [JsonIgnore] public string z_deviceid { get; set; }
         [JsonIgnore] public string z_userid { get; set; }
         [JsonIgnore] public s_db_factory z_db { get; set; }
-        [JsonIgnore] public c_db_factory z_db_c { get; set; }
         [JsonIgnore] public c_run z_run { get; set; }
         public abstract void zz_reply(s_reply_data reply);
     }
