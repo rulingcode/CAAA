@@ -14,9 +14,8 @@ namespace layer_3.s
     {
         bool is_sync = false;
         private readonly string xid;
-        IMongoCollection<s_history> history;
         string userid;
-        public IMongoCollection<T> coll { get; }
+        IMongoCollection<s_history> history;
         internal db(string xid, string userid)
         {
             this.xid = xid;
@@ -34,6 +33,7 @@ namespace layer_3.s
             coll = a.mongo.GetDatabase(xid).GetCollection<T>(collection_name);
             history = a.mongo.GetDatabase(xid).GetCollection<s_history>(collection_name + "_h");
         }
+        public IMongoCollection<T> coll { get; }
         public async Task<T> get(string id)
         {
             return await (await coll.FindAsync(i => i.id == id)).FirstOrDefaultAsync();

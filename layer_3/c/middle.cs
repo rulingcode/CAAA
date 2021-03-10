@@ -13,7 +13,7 @@ namespace layer_3.c
         SemaphoreSlim locker = new(1, 1);
         public middle()
         {
-            var dv = a.c_db.api<m_data>().get(i => i.id == "users")?.data;
+            var dv = a.c_db.general<m_data>().get(i => i.id == "users")?.data;
             if (dv != null)
                 users = p_crypto.convert<List<string>>(dv);
         }

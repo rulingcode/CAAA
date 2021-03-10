@@ -12,6 +12,6 @@ namespace layer_x
         internal static api3 api3;
         internal static key key;
         internal static body body;
-        internal static string xid { get => api3.s_xid; set => api3.s_xid = value; }
+        internal static string xid;
     }
 }

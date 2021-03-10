@@ -12,12 +12,21 @@ namespace layer_3
 {
     class _api3_ : api3
     {
-        internal _api3_(string c_db_name)
+        internal _api3_(string appid)
         {
             a.api3 = this;
             a.api2 = api2_factory.create();
+            a.api2.s_xid = appid;
+            a.run_x = c_run(appid);
 
-            a.c_db = new c.db_factory(c_db_name);
+            if (appid[0] == 'x')
+                a.c_db = new c.db_factory(appid);
+            else
+            {
+                a.s_db = new db_factory(appid);
+                a.s_device_user = s_db.a_x<sync_center>();
+            }
+
             a.c_notify = new c.notify();
             a.c_middle = new c.middle();
 
@@ -40,15 +49,5 @@ namespace layer_3
         public void s_notify(string userid) => notify.send(userid);
         public s_get_key z_get_key { get; set; }
         public y_before z_middle_y { get; set; }
-        public string s_xid
-        {
-            get => a.api2.s_xid; set
-            {
-                a.api2.s_xid = value;
-                a.run_x = c_run(value);
-                a.s_db = new db_factory(value);
-                a.s_device_user = s_db.a_x<sync_center>();
-            }
-        }
     }
 }

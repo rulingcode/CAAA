@@ -40,13 +40,14 @@ namespace layer_3.c
                 center_sync();
                 return;
             }
-            
+            if (a.api2.s_xid != null)
+                throw new Exception("kvkfkbgjvjdjvjfjbdss");
             ThreadPool.QueueUserWorkItem((obj) =>
             {
                 var type = list.FirstOrDefault(i => i.xid == rsv.xid);
                 if (type == null)
                     return;
-                var db = a.c_db.api<m.c_history>();
+                var db = a.c_db.general<m.c_history>();
                 string id = rsv.xid + "_" + rsv.userid;
                 var time = (db.get(id)?.time) ?? default;
                 y_sync y = new() { a_time = time, a_xid = rsv.xid };
@@ -58,7 +59,7 @@ namespace layer_3.c
                 if (o.updated != null && o.updated.Length != 0)
                 {
                     var items = o.updated.Select(i => JsonConvert.DeserializeObject(i, type.type)).ToArray();
-                    var db2 = a.c_db.a_user<m_sync>(rsv.xid, rsv.userid);
+                    var db2 = a.c_db.a_sync<m_sync>(rsv.xid, rsv.userid);
                     foreach (m_sync item in items)
                         db2.upsert(item);
                 }
@@ -68,6 +69,10 @@ namespace layer_3.c
         }
         private void center_sync()
         {
+            if (a.api2.s_xid == "x_center")
+            {
+
+            }
 
         }
     }

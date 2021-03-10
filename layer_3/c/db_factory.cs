@@ -14,16 +14,16 @@ namespace layer_3.c
     {
         private const string file = "file";
         LiteDatabase lite;
-        public db_factory(string c_db_name)
+        public db_factory(string cid)
         {
             //var folder = AppDomain.CurrentDomain.BaseDirectory;
             var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "caaa");
             Directory.CreateDirectory(folder);
-            var file = Path.Combine(folder, c_db_name + ".db");
+            var file = Path.Combine(folder, cid + ".db");
             lite = new LiteDatabase(new ConnectionString() { Connection = ConnectionType.Shared, Filename = file });
             lite.Checkpoint();
         }
-        public c_db<T> api<T>() where T : m_id => new db<T>(lite.GetCollection<T>("free_" + typeof(T).Name));
-        public c_db<T> a_user<T>(string xid, string userid) where T : m_sync => new db<T>(lite.GetCollection<T>("sync_" + xid + "_" + userid));
+        public c_db<T> general<T>() where T : m_id => new db<T>(lite.GetCollection<T>("general_" + typeof(T).Name));
+        public c_db<T> a_sync<T>(string xid, string userid) where T : m_sync => new db<T>(lite.GetCollection<T>("sync_" + xid + "_" + userid));
     }
 }

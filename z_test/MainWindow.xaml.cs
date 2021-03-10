@@ -36,7 +36,7 @@ namespace z_test
         internal bool connect()
         {
             var db = api3.c_db;
-            var dv = db.api<m_data>().get(i => i.id == "key")?.data;
+            var dv = db.general<m_data>().get(i => i.id == "key")?.data;
             if (dv == null)
                 return false;
             else
@@ -63,7 +63,7 @@ namespace z_test
             if (o.z_error == e_error.non)
             {
                 dv_key.id = o.deviceid;
-                var db = api3.c_db.api<m_data>();
+                var db = api3.c_db.general<m_data>();
                 db.upsert(new m_data()
                 {
                     id = "key",
@@ -79,7 +79,7 @@ namespace z_test
         }
         async void btn_upser_k(object sender, RoutedEventArgs e)
         {
-            var userid = api3.c_db.api<m_string>().get("userid")?.data;
+            var userid = api3.c_db.general<m_string>().get("userid")?.data;
             if (userid == null)
             {
                 Console.Beep();
@@ -108,7 +108,7 @@ namespace z_test
             var o2 = await y_login.run(run_null);
             if (o2.z_error == e_error.non)
             {
-                api3.c_db.api<m_string>().upsert(new m_string() { id = "userid", data = o2.a_userid });
+                api3.c_db.general<m_string>().upsert(new m_string() { id = "userid", data = o2.a_userid });
                 Console.Beep();
             }
             else
