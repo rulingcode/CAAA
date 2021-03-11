@@ -10,5 +10,7 @@ namespace layer_0.cell
     {
         public const string x_center = nameof(x_center);
         public const string reset_all_users = nameof(reset_all_users);
+        public const string address_updated = nameof(address_updated);
+        public const string device_updated = nameof(device_updated);
     }
 }

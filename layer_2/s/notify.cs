@@ -11,11 +11,11 @@ namespace layer_2.s
 {
     class notify
     {
-        List<item> list = new();
+        List<device_ip> list = new();
         SemaphoreSlim locker = new(1, 1);
         WatsonTcpServer server;
         public m_xip xip { get; }
-        class item
+        class device_ip
         {
             public string deviceid { get; set; }
             public string ip { get; set; }
@@ -31,22 +31,22 @@ namespace layer_2.s
         {
             switch (userid)
             {
-                case "device_update":
-                    {
-                        await locker.WaitAsync();
-                        var ips = list.Where(i => i.deviceid.Substring(0, 4) == "d_x_").Select(i => i.ip).ToArray();
-                        locker.Release();
-                        foreach (var i in ips)
-                            direct_send("device_update", i);
-                    }
-                    break;
-                case "ip":
+                case all_command.address_updated:
                     {
                         await locker.WaitAsync();
                         var ips = list.Select(i => i.ip).ToArray();
                         locker.Release();
-                        foreach (var i in ips)
-                            direct_send("ip", i);
+                        foreach (var ip in ips)
+                            direct_send(all_command.address_updated, ip);
+                    }
+                    break;
+                case all_command.device_updated:
+                    {
+                        await locker.WaitAsync();
+                        var ips = list.Where(i => i.deviceid.Substring(0, 4) == "d_x_").Select(i => i.ip).ToArray();
+                        locker.Release();
+                        foreach (var ip in ips)
+                            direct_send(all_command.device_updated, ip);
                     }
                     break;
                 default:

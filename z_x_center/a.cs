@@ -28,7 +28,7 @@ namespace z_x_center
             l.Add(userid);
             dv.users = l.ToArray();
             await a.db_device_user.upsert(dv);
-            a.api3.s_notify("device_update");
+            a.api3.s_notify(all_command.device_updated);
         }
         public static async Task<string> get_password(string xid)
         {

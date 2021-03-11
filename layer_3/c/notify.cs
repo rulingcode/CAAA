@@ -35,15 +35,14 @@ namespace layer_3.c
 
         internal void run(m_notify rsv)
         {
-            if (rsv.xid == all_command.x_center)
-            {
-                center_sync();
-                return;
-            }
             if (a.api2.s_xid != null)
-            {
-                return;
-            }
+                x_sync(rsv);
+            else
+                c_sync(rsv);
+        }
+
+        private void c_sync(m_notify rsv)
+        {
             ThreadPool.QueueUserWorkItem((obj) =>
             {
                 var type = list.FirstOrDefault(i => i.xid == rsv.xid);
@@ -69,9 +68,10 @@ namespace layer_3.c
                     db.upsert(new m.c_history() { id = id, time = o.time });
             });
         }
-        async void center_sync()
+
+        async void x_sync(m_notify rsv)
         {
-            if ( a.api2.s_xid == all_command.x_center || a.api2.s_xid == null)
+            if (a.api2.s_xid == all_command.x_center || a.api2.s_xid == null)
             {
 
             }

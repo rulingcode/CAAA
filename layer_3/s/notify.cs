@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using layer_0.cell;
 using layer_0.x_center;
 using MongoDB.Driver;
 
@@ -12,13 +13,13 @@ namespace layer_3.s
     {
         public static async Task send(string userid)
         {
-            if (userid == "ip" || userid == "device_update")
+            if (userid == all_command.address_updated || userid == all_command.device_updated)
                 a.api2.s_notify(null, userid);
             else
             {
-                var all = await get_all_device(userid);
-                foreach (var deviceid in all)
-                    a.api2.s_notify(deviceid, userid);
+                var all_device = await get_all_device(userid);
+                foreach (var device in all_device)
+                    a.api2.s_notify(device, userid);
             }
         }
         private static async Task<string[]> get_all_device(string userid)
