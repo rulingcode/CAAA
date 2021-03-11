@@ -10,17 +10,20 @@ namespace layer_3.s
 {
     class notify
     {
-        public static async void send(string userid)
+        public static async Task send(string userid)
         {
-            if (userid == "k" || userid.Substring(2, 3) == "any")
+            if (userid == "ip" || userid == "device_update")
                 a.api2.s_notify(null, userid);
             else
             {
-                IEnumerable<sync_center> dv = default;
-                dv = (await a.s_device_user.coll.FindAsync(i => i.users.Contains(userid))).ToEnumerable();
-                foreach (var i in dv)
-                    a.api2.s_notify(deviceid: i.id, userid: userid);
+                var all = await get_all_device(userid);
+                foreach (var deviceid in all)
+                    a.api2.s_notify(deviceid, userid);
             }
+        }
+        private static async Task<string[]> get_all_device(string userid)
+        {
+            return (await a.s_device_user.coll.FindAsync(i => i.users.Contains(userid))).ToEnumerable().Select(i => i.id).ToArray();
         }
     }
 }

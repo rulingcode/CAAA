@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace layer_3.s
 {
-    class db<T> : s_db<T> where T : m_id
+    class db<T> : s_db<T> where T : m_id, new()
     {
         bool is_sync = false;
         private readonly string xid;
@@ -20,8 +20,9 @@ namespace layer_3.s
         {
             this.xid = xid;
             this.userid = userid;
-            Type type = typeof(m_sync);
-            is_sync = type.IsAssignableFrom(typeof(T));
+            T dv = new T();
+            var dv2 = dv as m_sync;
+            is_sync = dv2 != null && dv2.z_xid == a.api2.s_xid;
             string collection_name;
             if (userid == null)
             {
@@ -49,7 +50,7 @@ namespace layer_3.s
             {
                 s_history document = new s_history() { id = val.id, add = true, time = DateTime.Now };
                 await history.ReplaceOneAsync(i => i.id == val.id, document, new ReplaceOptions() { IsUpsert = true });
-                notify.send(userid);
+                await notify.send(userid);
             }
         }
         public async Task<y_sync.o> get_history(DateTime time)
@@ -75,7 +76,7 @@ namespace layer_3.s
             {
                 s_history document = new s_history() { id = id, add = false, time = DateTime.Now };
                 await history.ReplaceOneAsync(i => i.id == id, document);
-                notify.send(userid);
+                await notify.send(userid);
             }
         }
         public async Task<bool> any(Expression<Func<T, bool>> filter)

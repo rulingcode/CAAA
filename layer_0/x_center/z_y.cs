@@ -9,6 +9,6 @@ namespace layer_0.x_center
 {
     public abstract class z_y<output> : cell.y<output> where output : o_base, new()
     {
-        public sealed override string z_xid => "x_center";
+        public sealed override string z_xid => all_command.x_center;
     }
 }

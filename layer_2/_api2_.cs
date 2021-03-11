@@ -48,16 +48,10 @@ namespace layer_2
             get => a.api1.s_xip;
             set
             {
-                if (value != null && value.port % 2 != 0)
+                if (value == null || value.port % 2 != 0)
                     throw new Exception("kvkjnjjjfjcdjbgjbfnd");
+                a.s_notify = new s.notify(value);
                 a.api1.s_xip = value;
-                if (value == null)
-                {
-                    a.s_notify?.close();
-                    a.s_notify = null;
-                }
-                else
-                    a.s_notify = new s.notify(value);
             }
         }
         public string s_xid

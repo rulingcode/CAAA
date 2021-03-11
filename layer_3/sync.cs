@@ -19,7 +19,7 @@ namespace layer_3
                 return;
             }
             s_db<T> db = null;
-            if (a.api2.s_xid == "x_center")
+            if (a.api2.s_xid == all_command.x_center)
                 db = a.api3.s_db.a_x<T>();
             else
                 db = a.api3.s_db.a_user<T>(z_userid);

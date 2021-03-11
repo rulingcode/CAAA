@@ -31,22 +31,22 @@ namespace layer_2.s
         {
             switch (userid)
             {
-                case "x_any":
+                case "device_update":
                     {
                         await locker.WaitAsync();
                         var ips = list.Where(i => i.deviceid.Substring(0, 4) == "d_x_").Select(i => i.ip).ToArray();
                         locker.Release();
                         foreach (var i in ips)
-                            direct_send(userid, i);
+                            direct_send("device_update", i);
                     }
                     break;
-                case "k":
+                case "ip":
                     {
                         await locker.WaitAsync();
                         var ips = list.Select(i => i.ip).ToArray();
                         locker.Release();
                         foreach (var i in ips)
-                            direct_send(userid, i);
+                            direct_send("ip", i);
                     }
                     break;
                 default:

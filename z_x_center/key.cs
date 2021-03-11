@@ -35,7 +35,7 @@ namespace z_x_center
             y.a_key_data = p_crypto.Encrypt(y.a_key_data, public_key.data);
             var login_m = new m_register_x()
             {
-                a_xid = "x_center",
+                a_xid = all_command.x_center,
                 a_password = password
             };
             y.a_register_data = p_crypto.convert(login_m);
@@ -44,8 +44,8 @@ namespace z_x_center
             if (o.z_error == e_error.non)
             {
                 dv_key.id = o.deviceid;
-                var db = a.api3.c_db.general<m_data>();
-                db.upsert(new m_data()
+                var db = a.api3.s_db.a_x<m_data>();
+                await db.upsert(new m_data()
                 {
                     id = "key",
                     data = p_crypto.convert(dv_key)
@@ -54,9 +54,9 @@ namespace z_x_center
             }
             return o.z_error;
         }
-        internal void disconnect()
+        internal async void disconnect()
         {
-            a.api3.c_db.general<m_data>().delete("key");
+            await a.api3.s_db.a_x<m_data>().delete("key");
             a.api3.c_key = null;
         }
     }

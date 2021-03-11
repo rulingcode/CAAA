@@ -16,11 +16,11 @@ namespace layer_3
         {
             a.api3 = this;
             a.api2 = api2_factory.create();
-            a.api2.s_xid = appid;
-            a.run_x = c_run(appid);
 
             if (appid[0] == 'x')
             {
+                a.api2.s_xid = appid;
+                a.run_x = c_run(appid);
                 a.mongo = new MongoClient();
                 a.s_db = new db_factory(appid);
                 a.s_device_user = s_db.a_x<sync_center>();
@@ -44,7 +44,7 @@ namespace layer_3
         public m_xip s_xip { get => a.api2.s_xip; set => a.api2.s_xip = value; }
         public void s_add_y<T>() where T : y, new() => a.api2.s_add_y<T>();
         public s_db_factory s_db => a.s_db;
-        public void s_notify(string userid) => notify.send(userid);
+        public async void s_notify(string userid) => await notify.send(userid);
         public s_get_key z_get_key { get; set; }
         public y_before z_middle_y { get; set; }
     }

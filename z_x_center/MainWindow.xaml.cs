@@ -34,7 +34,7 @@ namespace z_x_center
         }
         void start()
         {
-            a.api3 = api3_factory.create<sync_center>("x_center");
+            a.api3 = api3_factory.create<sync_center>(all_command.x_center);
             a.api3.c_report = c_report;
             a.api3.z_get_key = get_key.get;
             a.key = new key();

@@ -132,7 +132,7 @@ namespace layer_x
             }
             else
             {
-                a.api3.s_xip = null;
+                //a.api3.s_xip = null;9053
                 state = e_state.inp;
             }
         }

@@ -35,13 +35,15 @@ namespace layer_3.c
 
         internal void run(m_notify rsv)
         {
-            if (rsv.xid == "x_center")
+            if (rsv.xid == all_command.x_center)
             {
                 center_sync();
                 return;
             }
             if (a.api2.s_xid != null)
-                throw new Exception("kvkfkbgjvjdjvjfjbdss");
+            {
+                return;
+            }
             ThreadPool.QueueUserWorkItem((obj) =>
             {
                 var type = list.FirstOrDefault(i => i.xid == rsv.xid);
@@ -69,8 +71,7 @@ namespace layer_3.c
         }
         async void center_sync()
         {
-            var xid = a.api2.s_xid;
-            if (xid == "x_center" || a.api2.s_xid == null)
+            if ( a.api2.s_xid == all_command.x_center || a.api2.s_xid == null)
             {
 
             }
@@ -78,7 +79,7 @@ namespace layer_3.c
             var db = a.s_db;
             var time_binary = (await db.a_x<m_string>().get("last_sync"))?.data;
             var time = time_binary == null ? default : DateTime.FromBinary(long.Parse(time_binary));
-            y_sync y = new() { a_time = time, a_xid = xid };
+            y_sync y = new() { a_time = time, a_xid = all_command.x_center };
             var o = await y.run(a.run_x);
 
             if (o.deleted != null && o.deleted.Length != 0)
