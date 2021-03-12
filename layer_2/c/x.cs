@@ -24,7 +24,7 @@ namespace layer_2.c
             locker.Release();
             if (dv == null)
             {
-                await Task.Delay(100);
+                await Task.Delay(500);
                 goto retry;
             }
             return dv.xip;

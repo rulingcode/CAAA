@@ -43,6 +43,10 @@ namespace layer_3.c
 
         private void c_sync(m_notify rsv)
         {
+            if (rsv.userid == all_command.reset_all_users)
+            {
+                return;
+            }
             ThreadPool.QueueUserWorkItem((obj) =>
             {
                 var type = list.FirstOrDefault(i => i.xid == rsv.xid);
