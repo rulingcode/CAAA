@@ -11,7 +11,7 @@ namespace z_x_center.z
     {
         protected override async void implement()
         {
-            var dv = await z_db.a_x<m.user>().any(i => i.id == a_userid);
+            var dv = await z_db.general_x<m.user>().any(i => i.id == a_userid);
             reply(new o() { yes = dv });
         }
     }

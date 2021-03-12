@@ -17,7 +17,7 @@ namespace z_x_center
     {
         internal e_error connect()
         {
-            var db = a.api3.s_db.a_x<m_data>();
+            var db = a.api3.s_db.general_x<m_data>();
             var dv = db.get(i => i.id == "key").Result?.data;
             if (dv == null)
                 return e_error.null_c_key;
@@ -44,7 +44,7 @@ namespace z_x_center
             if (o.z_error == e_error.non)
             {
                 dv_key.id = o.deviceid;
-                var db = a.api3.s_db.a_x<m_data>();
+                var db = a.api3.s_db.general_x<m_data>();
                 await db.upsert(new m_data()
                 {
                     id = "key",
@@ -56,7 +56,7 @@ namespace z_x_center
         }
         internal async void disconnect()
         {
-            await a.api3.s_db.a_x<m_data>().delete("key");
+            await a.api3.s_db.general_x<m_data>().delete("key");
             a.api3.c_key = null;
         }
     }

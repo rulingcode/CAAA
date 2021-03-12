@@ -13,11 +13,11 @@ namespace layer_3.s
     {
         private readonly string xid;
         internal db_factory(string xid) => this.xid = xid;
-        public s_db<T> a_x<T>() where T : m_id, new()
+        public s_db<T> general_x<T>() where T : m_id, new()
         {
             return new db<T>(xid, null);
         }
-        public s_db<T> a_user<T>(string userid) where T : m_id, new()
+        public s_db<T> user<T>(string userid) where T : m_id, new()
         {
             return new db<T>(xid, userid);
         }

@@ -20,9 +20,9 @@ namespace layer_3
             }
             s_db<T> db = null;
             if (a.api2.s_xid == all_command.x_center)
-                db = a.api3.s_db.a_x<T>();
+                db = a.api3.s_db.general_x<T>();
             else
-                db = a.api3.s_db.a_user<T>(z_userid);
+                db = a.api3.s_db.user<T>(z_userid);
             var o = await db.get_history(a_time);
             reply(o);
         }

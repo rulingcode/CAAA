@@ -27,7 +27,7 @@ namespace z_x_center.z
                 
                 return;
             }
-            var db = z_db.a_x<m.device>();
+            var db = z_db.general_x<m.device>();
             m.device device = new()
             {
                 creation_time = DateTime.Now,

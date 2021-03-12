@@ -18,7 +18,6 @@ namespace skeleton
         public static void programing(Window window, z_app app) => connection.programing(window, app);
         public abstract string app_name { get; }
         public string[] pages_name { get; private set; }
-
         public void add<T>(string name) where T : z_page
         {
             if (list.Any(i => i.name == name))

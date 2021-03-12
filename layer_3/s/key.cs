@@ -17,7 +17,7 @@ namespace layer_3.s
         {
             if (a.api3.z_get_key != null)
                 return await a.api3.z_get_key(deviceid);
-            var db = a.s_db.a_x<m_key>();
+            var db = a.s_db.general_x<m_key>();
             var key = await db.get(deviceid);
             if (key == null)
             {

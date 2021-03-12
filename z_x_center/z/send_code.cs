@@ -16,7 +16,7 @@ namespace z_x_center.z
 
         protected async override void implement()
         {
-            var db = z_db.a_x<user>();
+            var db = z_db.general_x<user>();
             var dv = await db.get(i => i.phoneid == a_phoneid);
             if (dv == null)
             {

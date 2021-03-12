@@ -36,7 +36,7 @@ namespace z_x_user.z
                 reply(new o() { a_error = error.invalid_state });
                 return;
             }
-            var db = z_db.a_x<m.user>();
+            var db = z_db.general_x<m.user>();
             var user = await db.get(a_userid);
             if (user == null)
                 user = new m.user() { id = a_userid };

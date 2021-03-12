@@ -85,7 +85,7 @@ namespace layer_x
             try
             {
                 a.api3.s_xip = new m_xip() { data = txt_myhost.Text };
-                await a.api3.s_db.a_x<m_data>().upsert(new m_data() { id = "xip", data = p_crypto.convert(txt_myhost.Text) });
+                await a.api3.s_db.general_x<m_data>().upsert(new m_data() { id = "xip", data = p_crypto.convert(txt_myhost.Text) });
                 y_set_x y = new y_set_x()
                 {
                     a_xip = a.api3.s_xip
@@ -118,7 +118,7 @@ namespace layer_x
         {
             if (v)
             {
-                var dv = await a.api3.s_db.a_x<m_data>().get("xip");
+                var dv = await a.api3.s_db.general_x<m_data>().get("xip");
                 if (dv == null)
                 {
                     txt_myhost.Text = p_res.get_endpoint(0).ToString();

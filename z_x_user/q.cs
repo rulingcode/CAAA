@@ -10,7 +10,7 @@ namespace z_x_user
 {
     class q
     {
-        public static async void delete(string owner, string userid) => await x.db.a_user<sync_user>(owner).delete(userid);
+        public static async void delete(string owner, string userid) => await x.db.user<sync_user>(owner).delete(userid);
         public static async void update(string owner, m.user user)
         {
             sync_user dv = new()
@@ -23,17 +23,17 @@ namespace z_x_user
                 phoneid = user.phoneid,
                 status = user.status
             };
-            await x.db.a_user<sync_user>(owner).upsert(dv);
+            await x.db.user<sync_user>(owner).upsert(dv);
         }
         public static async void update(string owner, string userid)
         {
-            var user = await x.db.a_x<m.user>().get(userid);
+            var user = await x.db.general_x<m.user>().get(userid);
             update(owner, user);
         }
         internal static async Task update_all_contact_by_them(string userid)
         {
-            var contact = await x.db.a_x<m.contact>().get(userid);
-            var user = await x.db.a_x<m.user>().get(userid);
+            var contact = await x.db.general_x<m.contact>().get(userid);
+            var user = await x.db.general_x<m.user>().get(userid);
             foreach (var i in contact.by_them)
                 update(i, user);
         }

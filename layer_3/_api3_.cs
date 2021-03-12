@@ -23,7 +23,7 @@ namespace layer_3
                 a.run_x = c_run(appid);
                 a.mongo = new MongoClient();
                 a.s_db = new db_factory(appid);
-                a.s_device_user = s_db.a_x<sync_center>();
+                a.s_device_user = s_db.general_x<sync_center>();
             }
             else
                 a.c_db = new c.db_factory(appid);

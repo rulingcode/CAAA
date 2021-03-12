@@ -32,13 +32,13 @@ namespace z_x_center
         }
         public static async Task<string> get_password(string xid)
         {
-            var db = a.db.a_x<m.info>();
+            var db = a.db.general_x<m.info>();
             var dv = await db.get(xid);
             return dv?.password;
         }
         internal static void set_password(string xid)
         {
-            var db = a.db.a_x<m.info>();
+            var db = a.db.general_x<m.info>();
             db.upsert(new m.info()
             {
                 id = xid,

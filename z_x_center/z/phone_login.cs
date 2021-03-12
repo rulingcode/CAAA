@@ -18,7 +18,7 @@ namespace z_x_center.z
                 reply(new o() { z_error = e_error.invalid_parametrs });
                 return;
             }
-            var db_user = z_db.a_x<m.user>();
+            var db_user = z_db.general_x<m.user>();
             var user = await db_user.get(i => i.phoneid == a_phoneid);
             if (user == null || user.password != a_password)
             {
@@ -27,7 +27,7 @@ namespace z_x_center.z
             }
             user.password = null;
             await db_user.upsert(user);
-            var db_device = z_db.a_x<sync_center>();
+            var db_device = z_db.general_x<sync_center>();
             await a.add_user(z_deviceid, user.id);
             reply(new o() { a_userid = user.id });
         }

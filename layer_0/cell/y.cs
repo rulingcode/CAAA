@@ -37,13 +37,13 @@ namespace layer_0.cell
         }
         protected async Task<e_license> z_license()
         {
-            var db = z_db.a_x<m_position>();
+            var db = z_db.general_x<m_position>();
             var dv = await db.get(z_userid);
             return dv?.e ?? e_license.normal;
         }
         protected async void z_license(e_license license)
         {
-            var db = z_db.a_x<m_position>();
+            var db = z_db.general_x<m_position>();
             if (license == e_license.normal)
                 await db.delete(z_userid);
             else

@@ -25,11 +25,11 @@ namespace z_x_user.z
             await by_me();
             await partner();
 
-            await z_db.a_user<sync_user>(z_userid).get(a_partner_id);
+            await z_db.user<sync_user>(z_userid).get(a_partner_id);
         }
         private async Task by_me()
         {
-            var db = z_db.a_x<m.contact>();
+            var db = z_db.general_x<m.contact>();
             var contact = await db.get(z_userid);
             if (contact == null)
                 contact = new m.contact() { id = z_userid };
@@ -45,7 +45,7 @@ namespace z_x_user.z
         }
         private async Task partner()
         {
-            var db = z_db.a_x<m.contact>();
+            var db = z_db.general_x<m.contact>();
             var contact = await db.get(a_partner_id);
             if (contact == null)
                 contact = new m.contact() { id = a_partner_id };

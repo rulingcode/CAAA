@@ -116,7 +116,6 @@ namespace z_test
         }
         async void btn_connect_k(object sender, RoutedEventArgs e)
         {
-
             if (connect())
                 Console.Beep();
             else

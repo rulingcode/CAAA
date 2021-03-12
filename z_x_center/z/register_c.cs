@@ -26,7 +26,7 @@ namespace z_x_center.z
                 reply(new o() { z_error = e_error.invalid_device_info });
                 return;
             }
-            var db = z_db.a_x<m.device>();
+            var db = z_db.general_x<m.device>();
             m.device device = new()
             {
                 creation_time = DateTime.Now,
